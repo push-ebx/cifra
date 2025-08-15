@@ -5,7 +5,7 @@ import styles from './main.module.scss';
 export const Main = () => {
 	return (
 		<section className={styles.root}>
-			<Container>тест</Container>
+			<Container>тест2</Container>
 		</section>
 	);
 };
