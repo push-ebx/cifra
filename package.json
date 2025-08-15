@@ -23,10 +23,10 @@
     "next": "15.1.7",
     "react": "^19",
     "react-dom": "^19",
-    "@next/bundle-analyzer": "^15.1.7",
     "swr": "^2.3.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.1.7",
     "@eslint/eslintrc": "^3",
     "@next/eslint-plugin-next": "^15.1.7",
     "@nimpl/classnames-minifier": "^4.0.0",
