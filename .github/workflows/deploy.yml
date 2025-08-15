@@ -57,8 +57,8 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ~/projects/cifra
-            pnpm install --prod
-            PORT=3090 pm2 restart cifra --update-env || PORT=3090 pm2 start pnpm --name cifra -- start
+            /home/push-ebx/.nvm/versions/node/v20.19.2/bin/pnpm install --prod
+            PORT=3090 /home/push-ebx/.nvm/versions/node/v20.19.2/bin/pm2 restart cifra --update-env || PORT=3090 /home/push-ebx/.nvm/versions/node/v20.19.2/bin/pm2 start pnpm --name cifra -- start
 
       - name: Notify Telegram on success
         if: success()
