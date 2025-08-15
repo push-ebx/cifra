@@ -1,0 +1,101 @@
+name: Deploy Cifra to VPS
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get commit message
+        id: commit_message
+        run: |
+          MESSAGE=$(git log -1 --pretty=%B)
+          echo "::set-output name=message::${MESSAGE}"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Write .env file
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
+
+      - name: Install pnpm
+        run: npm install -g pnpm@latest-10
+
+      - name: Install dependencies and build
+        run: |
+          pnpm install
+          pnpm run build
+
+      - name: Copy files via SSH
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          source: "dist/*"
+          target: "~/projects/cifra"
+
+      - name: Reload nginx
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            sudo systemctl reload nginx
+
+      - name: Notify Telegram on success
+        if: success()
+        run: |
+          DEPLOY_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+          COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          REPO_URL="https://github.com/${{ github.repository }}"
+
+          MESSAGE="📦 <b>Cifra frontend — деплой успешен</b>%0A\
+          %0A\
+          <b>Ветка:</b> <code>${{ github.ref_name }}</code>%0A\
+          <b>Автор:</b> <i>${{ github.actor }}</i>%0A\
+          <b>Коммит:</b> <a href=\"$COMMIT_URL\">${{ steps.commit_message.outputs.message }}</a>%0A\
+          <b>Хэш:</b> <code>${{ github.sha }}</code>%0A\
+          <b>Время:</b> $DEPLOY_TIME%0A\
+          <b>Репозиторий:</b> <a href=\"$REPO_URL\">${{ github.repository }}</a>"
+          
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d chat_id=-1002701524878 \
+          -d text="$MESSAGE" \
+          -d parse_mode=HTML
+
+      - name: Notify Telegram on failure
+        if: failure()
+        run: |
+          DEPLOY_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+          COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          REPO_URL="https://github.com/${{ github.repository }}"
+          
+          MESSAGE="🚨 <b>Cifra frontend — деплой провален</b>%0A\
+          %0A\
+          <b>Ветка:</b> <code>${{ github.ref_name }}</code>%0A\
+          <b>Автор:</b> <i>${{ github.actor }}</i>%0A\
+          <b>Коммит:</b> <a href=\"$COMMIT_URL\">${{ steps.commit_message.outputs.message }}</a>%0A\
+          <b>Хэш:</b> <code>${{ github.sha }}</code>%0A\
+          <b>Время:</b> $DEPLOY_TIME%0A\
+          <b>Репозиторий:</b> <a href=\"$REPO_URL\">${{ github.repository }}</a>"
+          
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+          -d chat_id=-1002701524878 \
+          -d text="$MESSAGE" \
+          -d parse_mode=HTML
