@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: ".next/**,package.json,public/**,.env"
+          source: ".next/**,public/**,package.json,package-lock.json,pnpm-lock.yaml,.env"
           target: "~/projects/cifra"
 
       - name: Restart PM2 on VPS
