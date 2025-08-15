@@ -7,32 +7,35 @@ import type { ComponentOrTag } from '@/types';
 import type { TypographyProps } from '../typography';
 import { Typography } from '../typography';
 
-import styles from './heading.module.scss';
+import styles from './display.module.scss';
 
-export type HeadingProps<
+export type DisplayProps<
 	Element extends ComponentOrTag<ComponentProps<Element>>,
 > = TypographyProps<Element> & {
-	size?: 'xl' | '1' | 'm';
+	size?: 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs';
 };
 
 const sizeCn = {
 	xl: styles.sizeXL,
-	'1': styles.size1,
+	l: styles.sizeL,
 	m: styles.sizeM,
+	s: styles.sizeS,
+	xs: styles.sizeXS,
+	xxs: styles.sizeXXs,
 };
 
-export const Heading = <
+export const Display = <
 	Element extends ComponentOrTag<ComponentProps<Element>>,
 >(
-	props: HeadingProps<Element>
+	props: DisplayProps<Element>
 ) => {
 	const {
 		className,
 		children,
-		size = '1',
-		weight = 'semiBold',
+		size = 'm',
+		weight = 'regular',
 		...restProps
-	} = props as HeadingProps<'span'>;
+	} = props as DisplayProps<'span'>;
 
 	return (
 		<Typography
@@ -45,4 +48,4 @@ export const Heading = <
 	);
 };
 
-Heading.displayName = 'Heading';
+Display.displayName = 'Display';

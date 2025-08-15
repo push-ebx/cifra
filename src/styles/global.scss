@@ -8,7 +8,7 @@
 html,
 body,
 #app-root {
-  height: 100%;
+  //height: 100%;
 }
 
 html {
@@ -21,7 +21,7 @@ body {
   text-rendering: optimizelegibility;
   background-color: var(--background-page);
   color: var(--text-primary);
-  font-family: var(--font-family-base);
+  font-family: var(--font-ppmachina);
   -webkit-tap-highlight-color: transparent;
 }
 

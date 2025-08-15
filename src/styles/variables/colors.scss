@@ -8,14 +8,10 @@
 }
 
 :root {
-  --black: #111111;
-  --white: #fafafa;
-
-  @for $i from 1 through 10 {
-    --black-a#{$i}: rgba(#{hexToRGB(#111111)} / #{math.div($i, 10)});
-  }
-
-  @for $i from 1 through 10 {
-    --white-a#{$i}: rgba(#{hexToRGB(#fafafa)} / #{math.div($i, 10)});
-  }
+  --black: #000000;
+  --white: #ffffff;
+  --violete: #BB97F3;
+  --violete-dark: #752CE8;
+  --gray-dark: #5F5F5F;
+  --gray: #B5B5B5;
 }

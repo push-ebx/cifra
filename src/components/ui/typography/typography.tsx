@@ -7,48 +7,61 @@ import type { ComponentOrTag, DynamicProps } from '@/types';
 import styles from './typography.module.scss';
 
 export type TypographyProps<
-  Element extends ComponentOrTag<ComponentProps<Element>>,
+	Element extends ComponentOrTag<ComponentProps<Element>>,
 > = DynamicProps<Element> & {
-  weight?: 'regular' | 'medium' | 'semiBold' | 'bold' | 'extraBold';
-  color?: 'primary' | 'secondary' | 'inherit';
+	weight?: 'regular' | 'medium' | 'semiBold' | 'bold' | 'extraBold';
+	color?:
+		| 'primary'
+		| 'secondary'
+		| 'inherit'
+		| 'accent'
+		| 'violete'
+		| 'darkViolete'
+		| 'gray'
+		| 'darkGray';
 };
 
 const weightCn = {
-  regular: styles.weightRegular,
-  medium: styles.weightMedium,
-  semiBold: styles.weightSemiBold,
-  bold: styles.weightBold,
-  extraBold: styles.extraBold,
+	regular: styles.weightRegular,
+	medium: styles.weightMedium,
+	semiBold: styles.weightSemiBold,
+	bold: styles.weightBold,
+	extraBold: styles.extraBold,
 };
 
 const colorCn = {
-  inherit: styles.colorInherit,
-  primary: styles.colorPrimary,
-  secondary: styles.colorSecondary,
+	inherit: styles.colorInherit,
+	primary: styles.colorPrimary,
+	secondary: styles.colorSecondary,
+	accent: styles.colorAccent,
+	violete: styles.colorViolete,
+	darkViolete: styles.colorDarkViolete,
+	gray: styles.colorGray,
+	darkGray: styles.colorDarkGray,
 };
 
 export const Typography = <
-  Element extends ComponentOrTag<ComponentProps<Element>>,
+	Element extends ComponentOrTag<ComponentProps<Element>>,
 >(
-  props: TypographyProps<Element>
+	props: TypographyProps<Element>
 ) => {
-  const {
-    children,
-    className,
-    tag: Component = 'span',
-    weight = 'regular',
-    color = 'primary',
-    ...restProps
-  } = props as TypographyProps<'span'>;
+	const {
+		children,
+		className,
+		tag: Component = 'span',
+		weight = 'regular',
+		color = 'primary',
+		...restProps
+	} = props as TypographyProps<'span'>;
 
-  return (
-    <Component
-      className={clsx(className, styles.root, weightCn[weight], colorCn[color])}
-      {...restProps}
-    >
-      {children}
-    </Component>
-  );
+	return (
+		<Component
+			className={clsx(className, styles.root, weightCn[weight], colorCn[color])}
+			{...restProps}
+		>
+			{children}
+		</Component>
+	);
 };
 
 Typography.displayName = 'Typography';

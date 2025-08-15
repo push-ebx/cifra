@@ -30,6 +30,26 @@
   color: var(--text-secondary);
 }
 
+.colorAccent {
+  color: var(--text-accent);
+}
+
+.colorViolete {
+  color: var(--text-violete);
+}
+
+.colorDarkViolete {
+  color: var(--text-violete-dark);
+}
+
+.colorGray {
+  color: var(--text-gray);
+}
+
+.colorDarkGray {
+  color: var(--text-gray-dark);
+}
+
 .colorInherit {
   color: inherit;
 }

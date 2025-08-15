@@ -2,18 +2,25 @@ import type { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 
-import { Footer, Header } from '@/components/widgets';
-
-// import { AppLoader } from './_app-loader';
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
 
-const Inter = localFont({
-	src: './_fonts/InterVariable.woff2',
-	weight: '100 900',
-	variable: '--font-inter',
-	fallback: ['sans-serif'],
+const PPMachina = localFont({
+	src: [
+		{
+			path: './_fonts/PPNeueMachina-InktrapRegular.otf',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: './_fonts/PPNeueMachina-InktrapUltrabold.otf',
+			weight: '800',
+			style: 'normal',
+		},
+	],
+	variable: '--font-ppmachina',
 	display: 'swap',
+	fallback: ['sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -30,10 +37,10 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 	return (
-		<html className={`${Inter.variable}`} lang="en">
+		<html className={PPMachina.variable} lang="en">
 			<body>
 				<div id={'app-root'}>
-					{/*<Headedr />*/}
+					{/*<Header />*/}
 					<main className={'main'}>{children}</main>
 					{/*<Footer />*/}
 				</div>

@@ -3,10 +3,14 @@
 .root {
 }
 
-.level1 {
+.sizeXL {
+  @include typography.headingXL;
+}
+
+.size1 {
   @include typography.heading1;
 }
 
-.level2 {
-  @include typography.heading2;
+.sizeM {
+  @include typography.headingM;
 }

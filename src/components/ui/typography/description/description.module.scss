@@ -1,0 +1,25 @@
+@use '/src/styles/mixins/typography';
+
+.sizeXL {
+  @include typography.descriptionXL;
+}
+
+.sizeL {
+  @include typography.descriptionL;
+}
+
+.sizeM {
+  @include typography.descriptionM;
+}
+
+.sizeS {
+  @include typography.descriptionS;
+}
+
+.sizeXS {
+  @include typography.descriptionXS;
+}
+
+.sizeXXS {
+  @include typography.descriptionXXS;
+}
