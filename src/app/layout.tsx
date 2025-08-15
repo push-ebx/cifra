@@ -33,7 +33,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 		<html className={`${Inter.variable}`} lang="en">
 			<body>
 				<div id={'app-root'}>
-					{/*<Header />*/}
+					{/*<Headedr />*/}
 					<main className={'main'}>{children}</main>
 					{/*<Footer />*/}
 				</div>
