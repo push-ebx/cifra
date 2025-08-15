@@ -59,7 +59,7 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             source "$NVM_DIR/nvm.sh"
             cd ~/projects/cifra
-            /home/push-ebx/.nvm/versions/node/v20.19.2/bin/pnpm install --prod
+            /home/push-ebx/.nvm/versions/node/v20.19.2/bin/pnpm install
             PORT=3090 /home/push-ebx/.nvm/versions/node/v20.19.2/bin/pm2 restart cifra --update-env || \
             PORT=3090 /home/push-ebx/.nvm/versions/node/v20.19.2/bin/pm2 start pnpm --name cifra -- start
 
