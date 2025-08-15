@@ -1,4 +1,4 @@
-name: Deploy Cifra to VPS
+name: Deploy Cifra (Next.js) to VPS
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
         id: commit_message
         run: |
           MESSAGE=$(git log -1 --pretty=%B)
-          echo "::set-output name=message::${MESSAGE}"
+          echo "message=${MESSAGE}" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -38,25 +38,27 @@ jobs:
           pnpm install
           pnpm run build
 
-      - name: Copy files via SSH
+      - name: Copy files to VPS
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: "dist/*"
+          source: ".next/**,package.json,public/**,.env"
           target: "~/projects/cifra"
 
-      - name: Reload nginx
-        uses: appleboy/ssh-action@v0.1.6
+      - name: Restart PM2 on VPS
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            sudo systemctl reload nginx
+            cd ~/projects/cifra
+            pnpm install --prod
+            PORT=3090 pm2 restart cifra --update-env || PORT=3090 pm2 start pnpm --name cifra -- start
 
       - name: Notify Telegram on success
         if: success()
@@ -65,7 +67,7 @@ jobs:
           COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
           REPO_URL="https://github.com/${{ github.repository }}"
 
-          MESSAGE="📦 <b>Cifra frontend — деплой успешен</b>%0A\
+          MESSAGE="📦 <b>Cifra Next.js — деплой успешен</b>%0A\
           %0A\
           <b>Ветка:</b> <code>${{ github.ref_name }}</code>%0A\
           <b>Автор:</b> <i>${{ github.actor }}</i>%0A\
@@ -85,8 +87,8 @@ jobs:
           DEPLOY_TIME=$(date '+%Y-%m-%d %H:%M:%S')
           COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
           REPO_URL="https://github.com/${{ github.repository }}"
-          
-          MESSAGE="🚨 <b>Cifra frontend — деплой провален</b>%0A\
+
+          MESSAGE="🚨 <b>Cifra Next.js — деплой провален</b>%0A\
           %0A\
           <b>Ветка:</b> <code>${{ github.ref_name }}</code>%0A\
           <b>Автор:</b> <i>${{ github.actor }}</i>%0A\
