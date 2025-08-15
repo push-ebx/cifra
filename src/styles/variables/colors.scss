@@ -1,0 +1,21 @@
+@use 'sass:color';
+@use 'sass:math';
+
+@function hexToRGB($hex) {
+  @return color.channel($hex, 'red', $space: rgb)
+    color.channel($hex, 'green', $space: rgb)
+    color.channel($hex, 'blue', $space: rgb);
+}
+
+:root {
+  --black: #111111;
+  --white: #fafafa;
+
+  @for $i from 1 through 10 {
+    --black-a#{$i}: rgba(#{hexToRGB(#111111)} / #{math.div($i, 10)});
+  }
+
+  @for $i from 1 through 10 {
+    --white-a#{$i}: rgba(#{hexToRGB(#fafafa)} / #{math.div($i, 10)});
+  }
+}

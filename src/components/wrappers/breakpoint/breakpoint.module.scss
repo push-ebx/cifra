@@ -1,0 +1,37 @@
+@use '/src/styles/mixins/breakpoint';
+
+@include breakpoint.tabletAndUp {
+  .root.maxMobile {
+    display: none;
+  }
+}
+
+@include breakpoint.laptopAndUp {
+  .root.maxTablet {
+    display: none;
+  }
+}
+
+@include breakpoint.desktopOnly {
+  .root.maxLaptop {
+    display: none;
+  }
+}
+
+@include breakpoint.laptopAndDown {
+  .root.minDesktop {
+    display: none;
+  }
+}
+
+@include breakpoint.tabletAndDown {
+  .root.minLaptop {
+    display: none;
+  }
+}
+
+@include breakpoint.mobileOnly {
+  .root.minTablet {
+    display: none;
+  }
+}

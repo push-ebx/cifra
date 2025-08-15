@@ -1,0 +1,19 @@
+:root {
+  --header-height: 4rem;
+  --max-content-width: 80rem;
+
+  @for $i from 1 through 16 {
+    --space-#{$i}: calc(0.25rem * #{$i});
+  }
+
+  --padding-horizontal-base: var(--space-4);
+
+  // Минимальный размер для кнопок и элементов формы
+  --control-height-l: 4.5rem;
+  --control-height-m: 3.5rem;
+  --control-height-s: 2.25rem;
+
+  // Обводка
+  --border-height-s: max(1px, 0.0625rem);
+  --border-height-m: max(1.5px, 0.09375rem);
+}

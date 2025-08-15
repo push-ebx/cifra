@@ -1,0 +1,64 @@
+@use '/src/styles/mixins/utils';
+
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--button-height);
+  width: var(--button-width, auto);
+}
+
+.loadingIndicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.size {
+  &L {
+    --button-height: var(--control-height-l);
+
+    padding: 0 var(--space-7);
+  }
+
+  &M {
+    --button-height: var(--control-height-m);
+
+    padding: 0 var(--space-4);
+  }
+
+  &S {
+    --button-height: var(--control-height-s);
+
+    padding: 0 var(--space-2);
+  }
+}
+
+.variant {
+  &Primary {
+    color: var(--button-primary-foreground);
+    background-color: var(--button-primary-background);
+
+    --background-color-hover: var(--invert-hover-color);
+  }
+
+  &Outline {
+    background-color: var(--button-outline-background);
+    color: var(--button-outline-foreground);
+
+    @include utils.innerBorder(
+      var(--border-height-m),
+      var(--button-outline-border)
+    );
+  }
+}
+
+.root.loading {
+  cursor: wait;
+
+  .main {
+    visibility: hidden;
+  }
+}

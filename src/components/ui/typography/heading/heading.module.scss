@@ -1,0 +1,12 @@
+@use '/src/styles/mixins/typography';
+
+.root {
+}
+
+.level1 {
+  @include typography.heading1;
+}
+
+.level2 {
+  @include typography.heading2;
+}

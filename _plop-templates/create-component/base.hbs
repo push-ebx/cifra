@@ -1,0 +1,14 @@
+import type { ComponentProps } from 'react';
+import { clsx } from 'clsx';
+
+import styles from './{{kebabCase name}}.module.scss';
+
+export type {{properCase name}}Props = ComponentProps<'div'> & {}
+
+export const {{properCase name}} = (props: {{properCase name}}Props) => {
+    const { className, ...restProps } = props;
+
+    return <div className={clsx(styles.root, className)} {...restProps} />;
+};
+
+{{properCase name}}.displayName = '{{properCase name}}';

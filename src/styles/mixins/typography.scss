@@ -1,0 +1,29 @@
+@mixin bodyS {
+  font-size: 0.75rem;
+  line-height: 130%;
+  letter-spacing: 0;
+}
+
+@mixin bodyM {
+  font-size: 0.85rem;
+  line-height: 130%;
+  letter-spacing: 0;
+}
+
+@mixin bodyL {
+  font-size: 1rem;
+  line-height: 130%;
+  letter-spacing: 0;
+}
+
+@mixin heading1 {
+  font-size: 1.5rem;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+@mixin heading2 {
+  font-size: 1.25rem;
+  line-height: 130%;
+  letter-spacing: 0;
+}

@@ -1,0 +1,39 @@
+.root {
+  position: relative;
+  transition:
+    scale var(--animation-duration-s) var(--animation-easing-default),
+    opacity var(--animation-duration-m) var(--animation-easing-default);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transition: background-color var(--animation-duration-m)
+      var(--animation-easing-default);
+  }
+}
+
+.root[disabled] {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.main {
+  z-index: 1;
+}
+
+.root:not([disabled]) {
+  @media (hover: hover) {
+    &[data-has-hover='true']:hover::after {
+      background-color: var(
+        --background-color-hover,
+        var(--default-hover-color)
+      );
+    }
+  }
+
+  &[data-has-active='true']:active {
+    scale: 0.96;
+  }
+}

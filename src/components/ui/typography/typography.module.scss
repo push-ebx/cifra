@@ -1,0 +1,35 @@
+.root {
+  display: block;
+}
+
+.weightRegular {
+  font-weight: 400;
+}
+
+.weightMedium {
+  font-weight: 500;
+}
+
+.weightSemiBold {
+  font-weight: 600;
+}
+
+.weightBold {
+  font-weight: 700;
+}
+
+.extraBold {
+  font-weight: 800;
+}
+
+.colorPrimary {
+  color: var(--text-primary);
+}
+
+.colorSecondary {
+  color: var(--text-secondary);
+}
+
+.colorInherit {
+  color: inherit;
+}

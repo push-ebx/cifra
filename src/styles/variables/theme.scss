@@ -1,0 +1,23 @@
+:root {
+  color-scheme: light dark;
+
+  --background-page: light-dark(var(--white-a10), var(--black-a10));
+
+  // Text
+  --text-primary: light-dark(var(--black-a10), var(--white-a10));
+  --text-secondary: light-dark(var(--black-a6), var(--white-a6));
+  --text-link: light-dark(var(--black-a10), var(--white-a10));
+
+  // Button.Primary
+  --button-primary-background: light-dark(var(--black-a10), var(--white-a10));
+  --button-primary-foreground: light-dark(var(--white-a10), var(--black-a10));
+
+  // Button.Outline
+  --button-outline-background: transparent;
+  --button-outline-foreground: light-dark(var(--black-a10), var(--white-a10));
+  --button-outline-border: light-dark(var(--black-a10), var(--white-a10));
+
+  // Unsorted
+  --default-hover-color: light-dark(var(--black-a1), var(--white-a1));
+  --invert-hover-color: light-dark(var(--white-a2), var(--black-a2));
+}

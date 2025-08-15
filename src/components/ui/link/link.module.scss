@@ -1,0 +1,7 @@
+@use '/src/styles/mixins/typography';
+
+.root {
+  color: var(--text-link);
+
+  @include typography.bodyM;
+}

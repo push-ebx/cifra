@@ -1,0 +1,16 @@
+@use '/src/styles/mixins/typography';
+
+.root {
+}
+
+.sizeL {
+  @include typography.bodyL;
+}
+
+.sizeM {
+  @include typography.bodyM;
+}
+
+.sizeS {
+  @include typography.bodyS;
+}

@@ -1,0 +1,36 @@
+@use 'reset';
+@use 'variables/animations';
+@use 'variables/colors';
+@use 'variables/fonts';
+@use 'variables/sizes';
+@use 'variables/theme';
+
+html,
+body,
+#app-root {
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  overscroll-behavior: none;
+  font-synthesis-weight: none;
+  text-rendering: optimizelegibility;
+  background-color: var(--background-page);
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.main {
+  min-height: 100vh;
+}
