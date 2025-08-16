@@ -21,7 +21,7 @@ const sizeCn = {
 	m: styles.sizeM,
 	s: styles.sizeS,
 	xs: styles.sizeXS,
-	xxs: styles.sizeXXs,
+	xxs: styles.sizeXXS,
 };
 
 export const Display = <
@@ -33,7 +33,7 @@ export const Display = <
 		className,
 		children,
 		size = 'm',
-		weight = 'regular',
+		weight,
 		...restProps
 	} = props as DisplayProps<'span'>;
 

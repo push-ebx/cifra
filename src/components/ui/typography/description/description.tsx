@@ -33,7 +33,7 @@ export const Description = <
 		className,
 		children,
 		size = 'm',
-		weight = 'regular',
+		weight,
 		...restProps
 	} = props as DescriptionProps<'span'>;
 

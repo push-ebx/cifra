@@ -49,14 +49,19 @@ export const Typography = <
 		children,
 		className,
 		tag: Component = 'span',
-		weight = 'regular',
+		weight,
 		color = 'primary',
 		...restProps
 	} = props as TypographyProps<'span'>;
 
 	return (
 		<Component
-			className={clsx(className, styles.root, weightCn[weight], colorCn[color])}
+			className={clsx(
+				className,
+				styles.root,
+				weight && weightCn[weight],
+				colorCn[color]
+			)}
 			{...restProps}
 		>
 			{children}

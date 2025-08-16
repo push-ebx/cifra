@@ -30,7 +30,7 @@ export const Heading = <
 		className,
 		children,
 		size = '1',
-		weight = 'semiBold',
+		weight,
 		...restProps
 	} = props as HeadingProps<'span'>;
 
