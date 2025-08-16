@@ -5,6 +5,7 @@ import { EducationalProgram } from '@/app/(main)/_blocks/educational-program/edu
 import { Hero } from '@/app/(main)/_blocks/hero/hero';
 import { PrizeFund } from '@/app/(main)/_blocks/prize-fund/prize-fund';
 import { Tracks } from '@/app/(main)/_blocks/tracks/tracks';
+import { VideoSection } from '@/app/(main)/_blocks/video-section/video-section';
 import { JsonLd } from '@/components/utils';
 
 const webPageSchema: WithContext<WebPage> = {
@@ -24,7 +25,7 @@ const Home = async () => {
 			<PrizeFund />
 			<Tracks />
 			<EducationalProgram />
-			<Tracks />
+			<VideoSection />
 			<JsonLd schema={webPageSchema} />
 		</>
 	);
