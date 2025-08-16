@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 
+import ReactLenis from 'lenis/react';
+
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
 
@@ -39,11 +41,13 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 	return (
 		<html className={PPMachina.variable} lang="en">
 			<body>
-				<div id={'app-root'}>
-					{/*<Header />*/}
-					<main className={'main'}>{children}</main>
-					{/*<Footer />*/}
-				</div>
+				<ReactLenis root>
+					<div id={'app-root'}>
+						{/*<Header />*/}
+						<main className={'main'}>{children}</main>
+						{/*<Footer />*/}
+					</div>
+				</ReactLenis>
 				{/*<AppLoader />*/}
 			</body>
 		</html>

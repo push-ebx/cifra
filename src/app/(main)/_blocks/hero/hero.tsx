@@ -1,17 +1,40 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
 import { Container, Display, Heading, Image } from '@/components/ui';
 
 import styles from './hero.module.scss';
 
 export const Hero = () => {
+	const rootRef = useRef<HTMLDivElement>(null);
+	const [offset, setOffset] = useState(0);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (!rootRef.current) return;
+			const rect = rootRef.current.getBoundingClientRect();
+
+			const scrollProgress = rect.top / window.innerHeight;
+
+			setOffset(scrollProgress * 5);
+		};
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		handleScroll();
+
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
 	return (
 		<>
 			<Image
-				alt="grdient"
+				alt="gradient"
 				className={styles.gradient}
 				fetchPriority="high"
 				src="/images/gradient-1.webp"
 			/>
-			<Container className={styles.root} tag="section">
+			<Container ref={rootRef} className={styles.root} tag="section">
 				<div className={styles.headings}>
 					<Display color="secondary" size="xl">
 						IT-акселератор
@@ -24,6 +47,7 @@ export const Hero = () => {
 					alt="maskot"
 					className={styles.maskot}
 					src="/images/maskot-hero.webp"
+					style={{ transform: `translateY(${offset}rem)` }}
 				/>
 			</Container>
 		</>
