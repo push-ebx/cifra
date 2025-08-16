@@ -1,3 +1,4 @@
+export { AnimatedCounter } from './animated-counter/animated-counter';
 export type { ButtonProps } from './button/button';
 export { Button } from './button/button';
 export type { ContainerProps } from './container/container';
