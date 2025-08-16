@@ -25,7 +25,7 @@ export const EducationalProgram = () => {
 				<Body color="violete" size="m">
 					образовательная программа
 				</Body>
-				<Display color="secondary" size="m">
+				<Display className={styles.program} color="secondary" size="l">
 					<AnimatedCounter value={programs[index]} />
 				</Display>
 			</div>
