@@ -1,6 +1,8 @@
 import type { WebPage, WithContext } from 'schema-dts';
 
-import { Main } from '@/app/(main)/_blocks/main/main';
+import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-is';
+import { Hero } from '@/app/(main)/_blocks/hero/hero';
+import { PrizeFund } from '@/app/(main)/_blocks/prize-fund/prize-fund';
 import { JsonLd } from '@/components/utils';
 
 const webPageSchema: WithContext<WebPage> = {
@@ -15,7 +17,9 @@ export const revalidate = 60;
 const Home = async () => {
 	return (
 		<>
-			<Main />
+			<Hero />
+			<AcceleratorIs />
+			<PrizeFund />
 			<JsonLd schema={webPageSchema} />
 		</>
 	);

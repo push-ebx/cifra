@@ -2,6 +2,8 @@ export type { ButtonProps } from './button/button';
 export { Button } from './button/button';
 export type { ContainerProps } from './container/container';
 export { Container } from './container/container';
+export type { GlassCardProps } from './glass-card/glass-card';
+export { GlassCard } from './glass-card/glass-card';
 export type { ImageProps } from './image/image';
 export { Image } from './image/image';
 export type { LinkProps } from './link/link';

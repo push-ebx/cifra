@@ -1,0 +1,78 @@
+import {
+	Body,
+	Container,
+	Display,
+	GlassCard,
+	Heading,
+	Image,
+} from '@/components/ui';
+
+import styles from './prize-fund.module.scss';
+
+export const PrizeFund = () => {
+	return (
+		<Container className={styles.root} tag="section">
+			<div className={styles.contentWrapper}>
+				<Heading className={styles.heading} color="secondary" size="xl">
+					Призовой фонд
+				</Heading>
+				<div className={styles.cards}>
+					{cards.map((card, index) => (
+						<GlassCard
+							key={index}
+							cardClassName={styles.card}
+							contentClassName={styles.contentCard}
+						>
+							<Display color="secondary" size="xxs">
+								{card.subtitle}
+							</Display>
+							<Display color="secondary" size="m">
+								{card.title}
+							</Display>
+							<Image
+								alt={card.subtitle}
+								className={styles.image}
+								src={card.imageSrc}
+							/>
+						</GlassCard>
+					))}
+				</div>
+			</div>
+		</Container>
+	);
+};
+
+PrizeFund.displayName = 'PrizeFund';
+
+const cards = [
+	{
+		title: '1 место',
+		subtitle: 'поездка в стамбул всей командой',
+		imageSrc: '/images/star.webp',
+	},
+	{
+		title: 'в Казань',
+		subtitle: 'IT-путешествие',
+		imageSrc: '/images/plane.webp',
+	},
+	{
+		title: '4 млн ₽',
+		subtitle: 'Помощь в написании грантовой заявки на',
+		imageSrc: '/images/ruble.webp',
+	},
+	{
+		title: '2 млн ₽',
+		subtitle: 'серверы для твоего стартапа на ',
+		imageSrc: '/images/server.webp',
+	},
+	{
+		title: 'fast track',
+		subtitle: 'привлечение посевных инвестиций через',
+		imageSrc: '/images/cube.webp',
+	},
+	{
+		title: 'IPR',
+		subtitle: 'регистрация интеллектуальных прав',
+		imageSrc: '/images/ipr.webp',
+	},
+];

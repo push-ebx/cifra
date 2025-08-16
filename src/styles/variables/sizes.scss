@@ -6,7 +6,7 @@
     --space-#{$i}: calc(0.25rem * #{$i});
   }
 
-  --padding-horizontal-base: var(--space-4);
+  --padding-horizontal-base: 14rem;
 
   // Минимальный размер для кнопок и элементов формы
   --control-height-l: 4.5rem;
