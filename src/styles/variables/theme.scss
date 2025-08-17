@@ -20,6 +20,10 @@
   --button-outline-foreground: light-dark(var(--black-a10), var(--white-a10));
   --button-outline-border: light-dark(var(--black-a10), var(--white-a10));
 
+  // Button.Circle
+  --button-circle-background: var(--violete-dark);
+  --button-circle-foreground: var(--text-secondary);
+
   // Unsorted
   --default-hover-color: light-dark(var(--black-a1), var(--white-a1));
   --invert-hover-color: light-dark(var(--white-a2), var(--black-a2));

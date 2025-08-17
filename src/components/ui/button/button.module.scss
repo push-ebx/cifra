@@ -6,6 +6,7 @@
   align-items: center;
   min-height: var(--button-height);
   width: var(--button-width, auto);
+  cursor: pointer;
 }
 
 .loadingIndicator {
@@ -52,6 +53,28 @@
       var(--border-height-m),
       var(--button-outline-border)
     );
+  }
+
+  &Circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 999rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--button-circle-foreground);
+    background-color: var(--button-circle-background);
+
+    transition: transform var(--animation-easing-default) var(--animation-duration-m);
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
 
