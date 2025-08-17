@@ -44,7 +44,7 @@ export const Faq = () => {
 						</Body>
 						<Expandable
 							className={styles.expandable}
-							duration={300}
+							duration={500}
 							isExpanded={index === indexExpanded}
 						>
 							{item.answer}
