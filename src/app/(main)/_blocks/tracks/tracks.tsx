@@ -1,3 +1,7 @@
+'use client';
+
+import { useRef } from 'react';
+
 import { Body, Container, Heading, Image } from '@/components/ui';
 
 import styles from './tracks.module.scss';
@@ -21,8 +25,10 @@ const tracksData = [
 ];
 
 export const Tracks = () => {
+	const rootRef = useRef(null);
+
 	return (
-		<Container className={styles.root} tag="section">
+		<Container ref={rootRef} className={styles.root} tag="section">
 			<div className={styles.content}>
 				<div>
 					<Heading className={styles.heading} color="violete" size="xl">

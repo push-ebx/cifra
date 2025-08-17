@@ -3,6 +3,7 @@
   position: relative;
   height: calc(var(--text-count) * 50vh + 120vh);
   background-color: var(--violete-dark);
+  z-index: 3;
 }
 
 .sticky {

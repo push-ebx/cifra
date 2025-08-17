@@ -26,10 +26,14 @@ const Home = async () => {
 			{/*<Button variant="primary">Primary</Button>*/}
 			{/*<Button variant="outline">Secondary</Button>*/}
 			<Hero />
-			<AcceleratorIs />
-			<PrizeFund />
-			<Tracks />
-			<EducationalProgram />
+			<div style={{ position: 'relative' }}>
+				<AcceleratorIs />
+				<PrizeFund />
+			</div>
+			<div style={{ position: 'relative' }}>
+				<Tracks />
+				<EducationalProgram />
+			</div>
 			<VideoSection />
 			<WhatDoUGet />
 			<CifraFroU />
