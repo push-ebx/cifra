@@ -1,0 +1,19 @@
+.root {
+    --duration: var(--animation-duration-m);
+    --transition-easing: var(--animation-easing-default);
+    --max-height: 0;
+    --opacity: 0;
+}
+
+.expandableContent {
+    overflow: hidden;
+    max-height: var(--max-height);
+    opacity: var(--opacity);
+    transition:
+            max-height var(--duration) var(--transition-easing),
+            opacity var(--duration) var(--transition-easing);
+}
+
+.expandableContent.expanded {
+    overflow: visible;
+}

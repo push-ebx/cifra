@@ -1,11 +1,17 @@
-export const PlayIcon = ({
-	fill = 'white',
+import clsx from 'clsx';
+
+import styles from './play-button.module.scss';
+
+export const PlayButton = ({
+	fill = 'currentColor',
 	width = '8.4375rem',
 	height = '8.4375rem',
+	className = '',
 	...props
 }) => {
 	return (
 		<svg
+			className={clsx(styles.root, className)}
 			fill="none"
 			height={height}
 			viewBox="0 0 135 135"
@@ -28,4 +34,4 @@ export const PlayIcon = ({
 	);
 };
 
-PlayIcon.displayName = 'AddIcon';
+PlayButton.displayName = 'AddIcon';

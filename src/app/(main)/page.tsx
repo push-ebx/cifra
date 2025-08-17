@@ -3,7 +3,10 @@ import type { WebPage, WithContext } from 'schema-dts';
 import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-is';
 import { CifraFroU } from '@/app/(main)/_blocks/cifra-fro-u/cifra-fro-u';
 import { EducationalProgram } from '@/app/(main)/_blocks/educational-program/educational-program';
+import { Faq } from '@/app/(main)/_blocks/faq/faq';
+import { Graduates } from '@/app/(main)/_blocks/graduates/graduates';
 import { Hero } from '@/app/(main)/_blocks/hero/hero';
+import { Partners } from '@/app/(main)/_blocks/partners/partners';
 import { PrizeFund } from '@/app/(main)/_blocks/prize-fund/prize-fund';
 import { Timeline } from '@/app/(main)/_blocks/timeline/timeline';
 import { Tracks } from '@/app/(main)/_blocks/tracks/tracks';
@@ -37,6 +40,12 @@ const Home = async () => {
 			<VideoSection />
 			<WhatDoUGet />
 			<CifraFroU />
+			<Timeline />
+			<div style={{ position: 'relative' }}>
+				<Graduates />
+			</div>
+			<Partners />
+			<Faq />
 			<Timeline />
 			<JsonLd schema={webPageSchema} />
 		</>

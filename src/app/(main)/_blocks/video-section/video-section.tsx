@@ -1,5 +1,5 @@
-import { PlayIcon } from '@/components/icons';
 import { Display, Image } from '@/components/ui';
+import { PlayButton } from '@/components/widgets';
 
 import styles from './video-section.module.scss';
 
@@ -8,7 +8,7 @@ export const VideoSection = () => {
 		<div className={styles.root}>
 			<div className={styles.previewContainer}>
 				<div className={styles.playButton}>
-					<PlayIcon />
+					<PlayButton />
 					<Display color="secondary" size="xs">
 						жми плэээй
 					</Display>
@@ -16,6 +16,7 @@ export const VideoSection = () => {
 				<Image
 					alt="preview"
 					className={styles.preview}
+					loading="lazy"
 					src="/images/video-preiview.webp"
 				/>
 			</div>
