@@ -9,7 +9,7 @@ import { Spinner } from '../spinner/spinner';
 import styles from './button.module.scss';
 
 export type ButtonProps = ComponentProps<'button'> & {
-	variant?: 'primary' | 'outline' | 'circle';
+	variant?: 'primary' | 'secondary' | 'outline' | 'circle';
 	size?: 's' | 'm' | 'l';
 	width?: CSSProperties['width'];
 	loading?: boolean;
@@ -23,6 +23,7 @@ const sizeCn = {
 
 const variantCn = {
 	primary: styles.variantPrimary,
+	secondary: styles.variantSecondary,
 	outline: styles.variantOutline,
 	circle: styles.variantCircle,
 };
@@ -51,7 +52,7 @@ export const Button = (props: ButtonProps) => {
 			type={type}
 			className={clsx(
 				styles.root,
-				sizeCn[size],
+				variant !== 'circle' && sizeCn[size],
 				variantCn[variant],
 				isDisabled && styles.disabled,
 				loading && styles.loading,

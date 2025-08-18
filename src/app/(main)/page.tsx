@@ -4,6 +4,7 @@ import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-i
 import { CifraFroU } from '@/app/(main)/_blocks/cifra-fro-u/cifra-fro-u';
 import { EducationalProgram } from '@/app/(main)/_blocks/educational-program/educational-program';
 import { Faq } from '@/app/(main)/_blocks/faq/faq';
+import { Footer } from '@/app/(main)/_blocks/footer/footer';
 import { Graduates } from '@/app/(main)/_blocks/graduates/graduates';
 import { Hero } from '@/app/(main)/_blocks/hero/hero';
 import { Partners } from '@/app/(main)/_blocks/partners/partners';
@@ -12,6 +13,7 @@ import { Timeline } from '@/app/(main)/_blocks/timeline/timeline';
 import { Tracks } from '@/app/(main)/_blocks/tracks/tracks';
 import { VideoSection } from '@/app/(main)/_blocks/video-section/video-section';
 import { WhatDoUGet } from '@/app/(main)/_blocks/what-do-u-get/what-do-u-get';
+import { Button } from '@/components/ui';
 import { JsonLd } from '@/components/utils';
 
 const webPageSchema: WithContext<WebPage> = {
@@ -26,8 +28,6 @@ export const revalidate = 60;
 const Home = async () => {
 	return (
 		<>
-			{/*<Button variant="primary">Primary</Button>*/}
-			{/*<Button variant="outline">Secondary</Button>*/}
 			<Hero />
 			<div style={{ position: 'relative' }}>
 				<AcceleratorIs />
@@ -45,8 +45,10 @@ const Home = async () => {
 				<Graduates />
 			</div>
 			<Partners />
-			<Faq />
-			<Timeline />
+			<div style={{ position: 'relative' }}>
+				<Faq />
+				<Footer />
+			</div>
 			<JsonLd schema={webPageSchema} />
 		</>
 	);

@@ -12,13 +12,21 @@
   --text-gray: var(--gray);
 
   // Button.Primary
-  --button-primary-background: #752CE8;
-  --button-primary-foreground: #ffffff;
+  --button-primary-background: var(--violete-dark);
+  --button-primary-foreground: var(--text-secondary);
+  --button-primary-hover-background: transparent;
+
+  // Button.Secondary
+  --button-secondary-background: white;
+  --button-secondary-foreground: var(--text-violete-dark);
+  --button-secondary-hover-background: transparent;
+  --button-secondary-hover-foreground: var(--text-secondary);
 
   // Button.Outline
   --button-outline-background: transparent;
-  --button-outline-foreground: light-dark(var(--black-a10), var(--white-a10));
-  --button-outline-border: light-dark(var(--black-a10), var(--white-a10));
+  --button-outline-foreground: var(--text-secondary);
+  --button-outline-border: white;
+  --button-outline-hover-background: var(--violete-dark);
 
   // Button.Circle
   --button-circle-background: var(--violete-dark);

@@ -7,6 +7,10 @@
   min-height: var(--button-height);
   width: var(--button-width, auto);
   cursor: pointer;
+  border-radius: 999rem;
+  transition: background-color var(--animation-duration-m) var(--animation-easing-default),
+              color var(--animation-duration-m) var(--animation-easing-default),
+              border-color var(--animation-duration-m) var(--animation-easing-default);
 }
 
 .loadingIndicator {
@@ -19,40 +23,71 @@
 
 .size {
   &L {
-    --button-height: var(--control-height-l);
-
-    padding: 0 var(--space-7);
+    --button-height: 4.25rem;
+    padding: 1.25rem 5rem;
+    font-size: 1.75rem;
   }
 
   &M {
-    --button-height: var(--control-height-m);
-
-    padding: 0 var(--space-4);
+    --button-height: 2.125rem;
+    padding: 0.5rem 3.875rem;
+    font-size: 1.125rem;
   }
 
   &S {
-    --button-height: var(--control-height-s);
-
-    padding: 0 var(--space-2);
+    --button-height: 2.125rem;
+    padding: 0.5rem 2rem;
+    font-size: 1.125rem;
   }
 }
 
 .variant {
   &Primary {
-    color: var(--button-primary-foreground);
     background-color: var(--button-primary-background);
+    color: var(--button-primary-foreground);
+    border: var(--border-height-s) solid transparent;
+    font-weight: 800;
 
-    --background-color-hover: var(--invert-hover-color);
+    &:not([disabled]) {
+      @media(hover: hover) {
+        &:hover {
+          background: var(--button-primary-hover-background);
+          border: var(--border-height-s) solid white;
+        }
+      }
+    }
+  }
+
+  &Secondary {
+    background-color: var(--button-secondary-background);
+    color: var(--button-secondary-foreground);
+    border: var(--border-height-s) solid white;
+    font-weight: 800;
+
+    &:not([disabled]) {
+      @media(hover: hover) {
+        &:hover {
+          background: var(--button-secondary-hover-background);
+          color: var(--button-secondary-hover-foreground);
+        }
+      }
+    }
   }
 
   &Outline {
     background-color: var(--button-outline-background);
     color: var(--button-outline-foreground);
+    border: var(--border-height-s) solid white;
+    font-weight: 800;
 
-    @include utils.innerBorder(
-      var(--border-height-m),
-      var(--button-outline-border)
-    );
+    &:not([disabled]) {
+      @media(hover: hover) {
+        &:hover {
+          background: var(--button-outline-hover-background);
+          border: var(--border-height-s) solid transparent;
+        }
+      }
+    }
   }
 
   &Circle {
