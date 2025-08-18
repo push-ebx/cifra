@@ -10,6 +10,11 @@ import '@/styles/reset.scss';
 const PPMachina = localFont({
 	src: [
 		{
+			path: './_fonts/PPNeueMachina-Light.otf',
+			weight: '300',
+			style: 'normal',
+		},
+		{
 			path: './_fonts/PPNeueMachina-InktrapRegular.otf',
 			weight: '400',
 			style: 'normal',

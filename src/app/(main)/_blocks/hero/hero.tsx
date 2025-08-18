@@ -40,7 +40,7 @@ export const Hero = () => {
 						IT-акселератор
 					</Display>
 					<Heading color="secondary" size="m">
-						Бесплатная программа для студентов всех вузов
+						бесплатная программа для студентов всех вузов
 					</Heading>
 				</div>
 				<Image

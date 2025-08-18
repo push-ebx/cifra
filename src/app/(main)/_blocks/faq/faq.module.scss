@@ -8,6 +8,11 @@ section.root {
   //top: 0;
   z-index: 2;
 
+  a {
+    color: var(--violete-dark);
+    text-decoration: underline;
+  }
+
   .headingWrapper {
     max-width: 44.25rem;
     width: 100%;

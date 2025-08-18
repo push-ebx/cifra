@@ -11,7 +11,7 @@ import styles from './prize-fund.module.scss';
 
 export const PrizeFund = () => {
 	return (
-		<Container className={styles.root} tag="section">
+		<Container className={styles.root} id="prizes" tag="section">
 			<div className={styles.contentWrapper}>
 				<Heading className={styles.heading} color="secondary" size="xl">
 					Призовой фонд
@@ -48,31 +48,31 @@ const cards = [
 	{
 		title: '1 место',
 		subtitle: 'поездка в стамбул всей командой',
-		imageSrc: '/images/star.webp',
+		imageSrc: '/images/cards/star.webp',
 	},
 	{
 		title: 'в Казань',
 		subtitle: 'IT-путешествие',
-		imageSrc: '/images/plane.webp',
+		imageSrc: '/images/cards/plane.webp',
 	},
 	{
 		title: '4 млн ₽',
 		subtitle: 'Помощь в написании грантовой заявки на',
-		imageSrc: '/images/ruble.webp',
+		imageSrc: '/images/cards/ruble.webp',
 	},
 	{
 		title: '2 млн ₽',
 		subtitle: 'серверы для твоего стартапа на ',
-		imageSrc: '/images/server.webp',
+		imageSrc: '/images/cards/server.webp',
 	},
 	{
 		title: 'fast track',
 		subtitle: 'привлечение посевных инвестиций через',
-		imageSrc: '/images/cube.webp',
+		imageSrc: '/images/cards/cube.webp',
 	},
 	{
 		title: 'IPR',
 		subtitle: 'регистрация интеллектуальных прав',
-		imageSrc: '/images/ipr.webp',
+		imageSrc: '/images/cards/ipr.webp',
 	},
 ];

@@ -1,6 +1,8 @@
 .root {
   height: 50rem;
   width: 100%;
+  z-index: 4;
+  position: relative;
 
   .previewContainer {
     position: relative;

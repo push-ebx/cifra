@@ -1,6 +1,7 @@
 section.root {
   --text-count: 5;
-  position: relative;
+  position: sticky;
+  top: 0;
   height: calc(var(--text-count) * 50vh + 120vh);
   background-color: var(--violete-dark);
   z-index: 3;
@@ -15,7 +16,7 @@ section.root {
   z-index: 1;
   align-items: center;
   justify-content:  center;
-  gap: 1rem;
+  gap: 3.5rem;
   flex-direction: column;
   text-align: center;
 

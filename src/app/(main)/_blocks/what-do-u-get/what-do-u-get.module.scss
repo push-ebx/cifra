@@ -21,6 +21,12 @@ section.root {
       display: flex;
       gap: 1rem;
 
+      &:hover {
+        .indexWrapper {
+          background-color: var(--violete-dark);
+        }
+      }
+
       .indexWrapper {
         background-color: var(--violete);
         transition: background-color var(--animation-duration-m) var(--animation-easing-default);
@@ -32,10 +38,6 @@ section.root {
         justify-content: center;
         margin-top: 2rem;
         user-select: none;
-
-        &:hover {
-          background-color: var(--violete-dark);
-        }
 
         span {
           margin-top: 0.2rem;

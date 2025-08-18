@@ -10,7 +10,8 @@
   border-radius: 999rem;
   transition: background-color var(--animation-duration-m) var(--animation-easing-default),
               color var(--animation-duration-m) var(--animation-easing-default),
-              border-color var(--animation-duration-m) var(--animation-easing-default);
+              border-color var(--animation-duration-m) var(--animation-easing-default),
+              border var(--animation-easing-default) var(--animation-duration-m);
 }
 
 .loadingIndicator {
@@ -98,17 +99,22 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--button-circle-foreground);
     background-color: var(--button-circle-background);
 
-    transition: transform var(--animation-easing-default) var(--animation-duration-m);
+    border: var(--border-height-s) solid transparent;
 
-    &:hover {
-      transform: scale(1.02);
+    span {
+      color: var(--button-circle-foreground);
     }
 
-    &:active {
-      transform: scale(0.98);
+    &:hover {
+      //transform: scale(1.02);
+      background-color: transparent;
+      border: var(--border-height-s) dashed var(--violete-dark);
+
+      span {
+        color: var(--violete-dark);
+      }
     }
   }
 }

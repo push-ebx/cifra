@@ -8,15 +8,17 @@ export const AcceleratorIs = () => {
 			<Heading className={styles.heading} color="violete" size="xl">
 				Акселератор Цифра – это
 			</Heading>
-			<div className={styles.cards}>
-				{cards.map((card, index) => (
-					<div key={index} className={styles.card}>
-						<Heading size="m">{card.title}</Heading>
-						<Body color="darkGray" size="s">
-							{card.subtitle}
-						</Body>
-					</div>
-				))}
+			<div className={styles.wrapper}>
+				<div className={styles.cards}>
+					{cards.map((card, index) => (
+						<div key={index} className={styles.card}>
+							<Heading size="m">{card.title}</Heading>
+							<Body color="darkGray" size="s">
+								{card.subtitle}
+							</Body>
+						</div>
+					))}
+				</div>
 			</div>
 		</Container>
 	);
@@ -26,23 +28,23 @@ AcceleratorIs.displayName = 'AcceleratorIs';
 
 const cards = [
 	{
-		title: 'Проект для студентов',
+		title: 'Проект для\nстудентов',
 		subtitle:
-			'Способность строить технологичный стартап с нуля и находить инвесторов',
+			'Способность строить технологичный стартап с нуля и находить инвесторов',
 	},
 	{
-		title: 'Проект для студентов',
+		title: 'Сообщество\nединомышленников',
 		subtitle:
-			'Способность строить технологичный стартап с нуля и находить инвесторов',
+			'Комьюнити единомышленников, обмен опытом и сеть профессиональных контактов',
 	},
 	{
-		title: 'Проект для студентов',
+		title: 'Инвестиции для\nваших проектов',
 		subtitle:
-			'Способность строить технологичный стартап с нуля и находить инвесторов',
+			'Шанс привлечь инвестиции от венчурных инвесторов для вашего проекта',
 	},
 	{
-		title: 'Проект для студентов',
+		title: 'Личные\nкураторы',
 		subtitle:
-			'Способность строить технологичный стартап с нуля и находить инвесторов',
+			'Менторство от ведущих предпринимателей, инвесторов и преподавателей ВУЗов России',
 	},
 ];

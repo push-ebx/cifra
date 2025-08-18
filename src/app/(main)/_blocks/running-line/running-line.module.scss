@@ -1,0 +1,54 @@
+section.root {
+  height: 54.5rem;
+  background-color: var(--violete-dark);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 2.75rem;
+  position: relative;
+  z-index: 3;
+
+  .wrapper {
+    position: relative;
+    width: 55.625rem;
+    height: 22.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .line {
+    position: relative;
+    white-space: nowrap;
+    z-index: 2;
+    display: inline-block;
+    margin-left: 74rem;
+    animation: marquee 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(.5%);
+    }
+    50% {
+      transform: translateX(-57%);
+    }
+    100% {
+      transform: translateX(.5%);
+    }
+  }
+
+  .gallery {
+    position: absolute;
+    z-index: 3;
+
+    img {
+      width: 33.75rem;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
