@@ -37,8 +37,8 @@ const Home = async () => {
 			<div style={{ position: 'relative' }}>
 				<Tracks />
 				<EducationalProgram />
-				<VideoSection />
 			</div>
+			<VideoSection />
 			<WhatDoUGet />
 			<CifraFroU />
 			<Timeline />
