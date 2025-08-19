@@ -22,6 +22,7 @@ const sizeCn = {
 	s: styles.sizeS,
 	xs: styles.sizeXS,
 	xxs: styles.sizeXXS,
+	xxsStrong: styles.sizeXXSStrong,
 };
 
 export const Description = <
@@ -39,8 +40,12 @@ export const Description = <
 
 	return (
 		<Typography
-			className={clsx(styles.root, sizeCn[size], className)}
 			weight={weight}
+			className={clsx(
+				styles.root,
+				sizeCn[weight === 'regular' ? 'xxsStrong' : size],
+				className
+			)}
 			{...restProps}
 		>
 			{children}

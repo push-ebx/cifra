@@ -4,6 +4,7 @@
   letter-spacing: -0.02em;
   font-weight: 800;
   text-transform: uppercase;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin displayL {
@@ -12,6 +13,7 @@
   letter-spacing: -0.02em;
   font-weight: 800;
   text-transform: uppercase;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin displayM {
@@ -20,6 +22,7 @@
   letter-spacing: -0.02em;
   font-weight: 800;
   text-transform: uppercase;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin displayS {
@@ -28,6 +31,7 @@
   letter-spacing: -0.02em;
   font-weight: 800;
   text-transform: uppercase;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin displayXS {
@@ -36,6 +40,7 @@
   letter-spacing: -0.02em;
   font-weight: 800;
   text-transform: uppercase;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin displayXXS {
@@ -44,6 +49,7 @@
   letter-spacing: -0.02em;
   font-weight: 800;
   text-transform: uppercase;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 
@@ -53,6 +59,7 @@
   letter-spacing: -0.02em;
   font-weight: 800;
   text-transform: uppercase;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin heading1 {
@@ -60,25 +67,30 @@
   line-height: 100%;
   letter-spacing: -0.02em;
   font-weight: 800;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 @mixin headingM {
   font-size: 1.5rem; // 24px
   line-height: 110%;
   letter-spacing: -0.02em;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
-
 
 @mixin bodyM {
   font-size: 1.5rem; // 24px
   line-height: 100%;
   letter-spacing: -0.02em;
+  font-weight: 400;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 @mixin bodyL {
   font-size: 1.25rem; // 20px
   line-height: 110%;
   letter-spacing: -0.02em;
+  font-weight: 400;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 @mixin bodyS {
@@ -86,19 +98,31 @@
   line-height: 110%;
   letter-spacing: -0.02em;
   font-weight: 300;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
+@mixin bodySStrong {
+  font-size: 1rem; // 16px
+  line-height: 110%;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
+}
 
 @mixin descriptionXL {
   font-size: 2rem; // 32px
   line-height: 100%;
   letter-spacing: -0.02em;
+  font-weight: 400;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 @mixin descriptionL {
   font-size: 1.25rem; // 20px
   line-height: 110%;
+  font-weight: 400;
   letter-spacing: -0.02em;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 @mixin descriptionM {
@@ -106,18 +130,23 @@
   line-height: 100%;
   letter-spacing: -0.02em;
   font-weight: 800;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin descriptionS {
   font-size: 1rem; // 16px
   line-height: 100%;
   letter-spacing: -0.02em;
+  font-weight: 400;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 @mixin descriptionXS {
   font-size: 0.875rem; // 14px
   line-height: 100%;
+  font-weight: 400;
   letter-spacing: -0.02em;
+  font-family: var(--font-ppmachina-inktrap), sans-serif;
 }
 
 @mixin descriptionXXS {
@@ -125,11 +154,13 @@
   line-height: 100%;
   letter-spacing: -0.02em;
   font-weight: 300;
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
 
 @mixin descriptionXXSStrong {
   font-size: 0.75rem; // 12px
   line-height: 100%;
-  font-weight: bold;
+  font-weight: 400;
   letter-spacing: -0.02em;
+  font-family: var(--font-ppmachina-plain), sans-serif;  
 }

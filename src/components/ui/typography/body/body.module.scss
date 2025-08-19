@@ -14,3 +14,7 @@
 .sizeS {
   @include typography.bodyS;
 }
+
+.sizeSStrong {
+  @include typography.bodySStrong;
+}

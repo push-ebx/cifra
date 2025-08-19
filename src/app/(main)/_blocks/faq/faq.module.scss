@@ -23,20 +23,21 @@ section.root {
   }
 
   .faq {
-    margin-top: 3.5rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     max-width: 44.25rem;
     width: 100%;
 
     .faqItem {
-      padding: 1rem 0;
+      padding: 1.5rem 0;
       border-bottom: var(--border-height-s) dashed var(--violete);
       display: flex;
       cursor: pointer;
+      align-items: center;
 
       .question {
-        width: 19.375rem;
+        width: 21rem;
         margin-right: 4.375rem;
         transition: color var(--animation-duration-m) var(--animation-easing-default);
       }
@@ -44,6 +45,14 @@ section.root {
       .expandable {
         width: 19.6875rem;
         margin-right: 2.625rem;
+
+        a {
+          transition: color var(--animation-duration-m) var(--animation-easing-default);
+        }
+
+        a:hover {
+          color: var(--violete);
+        }
       }
 
       .cross {

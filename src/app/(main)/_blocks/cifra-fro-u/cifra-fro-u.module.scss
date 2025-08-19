@@ -14,7 +14,7 @@ section.root {
     max-width: 44.25rem;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin-top: 3.5rem;
+    margin-top: 2rem;
 
     .card {
       display: flex;
@@ -24,6 +24,16 @@ section.root {
       height: 13.8rem;
       border-radius: 1rem;
       padding: 1rem;
+      transition: color var(--animation-duration-m) var(--animation-easing-default),
+                  background-color var(--animation-duration-m) var(--animation-easing-default);
+
+      &:hover {
+        background-color: var(--violete-dark);
+
+        span:last-child {
+          color: var(--text-secondary);
+        }
+      }
     }
   }
 

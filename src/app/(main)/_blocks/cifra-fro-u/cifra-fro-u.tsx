@@ -21,7 +21,9 @@ export const CifraFroU = () => {
 						<Display color="violete" size="xs">
 							0{index + 1}
 						</Display>
-						<Body size="s">{card.title}</Body>
+						<Body size="s" weight="regular">
+							{card.title}
+						</Body>
 					</div>
 				))}
 				<Button variant="circle">

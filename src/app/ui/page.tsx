@@ -37,7 +37,7 @@ const UI = () => {
 				<Body size="m">body m</Body>
 				<Body size="l">Body L</Body>
 				<Body size="s">Body s</Body>
-				<Body size="s" weight="extraBold">
+				<Body size="s" weight="regular">
 					Body s – strong
 				</Body>
 			</section>
@@ -49,7 +49,7 @@ const UI = () => {
 				<Description size="s">Desc S</Description>
 				<Description size="xs">Desc xs</Description>
 				<Description size="xxs">Desc xxs</Description>
-				<Description size="xxs" weight="extraBold">
+				<Description size="xxs" weight="regular">
 					Desc xxs – strong
 				</Description>
 			</section>

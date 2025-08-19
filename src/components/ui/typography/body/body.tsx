@@ -18,6 +18,7 @@ const sizeCn = {
 	l: styles.sizeL,
 	m: styles.sizeM,
 	s: styles.sizeS,
+	sStrong: styles.sizeSStrong,
 };
 
 export const Body = <Element extends ComponentOrTag<ComponentProps<Element>>>(
@@ -33,8 +34,12 @@ export const Body = <Element extends ComponentOrTag<ComponentProps<Element>>>(
 
 	return (
 		<Typography
-			className={clsx(styles.root, sizeCn[size], className)}
 			weight={weight}
+			className={clsx(
+				styles.root,
+				weight === 'regular' ? sizeCn['sStrong'] : sizeCn[size],
+				className
+			)}
 			{...restProps}
 		>
 			{children}

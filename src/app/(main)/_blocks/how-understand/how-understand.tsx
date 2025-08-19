@@ -12,7 +12,7 @@ export const HowUnderstand = () => {
 				{cards.map((card, index) => (
 					<div key={index} className={styles.card}>
 						<Heading size="m">{card.title}</Heading>
-						<Body color="darkGray" size="s">
+						<Body color="darkGray" size="s" weight="regular">
 							{card.subtitle}
 						</Body>
 					</div>

@@ -7,25 +7,24 @@ import ReactLenis from 'lenis/react';
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
 
-const PPMachina = localFont({
+const PPMachinaPlain = localFont({
 	src: [
-		{
-			path: './_fonts/PPNeueMachina-Light.otf',
-			weight: '300',
-			style: 'normal',
-		},
-		{
-			path: './_fonts/PPNeueMachina-InktrapRegular.otf',
-			weight: '400',
-			style: 'normal',
-		},
-		{
-			path: './_fonts/PPNeueMachina-InktrapUltrabold.otf',
-			weight: '800',
-			style: 'normal',
-		},
+		{ path: './_fonts/PPNeueMachina-PlainLight.otf', weight: '300' },
+		{ path: './_fonts/PPNeueMachina-PlainRegular.otf', weight: '400' },
+		{ path: './_fonts/PPNeueMachina-PlainUltrabold.otf', weight: '800' },
 	],
-	variable: '--font-ppmachina',
+	variable: '--font-ppmachina-plain',
+	display: 'swap',
+	fallback: ['sans-serif'],
+});
+
+const PPMachinaInktrap = localFont({
+	src: [
+		{ path: './_fonts/PPNeueMachina-InktrapLight.otf', weight: '300' },
+		{ path: './_fonts/PPNeueMachina-InktrapRegular.otf', weight: '400' },
+		{ path: './_fonts/PPNeueMachina-InktrapUltrabold.otf', weight: '800' },
+	],
+	variable: '--font-ppmachina-inktrap',
 	display: 'swap',
 	fallback: ['sans-serif'],
 });
@@ -45,7 +44,10 @@ export const viewport: Viewport = {
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 	return (
-		<html className={PPMachina.variable} lang="en">
+		<html
+			className={`${PPMachinaPlain.variable} ${PPMachinaInktrap.variable}`}
+			lang="ru"
+		>
 			<body>
 				<ReactLenis root>
 					<div id={'app-root'}>
