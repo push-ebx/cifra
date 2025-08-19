@@ -1,3 +1,4 @@
+import { RubleIcon } from '@/components/icons/ruble-icon';
 import {
 	Body,
 	Container,
@@ -56,12 +57,20 @@ const cards = [
 		imageSrc: '/images/cards/plane.webp',
 	},
 	{
-		title: '4 млн ₽',
+		title: (
+			<>
+				4 млн <RubleIcon />
+			</>
+		),
 		subtitle: 'Помощь в написании грантовой заявки на',
 		imageSrc: '/images/cards/ruble.webp',
 	},
 	{
-		title: '2 млн ₽',
+		title: (
+			<>
+				2 млн <RubleIcon />
+			</>
+		),
 		subtitle: 'серверы для твоего стартапа на ',
 		imageSrc: '/images/cards/server.webp',
 	},
