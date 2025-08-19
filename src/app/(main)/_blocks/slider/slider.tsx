@@ -1,15 +1,21 @@
-import {
-	Body,
-	Container,
-	Display,
-	GlassCard,
-	Heading,
-	Image,
-} from '@/components/ui';
+'use client';
+
+import { useState } from 'react';
+
+import { clsx } from 'clsx';
+import { AnimatePresence, motion } from 'motion/react';
+
+import { Container, Heading, Image } from '@/components/ui';
 
 import styles from './slider.module.scss';
 
 export const Slider = () => {
+	const [current, setCurrent] = useState(0);
+
+	const nextSlide = () => {
+		setCurrent((prev) => (prev + 1) % slides.length);
+	};
+
 	return (
 		<Container className={styles.root} tag="section">
 			<Heading className={styles.heading} color="secondary" size="xl">
@@ -19,50 +25,31 @@ export const Slider = () => {
 				<div className={styles.cards}>
 					<Image
 						alt="cards"
-						className={styles.imageCards}
+						className={`${styles.imageCards} ${styles[`rotate-${current}`]}`}
 						src="/images/cards/cards.png"
 					/>
-					<GlassCard
-						cardClassName={styles.card}
-						contentClassName={styles.contentCard}
-					>
-						<Image
-							alt={slides[0].title}
-							className={styles.image}
-							src={slides[0].imageSrc}
-						/>
-					</GlassCard>
-					<GlassCard
-						cardClassName={styles.card}
-						contentClassName={styles.contentCard}
-					>
-						<Image
-							alt={slides[1].title}
-							className={styles.image}
-							src={slides[1].imageSrc}
-						/>
-					</GlassCard>
-					<GlassCard
-						cardClassName={styles.card}
-						contentClassName={styles.contentCard}
-					>
-						<Image
-							alt={slides[2].title}
-							className={styles.image}
-							src={slides[2].imageSrc}
-						/>
-					</GlassCard>
-					<GlassCard
-						cardClassName={styles.card}
-						contentClassName={styles.contentCard}
-					>
-						<Image
-							alt={slides[3].title}
-							className={styles.image}
-							src={slides[3].imageSrc}
-						/>
-					</GlassCard>
+
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={current}
+							animate={{ opacity: 1, rotate: 0 }}
+							className={styles.card}
+							exit={{ opacity: 0, rotate: 10 }}
+							initial={{ opacity: 0, rotate: 0 }}
+							transition={{ duration: 0.45, ease: 'easeInOut' }}
+						>
+							<Image
+								alt={slides[current].title}
+								className={styles.image}
+								src={slides[current].imageSrc}
+							/>
+						</motion.div>
+					</AnimatePresence>
 				</div>
+
+				<button className={styles.nextBtn} onClick={nextSlide}>
+					➜
+				</button>
 			</div>
 		</Container>
 	);
@@ -74,25 +61,22 @@ const slides = [
 	{
 		title: 'Дизайнер',
 		subtitle:
-			'Креативный гений, который создает эффективные пользовательские интерфейсы, разрабатывает эстетически привлекательные дизайны и уделяет особое внимание пользовательскому опыту',
-		imageSrc: '/images/slides/slide-1.webp',
+			'Креативный гений, который создает эффективные пользовательские интерфейсы...',
+		imageSrc: '/images/slides/pic-1.webp',
 	},
 	{
-		title: 'маркетолог',
-		subtitle:
-			'Эксперт в области цифрового\nмаркетинга, который помогает команде успешно продвигать продукты и привлекать новых клиентов',
-		imageSrc: '/images/slides/slide-2.webp',
+		title: 'Маркетолог',
+		subtitle: 'Эксперт в области цифрового маркетинга...',
+		imageSrc: '/images/slides/pic-2.webp',
 	},
 	{
-		title: 'менеджер',
-		subtitle:
-			'Он планирует и контролирует\nпроцессы разработки, управляет ресурсами и распределяет задачи\nмежду участниками команды',
-		imageSrc: '/images/slides/slide-3.webp',
+		title: 'Менеджер',
+		subtitle: 'Он планирует и контролирует процессы...',
+		imageSrc: '/images/slides/pic-3.webp',
 	},
 	{
-		title: 'программист',
-		subtitle:
-			'Он занимается программированием\nна различных языках и технологиях, разрабатывает архитектуру системы\nи обеспечивает надежность\nи безопасность программного продукта',
-		imageSrc: '/images/slides/slide-4.webp',
+		title: 'Программист',
+		subtitle: 'Он занимается программированием...',
+		imageSrc: '/images/slides/pic-4.webp',
 	},
 ];
