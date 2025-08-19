@@ -10,6 +10,7 @@ import { Hero } from '@/app/(main)/_blocks/hero/hero';
 import { Partners } from '@/app/(main)/_blocks/partners/partners';
 import { PrizeFund } from '@/app/(main)/_blocks/prize-fund/prize-fund';
 import { RunningLine } from '@/app/(main)/_blocks/running-line/running-line';
+import { Slider } from '@/app/(main)/_blocks/slider/slider';
 import { Timeline } from '@/app/(main)/_blocks/timeline/timeline';
 import { Tracks } from '@/app/(main)/_blocks/tracks/tracks';
 import { VideoSection } from '@/app/(main)/_blocks/video-section/video-section';
@@ -41,6 +42,7 @@ const Home = async () => {
 			<VideoSection />
 			<WhatDoUGet />
 			<CifraFroU />
+			<Slider />
 			<Timeline />
 			<div style={{ position: 'relative' }}>
 				<Graduates />
