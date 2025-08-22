@@ -28,7 +28,13 @@ export const Tracks = () => {
 	const rootRef = useRef(null);
 
 	return (
-		<Container ref={rootRef} className={styles.root} id="tracks" tag="section">
+		<Container
+			ref={rootRef}
+			className={styles.root}
+			data-theme="white"
+			id="tracks"
+			tag="section"
+		>
 			<div className={styles.content}>
 				<div>
 					<Heading className={styles.heading} color="violete" size="xl">

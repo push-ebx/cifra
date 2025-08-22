@@ -1,0 +1,154 @@
+@use '/src/styles/mixins/breakpoint';
+
+.root {
+  width: 14.6225rem;
+  position: fixed;
+  top: 1.62rem;
+  z-index: 20;
+  will-change: clip-path;
+  padding-left: 2.56rem;
+
+  .logo {
+    width: 1.75rem;
+    height: 1.75rem;
+    aspect-ratio: 1 / 1;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: color var(--animation-duration-m) var(--animation-easing-default);
+    margin-top: 1rem;
+  }
+
+  .maskot {
+    position: absolute;
+    width: 9.30131rem;
+    height: 7.77738rem;
+    top: 13.8rem;
+    left: 3.1rem;
+  }
+
+  .it2025 {
+    margin-top: 6.25rem;
+    width: 10.375rem;
+  }
+
+  .description {
+    margin-top: 0.5rem;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .btns {
+    display: flex;
+    gap: 0.25rem;
+
+    button {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .vk {
+      background: url("/images/media/vk-white.webp");
+      background-size: cover;
+
+      &:hover {
+        background: url("/images/media/vk-hover.webp");
+        background-size: cover;
+      }
+    }
+
+    .tg {
+      background: url("/images/media/tg-white.webp");
+      background-size: cover;
+
+      &:hover {
+        background: url("/images/media/tg-hover.webp");
+        background-size: cover;
+      }
+    }
+  }
+
+  .privacy {
+    display: block;
+    margin-top: 2.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .getInTouch {
+    margin-top: 6.25rem;
+  }
+
+  .gradient {
+    position: absolute;
+    top: 5.4rem;
+    left: -20rem;
+    z-index: -1;
+    overflow: visible;
+    width: 50rem;
+    height: 30rem;
+  }
+}
+
+.active {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.white {
+  color: var(--text-gray);
+  pointer-events: auto;
+
+  .getInTouch {
+    color: var(--text-primary);
+  }
+
+  .active {
+    color: var(--text-primary);
+  }
+}
+
+.purple {
+  color: var(--violete);
+  pointer-events: none;
+
+  .getInTouch {
+    color: var(--text-secondary);
+  }
+
+  .active {
+    color: var(--text-secondary);
+  }
+
+  .btns {
+    .vk {
+      background: url("/images/media/vk-purple.png");
+      background-size: cover;
+
+      &:hover {
+        background: url("/images/media/vk-hover.webp");
+        background-size: cover;
+        width: 100px;
+      }
+    }
+
+    .tg {
+      background: url("/images/media/tg-purple.png");
+      background-size: cover;
+
+      &:hover {
+        background: url("/images/media/tg-hover.webp");
+        background-size: cover;
+      }
+    }
+  }
+
+  .gradient {
+    //top: 3rem;
+  }
+}

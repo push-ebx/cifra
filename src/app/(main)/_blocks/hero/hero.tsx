@@ -34,7 +34,13 @@ export const Hero = () => {
 				fetchPriority="high"
 				src="/images/gradient-1.webp"
 			/>
-			<Container ref={rootRef} className={styles.root} tag="section">
+			<Container
+				ref={rootRef}
+				className={styles.root}
+				data-theme="white"
+				id="about"
+				tag="section"
+			>
 				<div className={styles.headings}>
 					<Display color="secondary" size="xl">
 						IT-акселератор

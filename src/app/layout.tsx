@@ -51,7 +51,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 			<body>
 				<ReactLenis root>
 					<div id={'app-root'}>
-						{/*<Header />*/}
+						{/*<Menu />*/}
 						<main className={'main'}>{children}</main>
 						{/*<Footer />*/}
 					</div>

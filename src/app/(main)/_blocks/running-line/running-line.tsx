@@ -16,15 +16,20 @@ export const RunningLine = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	useEffect(() => {
-		const interval = setInterval(() => {
-			setCurrentIndex((prev) => (prev + 1) % srcImages.length);
-		}, 500);
+		let timeout: NodeJS.Timeout;
 
-		return () => clearInterval(interval);
+		const tick = () => {
+			setCurrentIndex((prev) => (prev + 1) % srcImages.length);
+			timeout = setTimeout(tick, 500);
+		};
+
+		timeout = setTimeout(tick, 500);
+
+		return () => clearTimeout(timeout);
 	}, []);
 
 	return (
-		<section className={styles.root}>
+		<section className={styles.root} data-theme="purple">
 			<div className={styles.wrapper}>
 				<Heading className={styles.line} color="violete" size="xl">
 					как это было как это было как это было как это было

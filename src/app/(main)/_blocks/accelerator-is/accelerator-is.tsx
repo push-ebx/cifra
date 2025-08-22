@@ -4,7 +4,7 @@ import styles from './accelerator-is.module.scss';
 
 export const AcceleratorIs = () => {
 	return (
-		<Container className={styles.root} tag="section">
+		<Container className={styles.root} data-theme="white" tag="section">
 			<Heading className={styles.heading} color="violete" size="xl">
 				Акселератор Цифра – это
 			</Heading>

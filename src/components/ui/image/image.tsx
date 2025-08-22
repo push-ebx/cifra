@@ -13,6 +13,7 @@ export type ImageProps = ComponentProps<'img'> & {
 	alt: string;
 	objectFit?: CSSProperties['objectFit'];
 	quality?: number;
+	priority?: boolean;
 };
 
 export const Image = (props: ImageProps) => {
@@ -24,6 +25,7 @@ export const Image = (props: ImageProps) => {
 		height,
 		objectFit,
 		quality = '100',
+		priority,
 		...restProps
 	} = props;
 
@@ -39,6 +41,7 @@ export const Image = (props: ImageProps) => {
 				className={clsx(styles.image, className)}
 				height={0}
 				onLoad={handleLoad}
+				priority={priority}
 				quality={quality}
 				sizes={sizes}
 				width={0}

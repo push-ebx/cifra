@@ -1,18 +1,16 @@
 import { RubleIcon } from '@/components/icons/ruble-icon';
-import {
-	Body,
-	Container,
-	Display,
-	GlassCard,
-	Heading,
-	Image,
-} from '@/components/ui';
+import { Container, Display, GlassCard, Heading, Image } from '@/components/ui';
 
 import styles from './prize-fund.module.scss';
 
 export const PrizeFund = () => {
 	return (
-		<Container className={styles.root} id="prizes" tag="section">
+		<Container
+			className={styles.root}
+			data-theme="purple"
+			id="prizes"
+			tag="section"
+		>
 			<div className={styles.contentWrapper}>
 				<Heading className={styles.heading} color="secondary" size="xl">
 					Призовой фонд

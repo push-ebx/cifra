@@ -6,7 +6,12 @@ export const Timeline = () => {
 	const trackLineTitles = ['Первый трек', 'Второй трек'];
 
 	return (
-		<Container className={styles.root} id="timeline" tag="section">
+		<Container
+			className={styles.root}
+			data-theme="white"
+			id="timeline"
+			tag="section"
+		>
 			<Heading className={styles.heading} color="violete" size="xl">
 				Таймлайн
 			</Heading>

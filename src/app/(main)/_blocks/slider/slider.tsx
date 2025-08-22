@@ -21,7 +21,7 @@ export const Slider = () => {
 
 	const [direction, setDirection] = useState<'next' | 'prev'>('next');
 	return (
-		<Container className={styles.root} tag="section">
+		<Container className={styles.root} id="teams" tag="section">
 			<Heading className={styles.heading} color="secondary" size="xl">
 				состав команд
 			</Heading>

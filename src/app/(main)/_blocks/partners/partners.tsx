@@ -4,7 +4,7 @@ import styles from './partners.module.scss';
 
 export const Partners = () => {
 	return (
-		<Container className={styles.root} tag="section">
+		<Container className={styles.root} data-theme="white" tag="section">
 			<div className={styles.headingWrapper}>
 				<Heading className={styles.heading} color="violete" size="xl">
 					Наши партнеры

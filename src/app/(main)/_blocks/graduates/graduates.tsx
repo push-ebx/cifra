@@ -11,7 +11,7 @@ export const Graduates = () => {
 	const [activeVideo, setActiveVideo] = useState<number | null>(null);
 
 	return (
-		<Container className={styles.root} tag="section">
+		<Container className={styles.root} data-theme="white" tag="section">
 			<Heading className={styles.heading} color="violete" size="xl">
 				Выпускники
 			</Heading>

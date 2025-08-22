@@ -4,7 +4,7 @@ import styles from './what-do-u-get.module.scss';
 
 export const WhatDoUGet = () => {
 	return (
-		<Container className={styles.root} tag="section">
+		<Container className={styles.root} data-theme="white" tag="section">
 			<Heading className={styles.heading} color="violete" size="xl">
 				Что получишь?
 			</Heading>

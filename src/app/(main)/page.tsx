@@ -17,6 +17,7 @@ import { VideoSection } from '@/app/(main)/_blocks/video-section/video-section';
 import { WhatDoUGet } from '@/app/(main)/_blocks/what-do-u-get/what-do-u-get';
 import { Button } from '@/components/ui';
 import { JsonLd } from '@/components/utils';
+import { Menu } from '@/components/widgets';
 
 const webPageSchema: WithContext<WebPage> = {
 	'@context': 'https://schema.org',
@@ -30,18 +31,19 @@ export const revalidate = 60;
 const Home = async () => {
 	return (
 		<>
+			<Menu />
 			<Hero />
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<AcceleratorIs />*/}
-			{/*	<PrizeFund />*/}
-			{/*</div>*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Tracks />*/}
-			{/*	<EducationalProgram />*/}
-			{/*</div>*/}
-			{/*<VideoSection />*/}
-			{/*<WhatDoUGet />*/}
-			{/*<CifraFroU />*/}
+			<div style={{ position: 'relative' }}>
+				<AcceleratorIs />
+				<PrizeFund />
+			</div>
+			<div style={{ position: 'relative' }}>
+				<Tracks />
+				<EducationalProgram />
+			</div>
+			<VideoSection />
+			<WhatDoUGet />
+			<CifraFroU />
 			<Slider />
 			<Timeline />
 			<div style={{ position: 'relative' }}>

@@ -1,9 +1,5 @@
 @use '/src/styles/mixins/typography';
 
 .root {
-  color: var(--text-link);
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-
-  @include typography.bodyM;
+  @include typography.descriptionL;
 }

@@ -8,13 +8,13 @@ import styles from './link.module.scss';
 export type LinkProps = ComponentProps<typeof NextLink> & {};
 
 export const Link = (props: LinkProps) => {
-  const { className, children, ...restProps } = props;
+	const { className, children, ...restProps } = props;
 
-  return (
-    <NextLink className={clsx(styles.root, className)} {...restProps}>
-      {children}
-    </NextLink>
-  );
+	return (
+		<NextLink className={clsx(styles.root, className)} {...restProps}>
+			{children}
+		</NextLink>
+	);
 };
 
 Link.displayName = 'Link';

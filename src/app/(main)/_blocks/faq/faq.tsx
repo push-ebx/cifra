@@ -22,7 +22,7 @@ export const Faq = () => {
 	};
 
 	return (
-		<Container className={styles.root} tag="section">
+		<Container className={styles.root} data-theme="white" tag="section">
 			<div className={styles.headingWrapper}>
 				<Heading className={styles.heading} color="violete" size="xl">
 					Ответы на вопросы
