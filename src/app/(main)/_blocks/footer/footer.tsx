@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { CrossIcon } from '@/components/icons/cross-icon';
 import {
@@ -9,18 +9,24 @@ import {
 	Description,
 	Display,
 	Image,
-	Input,
-	Modal,
-	Tab,
 } from '@/components/ui';
-import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 import { Checkbox } from '@/components/ui/checkbox/checkbox';
 import { Form } from '@/components/widgets';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 
 import styles from './footer.module.scss';
 
 export const Footer = () => {
 	const bp = useBreakpoint();
+
+	const searchParams = useSearchParams();
+	const router = useRouter();
+
+	const openModal = () => {
+		const params = new URLSearchParams(searchParams.toString());
+		params.set('modal', 'true');
+		router.replace(`?${params.toString()}`);
+	};
 
 	return (
 		<Container className={styles.root} tag="footer">
@@ -36,6 +42,7 @@ export const Footer = () => {
 					</Display>
 					<Button
 						className={styles.button}
+						onClick={openModal}
 						size={bp === 'mobile' ? 'l' : 'l'}
 						variant="secondary"
 					>

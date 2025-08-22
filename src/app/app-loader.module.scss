@@ -1,4 +1,5 @@
 @use 'sass:string';
+@use '/src/styles/mixins/breakpoint';
 
 .root {
   position: fixed;
@@ -22,11 +23,20 @@
 
 .progressText {
   font-size: 11.25rem !important;
+
+  @include breakpoint.tabletDown {
+    font-size: 5rem !important;
+  }
 }
 
 .description {
   text-align: center;
   width: 23.6875rem;
+
+  @include breakpoint.tabletDown {
+    font-size: 1rem !important;
+    width: 12rem;
+  }
 }
 
 .progressText::after {
