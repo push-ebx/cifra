@@ -1,9 +1,16 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   padding-top: 10rem;
   padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  @include breakpoint.tabletDown {
+    padding-top: 6.25rem;
+    padding-bottom: 0;
+  }
 
   .headingWrapper {
     max-width: 44.25rem;
@@ -20,6 +27,10 @@ section.root {
     gap: 2rem 1.5rem;
     max-width: 44.25rem;
     flex-wrap: wrap;
+
+    @include breakpoint.tabletDown {
+      gap: 1rem;
+    }
 
     img {
       width: auto;

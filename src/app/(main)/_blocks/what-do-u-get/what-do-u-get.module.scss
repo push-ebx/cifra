@@ -37,6 +37,14 @@ section.root {
         }
       }
 
+      @include breakpoint.tabletDown {
+        flex-direction: column;
+
+        .indexWrapper {
+          width: fit-content;
+        }
+      }
+
       .indexWrapper {
         background-color: var(--violete);
         transition: background-color var(--animation-duration-m) var(--animation-easing-default);
@@ -60,6 +68,10 @@ section.root {
         gap: 1rem;
         padding: 2rem 0;
         border-bottom: var(--violete) var(--border-height-s) dashed;
+
+        @include breakpoint.tabletDown {
+          padding-top: 0;
+        }
       }
     }
   }

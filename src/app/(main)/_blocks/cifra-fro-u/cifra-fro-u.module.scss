@@ -1,9 +1,15 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   padding-top: 5rem;
   padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  @include breakpoint.tabletDown {
+    padding-top: 2rem;
+  }
 
   .heading {
     max-width: 44.25rem;
@@ -16,24 +22,53 @@ section.root {
     gap: 1.5rem;
     margin-top: 2rem;
 
-    .card {
+    @include breakpoint.tabletDown {
+      display: none;
+    }
+  }
+
+  .carousel {
+    --slide-spacing: 0.63rem;
+    --slide-size: 13.75rem;
+    --slide-height: 14.625rem;
+    display: none;
+    margin-top: 2.44rem;
+    margin-bottom: 6.25rem;
+
+    @include breakpoint.tabletDown {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: var(--border-height-s) var(--violete) dashed;
-      height: 13.8rem;
-      border-radius: 1rem;
-      padding: 1rem;
-      transition: color var(--animation-duration-m) var(--animation-easing-default),
-                  background-color var(--animation-duration-m) var(--animation-easing-default);
+    }
+  }
 
-      &:hover {
-        background-color: var(--violete-dark);
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: var(--border-height-s) var(--violete) dashed;
+    height: 13.8rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: color var(--animation-duration-m) var(--animation-easing-default),
+    background-color var(--animation-duration-m) var(--animation-easing-default);
 
-        span:last-child {
-          color: var(--text-secondary);
-        }
+    @include breakpoint.tabletDown {
+      width: 13.75rem;
+      height: 14.625rem;
+    }
+
+    &:hover {
+      background-color: var(--violete-dark);
+
+      span:last-child {
+        color: var(--text-secondary);
       }
+    }
+  }
+
+  .circle {
+    @include breakpoint.tabletDown {
+      width: 13.75rem;
+      height: 13.75rem;
     }
   }
 

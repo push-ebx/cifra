@@ -16,6 +16,7 @@ section.root {
 
   @include breakpoint.tabletDown {
     padding-bottom: 6.25rem;
+    position: relative;
   }
 
   .heading {

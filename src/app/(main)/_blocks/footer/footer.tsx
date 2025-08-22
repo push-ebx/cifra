@@ -1,3 +1,5 @@
+'use client';
+
 import {
 	Button,
 	Container,
@@ -5,10 +7,13 @@ import {
 	Display,
 	Image,
 } from '@/components/ui';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 
 import styles from './footer.module.scss';
 
 export const Footer = () => {
+	const bp = useBreakpoint();
+
 	return (
 		<Container className={styles.root} tag="footer">
 			<div className={styles.content}>
@@ -21,7 +26,11 @@ export const Footer = () => {
 					<Display className={styles.heading} color="violete" size="l">
 						запусти свой стартап
 					</Display>
-					<Button className={styles.button} size="l" variant="secondary">
+					<Button
+						className={styles.button}
+						size={bp === 'mobile' ? 'l' : 'l'}
+						variant="secondary"
+					>
 						начать
 					</Button>
 				</div>

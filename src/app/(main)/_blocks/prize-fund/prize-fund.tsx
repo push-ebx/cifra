@@ -53,11 +53,13 @@ export const PrizeFund = () => {
 				>
 					{_cards}
 				</Carousel>
-				<CarouselDots
-					activeSlide={activeSlide}
-					onDotClick={setActiveSlide}
-					totalSlides={_cards?.length ?? 0}
-				/>
+				<div className={styles.carouselDots}>
+					<CarouselDots
+						activeSlide={activeSlide}
+						onDotClick={setActiveSlide}
+						totalSlides={_cards?.length ?? 0}
+					/>
+				</div>
 
 				<div className={styles.cards}>{_cards}</div>
 			</div>

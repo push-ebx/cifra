@@ -41,20 +41,20 @@ const Home = async () => {
 				<EducationalProgram />
 				<EducationalProgramMobile />
 			</div>
-			{/*<VideoSection />*/}
+			<VideoSection />
 			<WhatDoUGet />
 			<CifraFroU />
-			{/*<Slider />*/}
-			{/*<Timeline />*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Graduates />*/}
-			{/*</div>*/}
-			{/*<RunningLine />*/}
-			{/*<Partners />*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Faq />*/}
-			{/*	<Footer />*/}
-			{/*</div>*/}
+			<Slider />
+			<Timeline />
+			<div style={{ position: 'relative' }}>
+				<Graduates />
+			</div>
+			<RunningLine />
+			<Partners />
+			<div style={{ position: 'relative' }}>
+				<Faq />
+				<Footer />
+			</div>
 			<JsonLd schema={webPageSchema} />
 		</>
 	);

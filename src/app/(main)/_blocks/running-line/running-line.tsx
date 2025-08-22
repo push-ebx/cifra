@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { Heading, Image } from '@/components/ui';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 
 import styles from './running-line.module.scss';
 
@@ -14,6 +15,7 @@ const srcImages = [
 
 export const RunningLine = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
+	const bp = useBreakpoint();
 
 	useEffect(() => {
 		let timeout: NodeJS.Timeout;
@@ -32,7 +34,9 @@ export const RunningLine = () => {
 		<section className={styles.root} data-theme="purple">
 			<div className={styles.wrapper}>
 				<Heading className={styles.line} color="violete" size="xl">
-					как это было как это было как это было как это было
+					{bp === 'mobile'
+						? 'как это было'
+						: 'как это было как это было как это было как это было'}
 				</Heading>
 				<div className={styles.gallery}>
 					<Image alt="img" src={srcImages[currentIndex]} />

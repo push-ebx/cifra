@@ -4,12 +4,14 @@ type CarouselDotsProps = {
 	activeSlide: number;
 	totalSlides: number;
 	onDotClick: (index: number) => void;
+	activeColor?: string;
 };
 
 export const CarouselDots = ({
 	activeSlide,
 	totalSlides,
 	onDotClick,
+	activeColor = '#fff',
 }: CarouselDotsProps) => {
 	const containerStyle: React.CSSProperties = {
 		display: 'flex',
@@ -35,7 +37,7 @@ export const CarouselDots = ({
 			const isActive = index === activeSlide;
 			const style: React.CSSProperties = {
 				...dotBaseStyle,
-				backgroundColor: isActive ? '#fff' : '#BD9BF4',
+				backgroundColor: isActive ? activeColor : '#BD9BF4',
 			};
 
 			return (

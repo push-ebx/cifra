@@ -48,6 +48,14 @@ section.root {
     }
   }
 
+  .carouselDots {
+    display: none;
+
+    @include breakpoint.tabletDown {
+      display: block;
+    }
+  }
+
   .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

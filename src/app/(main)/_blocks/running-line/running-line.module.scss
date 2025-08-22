@@ -1,3 +1,5 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   height: 54.5rem;
   background-color: var(--violete-dark);
@@ -8,6 +10,11 @@ section.root {
   position: relative;
   z-index: 3;
 
+  @include breakpoint.tabletDown {
+    height: auto;
+    padding: 3.12rem var(--padding-horizontal-base);
+  }
+
   .wrapper {
     position: relative;
     width: 55.625rem;
@@ -17,6 +24,11 @@ section.root {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
+    @include breakpoint.tabletDown {
+      height: auto;
+      width: 100%;
+    }
   }
 
   .line {
@@ -26,6 +38,12 @@ section.root {
     display: inline-block;
     margin-left: 74rem;
     animation: marquee 8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+
+    @include breakpoint.tabletDown {
+      animation: none;
+      margin-left: 0;
+      margin-bottom: 2.3rem;
+    }
   }
 
   @keyframes marquee {
@@ -43,6 +61,12 @@ section.root {
   .gallery {
     position: absolute;
     z-index: 3;
+
+    @include breakpoint.tabletDown {
+      position: relative;
+      width: 20.90625rem;
+      height: 13.9375rem;
+    }
 
     img {
       width: 33.75rem;
