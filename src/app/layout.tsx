@@ -4,6 +4,8 @@ import localFont from 'next/font/local';
 
 import ReactLenis from 'lenis/react';
 
+import { AppLoader } from '@/app/_app-loader';
+
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
 
@@ -52,6 +54,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 				<ReactLenis root>
 					<div id={'app-root'}>
 						{/*<Menu />*/}
+						<AppLoader />
 						<main className={'main'}>{children}</main>
 						{/*<Footer />*/}
 					</div>
