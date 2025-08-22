@@ -74,6 +74,7 @@ export const Graduates = () => {
 									onClick={() => togglePlayPause(index)}
 								>
 									<video
+										// @ts-expect-error ...
 										ref={(el) => (videoRefs.current[index] = el)}
 										autoPlay
 										className={styles.video}
