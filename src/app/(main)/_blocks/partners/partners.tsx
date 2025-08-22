@@ -14,6 +14,17 @@ export const Partners = () => {
 				{partners.map((partner, index) => (
 					<Image key={index} alt={'partner'} src={partner} />
 				))}
+				<a
+					href="https://startup-studia.ru/"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<Image
+						alt="partner"
+						className={styles.struktura}
+						src="/images/partners/struktura.webp"
+					/>
+				</a>
 			</div>
 		</Container>
 	);
@@ -26,5 +37,4 @@ const partners = [
 	'/images/partners/tochka.webp',
 	'/images/partners/platform-nti.webp',
 	'/images/partners/digital-growth.webp',
-	'/images/partners/struktura.webp',
 ];

@@ -50,7 +50,7 @@ const Home = async () => {
 				<Graduates />
 			</div>
 			{/*<RunningLine />*/}
-			{/*<Partners />*/}
+			<Partners />
 			{/*<div style={{ position: 'relative' }}>*/}
 			{/*	<Faq />*/}
 			{/*	<Footer />*/}

@@ -1,14 +1,63 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Body, Container, Heading, Image } from '@/components/ui';
-import { PlayButton } from '@/components/widgets';
+import { PauseButton, PlayButton } from '@/components/widgets';
 
 import styles from './graduates.module.scss';
 
 export const Graduates = () => {
-	const [activeVideo, setActiveVideo] = useState<number | null>(null);
+	const [activeVideos, setActiveVideos] = useState<Set<number>>(new Set());
+	const [pausedVideos, setPausedVideos] = useState<Set<number>>(new Set());
+	const [playingVideos, setPlayingVideos] = useState<Set<number>>(new Set());
+
+	const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+	const toggleVideo = (index: number) => {
+		setActiveVideos((prev) => {
+			const newSet = new Set(prev);
+			if (newSet.has(index)) {
+				newSet.delete(index);
+			} else {
+				newSet.add(index);
+			}
+			return newSet;
+		});
+	};
+
+	const togglePlayPause = (index: number) => {
+		const video = videoRefs.current[index];
+		if (!video) return;
+
+		if (video.paused) {
+			video.play();
+			setPlayingVideos((prev) => new Set(prev).add(index));
+			setTimeout(() => {
+				setPlayingVideos((prev) => {
+					const newSet = new Set(prev);
+					newSet.delete(index);
+					return newSet;
+				});
+			}, 1000);
+
+			setPausedVideos((prev) => {
+				const newSet = new Set(prev);
+				newSet.delete(index);
+				return newSet;
+			});
+		} else {
+			video.pause();
+			setPausedVideos((prev) => new Set(prev).add(index));
+			setTimeout(() => {
+				setPausedVideos((prev) => {
+					const newSet = new Set(prev);
+					newSet.delete(index);
+					return newSet;
+				});
+			}, 1000);
+		}
+	};
 
 	return (
 		<Container className={styles.root} data-theme="white" tag="section">
@@ -19,17 +68,37 @@ export const Graduates = () => {
 				{cards.map((card, index) => (
 					<div key={index} className={styles.card}>
 						<div className={styles.videoContainer}>
-							{activeVideo === index ? (
-								<video
-									autoPlay={true}
-									className={styles.video}
-									controls={false}
-									src={card.srcVideo}
-								/>
+							{activeVideos.has(index) ? (
+								<div
+									className={styles.videoWrapper}
+									onClick={() => togglePlayPause(index)}
+								>
+									<video
+										ref={(el) => (videoRefs.current[index] = el)}
+										autoPlay
+										className={styles.video}
+										controls={false}
+										src={card.srcVideo}
+									/>
+									{pausedVideos.has(index) && (
+										<div className={styles.pauseOverlay}>
+											<PauseButton height={'3rem'} width={'3rem'} />
+										</div>
+									)}
+									{playingVideos.has(index) && (
+										<div className={styles.playOverlay}>
+											<PlayButton
+												className={styles.playButton}
+												height={'3rem'}
+												width={'3rem'}
+											/>
+										</div>
+									)}
+								</div>
 							) : (
 								<div
 									className={styles.preview}
-									onClick={() => setActiveVideo(index)}
+									onClick={() => toggleVideo(index)}
 								>
 									<Image alt="preview" loading="lazy" src={card.srcImage} />
 									<PlayButton className={styles.playButton} />
