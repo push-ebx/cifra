@@ -1,0 +1,63 @@
+@use 'sass:string';
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  z-index: 999;
+  transition: opacity var(--animation-duration-l) var(--animation-easing-default);
+}
+
+.root.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.progressText {
+  font-size: 11.25rem !important;
+}
+
+.description {
+  text-align: center;
+  width: 23.6875rem;
+}
+
+.progressText::after {
+  content: '0%';
+  animation: preload-count 3s steps(80) forwards;
+}
+
+.root.imagesLoaded .progressText::after {
+  animation: final-count 2s steps(20) forwards;
+}
+
+@keyframes preload-count {
+  @for $i from 1 through 80 {
+    #{$i}% {
+      @if $i < 10 {
+        content: string.quote(0 + $i + '%');
+      } @else {
+        content: string.quote($i + '%');
+      }
+    }
+  }
+
+  100% {
+    content: '80%';
+  }
+}
+
+@keyframes final-count {
+  @for $i from 80 through 100 {
+    #{($i - 80) * 5}% {
+      content: string.quote($i + '%');
+    }
+  }
+}

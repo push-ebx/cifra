@@ -56,13 +56,13 @@ export const Typography = <
 
 	return (
 		<Component
+			{...restProps}
 			className={clsx(
-				className,
 				styles.root,
 				weight && weightCn[weight],
-				colorCn[color]
+				colorCn[color],
+				className
 			)}
-			{...restProps}
 		>
 			{children}
 		</Component>

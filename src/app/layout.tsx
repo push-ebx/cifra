@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 
 import ReactLenis from 'lenis/react';
 
+import { AppLoader } from '@/app/_app-loader';
 import { Button } from '@/components/ui';
 import { Menu } from '@/components/widgets';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
@@ -57,6 +58,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 					<div id={'app-root'}>
 						<Menu />
 						<FixedButtons />
+						<AppLoader />
 						<main className={'main'}>{children}</main>
 						{/*<Footer />*/}
 					</div>

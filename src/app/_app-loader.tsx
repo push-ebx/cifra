@@ -2,71 +2,114 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { Body, Spinner } from '@/components/ui';
+import { clsx } from 'clsx';
 
-export const AppLoader = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const ref = useRef<HTMLDivElement | null>(null);
+import { Description, Heading } from '@/components/ui';
+import { useScrollLock } from '@/hooks/client';
 
-  useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+import styles from './app-loader.module.scss';
 
-    const animation = element.animate(
-      { opacity: 0 },
-      { duration: 300, easing: 'ease-out', fill: 'forwards' }
-    );
+type AppLoaderProps = {
+	onLoaded?: () => void;
+};
 
-    animation.onfinish = () => {
-      setIsVisible(false);
-    };
-  }, []);
+const imageUrls = ['/images/cube.webp'];
 
-  if (!isVisible) return null;
+export const AppLoader = ({ onLoaded }: AppLoaderProps) => {
+	const [isVisible, setIsVisible] = useState(true);
+	const [isScriptsLoaded, setIsScriptsLoaded] = useState(false);
+	const [isImagesLoaded, setIsImagesLoaded] = useState(false);
+	const [isFading, setIsFading] = useState(false);
 
-  return (
-    <div ref={ref} className={'appLoader'}>
-      <style>{`
-.appLoader {
-  position: fixed;
-  inset: 0;
-  opacity: 0;
-  background: var(--background-page);
-  color: var(--text-primary);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 2;
-  animation-name: show;
+	const rootRef = useRef<HTMLDivElement | null>(null);
+	useScrollLock(isVisible);
 
-  animation-delay: 250ms;
-  animation-duration: var(--animation-duration-m);
-  animation-fill-mode: forwards;
-}
+	useEffect(() => {
+		const handleLoad = () => setIsScriptsLoaded(true);
 
-html {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  overflow: hidden;
-}
+		if (document.readyState === 'complete') {
+			setIsScriptsLoaded(true);
+		} else {
+			window.addEventListener('load', handleLoad, { once: true });
+		}
+	}, []);
 
-@keyframes show {
-  0% {
-    opacity: 0;
-  }
+	const loadImages = (urls: string[]) => {
+		return Promise.all(
+			urls.map(
+				(src) =>
+					new Promise((resolve) => {
+						const img = new Image();
+						Object.assign(img, { src, onload: resolve, onerror: resolve });
+					})
+			)
+		);
+	};
 
-  100% {
-    opacity: 1;
-  }
-}
-      `}</style>
-      <Body size={'l'} weight={'medium'}>
-        Loading <Spinner />
-      </Body>
-    </div>
-  );
+	useEffect(() => {
+		if (!isScriptsLoaded) return;
+
+		loadImages(imageUrls).then(() => {
+			setIsImagesLoaded(true);
+		});
+	}, [isScriptsLoaded]);
+
+	useEffect(() => {
+		if (!isImagesLoaded) return;
+		const element = rootRef.current;
+		if (!element) return;
+
+		const progressText = element.querySelector(`.${styles.progressText}`);
+		if (!progressText) return;
+
+		const handleAnimationEnd = () => {
+			setIsFading(true);
+		};
+
+		progressText.addEventListener('animationend', handleAnimationEnd);
+		return () => {
+			progressText.removeEventListener('animationend', handleAnimationEnd);
+		};
+	}, [isImagesLoaded]);
+
+	useEffect(() => {
+		if (!isFading) return;
+		const element = rootRef.current;
+		if (!element) return;
+
+		const handleTransitionEnd = () => {
+			document.documentElement.setAttribute('data-loaded', 'true');
+			setIsVisible(false);
+			onLoaded?.();
+		};
+
+		element.addEventListener('transitionend', handleTransitionEnd);
+		return () => {
+			element.removeEventListener('transitionend', handleTransitionEnd);
+		};
+	}, [isFading, onLoaded]);
+
+	if (!isVisible) return null;
+
+	return (
+		<div
+			ref={rootRef}
+			className={clsx(
+				styles.root,
+				isImagesLoaded && styles.imagesLoaded,
+				isFading && styles.fadeOut
+			)}
+		>
+			<Heading
+				className={styles.progressText}
+				color={'darkViolete'}
+				weight={'extraBold'}
+			/>
+			<Description className={styles.description} size={'xl'}>
+				главное не волновайся, еще чуть чуть...
+			</Description>
+		</div>
+	);
 };
 
 AppLoader.displayName = 'AppLoader';
