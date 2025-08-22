@@ -1,3 +1,5 @@
+'use client';
+
 import {
 	Button,
 	Container,
@@ -6,8 +8,6 @@ import {
 	Image,
 } from '@/components/ui';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
-import { Checkbox } from '@/components/ui/checkbox/checkbox';
-import { Form } from '@/components/widgets';
 
 import styles from './footer.module.scss';
 
