@@ -1,3 +1,5 @@
+@use '/src/styles/mixins/breakpoint';
+
 .root {
   height: 50rem;
   width: 100%;
@@ -11,6 +13,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .rotateButton {
+      @include breakpoint.tabletDown {
+        max-width: 12.0625rem;
+        text-align: center;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+      }
+    }
 
     .playButton {
       position: absolute;

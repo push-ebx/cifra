@@ -41,7 +41,7 @@ const Home = async () => {
 				<EducationalProgram />
 				<EducationalProgramMobile />
 			</div>
-			{/*<VideoSection />*/}
+			<VideoSection />
 			{/*<WhatDoUGet />*/}
 			{/*<CifraFroU />*/}
 			{/*<Slider />*/}
