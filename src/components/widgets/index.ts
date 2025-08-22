@@ -1,5 +1,6 @@
 export { Counter } from './counter/counter';
 export { Footer } from './footer/footer';
+export { Form } from './form/form';
 export { Header } from './header/header';
 export { Menu } from './menu/menu';
 export { PauseButton } from './pause-button/pause-button';

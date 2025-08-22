@@ -2,10 +2,12 @@ export const CrossIcon = ({
 	fill = '#752CE8',
 	width = '0.875rem',
 	height = '0.875rem',
+	className = '',
 	...props
 }) => {
 	return (
 		<svg
+			className={className}
 			fill="none"
 			height={height}
 			viewBox="0 0 24 24"

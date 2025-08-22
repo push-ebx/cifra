@@ -1,3 +1,5 @@
+@use "src/styles/mixins/breakpoint";
+
 @mixin displayXL {
   font-size: 4.75rem; // 76px
   line-height: 110%;
@@ -115,6 +117,11 @@
   letter-spacing: -0.02em;
   font-weight: 400;
   font-family: var(--font-ppmachina-plain), sans-serif;
+
+  @include breakpoint.tabletDown {
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+  }
 }
 
 @mixin descriptionL {

@@ -1,0 +1,95 @@
+@use '/src/styles/mixins/utils';
+@use '/src/styles/mixins/breakpoint';
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+
+  .visual {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color var(--animation-duration-m) var(--animation-easing-default),
+                border var(--animation-duration-m) var(--animation-easing-default);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: var(--border-height-s) solid rgba(255, 255, 255, 0.24);
+      transition: opacity var(--animation-duration-m) var(--animation-easing-default);
+      z-index: 2;
+      background-color: transparent;
+    }
+
+    border: #E0E0E0 0.0625rem solid;
+  }
+
+  .visual.isChecked {
+    background-color: var(--violete-dark);
+    border: var(--violete-dark) 0.0625rem solid;
+  }
+
+  .input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+
+    &:checked {
+      + .visual {
+        &::before {
+          opacity: 1;
+        }
+
+        &::after {
+          opacity: 0;
+        }
+
+        .icon svg path {
+          animation: check-animation 150ms var(--animation-easing-default) forwards;
+        }
+      }
+    }
+  }
+
+  .icon {
+    width: 0.625rem;
+    height: 0.375rem;
+    position: relative;
+    z-index: 3;
+    top: -0.45rem;
+
+    @include breakpoint.desktopDown {
+      top: -0.4rem;
+      left: 0;
+    }
+
+    @include breakpoint.tabletDown {
+      top: -0.45rem;
+      left: 0;
+    }
+
+    svg path {
+      stroke-dasharray: 14;
+      stroke-dashoffset: 14;
+    }
+  }
+}
+
+@keyframes check-animation {
+  from {
+    stroke-dashoffset: 14;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

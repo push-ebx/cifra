@@ -1,0 +1,84 @@
+@use '/src/styles/mixins/utils';
+@use '/src/styles/mixins/typography';
+
+.wrapper {
+  position: relative;
+  display: flex;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--input-border-radius);
+    @include utils.innerBorder(var(--border-height-s), rgba(255, 255, 255, 0.08));
+    transition: opacity var(--animation-duration-m) var(--animation-easing-default);
+    opacity: 1;
+  }
+
+  border: #E0E0E0 solid 0.0625rem;
+  border-radius: 0.5rem;
+  background: #F5F5F5;
+
+  &:hover:not(.disabled) {
+    &::before {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 0;
+    }
+  }
+
+  &:focus-within {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &.error {
+    &::after {
+      border: var(--border-height-m) solid #D34250;
+      opacity: 1;
+    }
+  }
+
+  .input {
+    @include typography.descriptionXXSStrong;
+    width: 100%;
+    outline: none;
+    padding: 0.75rem;
+    background: transparent;
+    border: none;
+    position: relative;
+    z-index: 3;
+
+    &::placeholder {
+      color: var(--gray);
+    }
+
+    &.hasRightIcon {
+      padding-right: 2.5rem;
+    }
+  }
+
+  .rightIcon {
+    position: absolute;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 4;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+.errorMessage {
+  color: var(--input-error-color, red);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

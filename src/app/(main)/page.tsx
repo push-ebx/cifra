@@ -32,15 +32,15 @@ const Home = async () => {
 	return (
 		<>
 			<Hero />
-			<div style={{ position: 'relative' }}>
-				<AcceleratorIs />
-				<PrizeFund />
-			</div>
-			<div style={{ position: 'relative' }}>
-				<Tracks />
-				<EducationalProgram />
-				<EducationalProgramMobile />
-			</div>
+			{/*<div style={{ position: 'relative' }}>*/}
+			{/*	<AcceleratorIs />*/}
+			{/*	<PrizeFund />*/}
+			{/*</div>*/}
+			{/*<div style={{ position: 'relative' }}>*/}
+			{/*	<Tracks />*/}
+			{/*	<EducationalProgram />*/}
+			{/*	<EducationalProgramMobile />*/}
+			{/*</div>*/}
 			<VideoSection />
 			{/*<WhatDoUGet />*/}
 			{/*<CifraFroU />*/}
@@ -51,10 +51,10 @@ const Home = async () => {
 			</div>
 			{/*<RunningLine />*/}
 			<Partners />
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Faq />*/}
-			{/*	<Footer />*/}
-			{/*</div>*/}
+			<div style={{ position: 'relative' }}>
+				<Faq />
+				<Footer />
+			</div>
 			<JsonLd schema={webPageSchema} />
 		</>
 	);

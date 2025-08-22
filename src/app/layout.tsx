@@ -54,6 +54,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 			lang="ru"
 		>
 			<body>
+				<div id={'modal-root'}></div>
 				<ReactLenis root>
 					<div id={'app-root'}>
 						<Menu />
