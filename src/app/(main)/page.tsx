@@ -3,6 +3,7 @@ import type { WebPage, WithContext } from 'schema-dts';
 import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-is';
 import { CifraFroU } from '@/app/(main)/_blocks/cifra-fro-u/cifra-fro-u';
 import { EducationalProgram } from '@/app/(main)/_blocks/educational-program/educational-program';
+import { EducationalProgramMobile } from '@/app/(main)/_blocks/educational-program-mobile/educational-program-mobile';
 import { Faq } from '@/app/(main)/_blocks/faq/faq';
 import { Footer } from '@/app/(main)/_blocks/footer/footer';
 import { Graduates } from '@/app/(main)/_blocks/graduates/graduates';
@@ -38,15 +39,16 @@ const Home = async () => {
 			<div style={{ position: 'relative' }}>
 				<Tracks />
 				<EducationalProgram />
+				<EducationalProgramMobile />
 			</div>
 			{/*<VideoSection />*/}
 			{/*<WhatDoUGet />*/}
 			{/*<CifraFroU />*/}
 			{/*<Slider />*/}
 			{/*<Timeline />*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Graduates />*/}
-			{/*</div>*/}
+			<div style={{ position: 'relative' }}>
+				<Graduates />
+			</div>
 			{/*<RunningLine />*/}
 			{/*<Partners />*/}
 			{/*<div style={{ position: 'relative' }}>*/}

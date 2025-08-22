@@ -1,0 +1,45 @@
+@use '/src/styles/mixins/breakpoint';
+
+section.root {
+  --text-count: 5;
+  position: sticky;
+  top: 0;
+  height: calc(var(--text-count) * 50vh + 120vh);
+  background-color: var(--violete-dark);
+  z-index: 23;
+  display: none;
+
+  @include breakpoint.desktopDown {
+    display: block;
+  }
+}
+
+.sticky {
+  position: sticky;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  align-items: center;
+  justify-content:  center;
+  gap: 3.5rem;
+  flex-direction: column;
+  text-align: center;
+
+  > span:first-child {
+    width: 13rem;
+  }
+}
+
+.programs {
+  display: flex;
+  align-items: center;
+  height: 80dvh;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .program {
+    transition: opacity var(--animation-duration-m) var(--animation-easing-default);
+  }
+}
