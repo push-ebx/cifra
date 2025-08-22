@@ -1,13 +1,21 @@
 'use client';
 
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+import { CrossIcon } from '@/components/icons/cross-icon';
 import {
 	Button,
 	Container,
 	Description,
 	Display,
 	Image,
+	Input,
+	Modal,
+	Tab,
 } from '@/components/ui';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
+import { Checkbox } from '@/components/ui/checkbox/checkbox';
+import { Form } from '@/components/widgets';
 
 import styles from './footer.module.scss';
 
