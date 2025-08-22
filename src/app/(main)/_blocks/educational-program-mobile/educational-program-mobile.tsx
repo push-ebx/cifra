@@ -17,7 +17,12 @@ export const EducationalProgramMobile = () => {
 	const { index, rootRef } = useScrollIndex(programs.length);
 
 	return (
-		<Container ref={rootRef} className={styles.root} tag="section">
+		<Container
+			ref={rootRef}
+			className={styles.root}
+			data-hide-fixed-buttons
+			tag="section"
+		>
 			<div className={styles.sticky}>
 				<Body color="violete" size="m">
 					образовательная программа {index}

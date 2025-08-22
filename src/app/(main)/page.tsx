@@ -36,25 +36,25 @@ const Home = async () => {
 				<AcceleratorIs />
 				<PrizeFund />
 			</div>
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Tracks />*/}
-			{/*	<EducationalProgram />*/}
-			{/*	<EducationalProgramMobile />*/}
-			{/*</div>*/}
-			{/*<VideoSection />*/}
+			<div style={{ position: 'relative' }}>
+				<Tracks />
+				<EducationalProgram />
+				<EducationalProgramMobile />
+			</div>
+			<VideoSection />
 			<WhatDoUGet />
-			{/*<CifraFroU />*/}
-			{/*<Slider />*/}
-			{/*<Timeline />*/}
+			<CifraFroU />
+			<Slider />
+			<Timeline />
 			<div style={{ position: 'relative' }}>
 				<Graduates />
 			</div>
-			{/*<RunningLine />*/}
+			<RunningLine />
 			<Partners />
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Faq />*/}
-			{/*	<Footer />*/}
-			{/*</div>*/}
+			<div style={{ position: 'relative' }}>
+				<Faq />
+				<Footer />
+			</div>
 			<JsonLd schema={webPageSchema} />
 		</>
 	);
