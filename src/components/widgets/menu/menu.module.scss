@@ -3,10 +3,16 @@
 .root {
   width: 14.6225rem;
   position: fixed;
-  top: 1.62rem;
+  top: 0;
+  padding-top: 1.62rem;
+  padding-bottom: 1.62rem;
   z-index: 20;
   will-change: clip-path;
   padding-left: 2.56rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 
   .logo {
     width: 1.75rem;
@@ -22,16 +28,20 @@
     margin-top: 1rem;
   }
 
+  .withMascot {
+    position: relative;
+  }
+
   .maskot {
     position: absolute;
     width: 9.30131rem;
     height: 7.77738rem;
-    top: 13.8rem;
-    left: 3.1rem;
+    top: -4.7rem;
+    left: 0.6rem;
   }
 
   .it2025 {
-    margin-top: 6.25rem;
+    //margin-top: 6.25rem;
     width: 10.375rem;
   }
 
@@ -39,7 +49,7 @@
     margin-top: 0.5rem;
   }
 
-  button {
+  > div > button {
     width: 100%;
     margin-top: 1.5rem;
   }
@@ -47,6 +57,7 @@
   .btns {
     display: flex;
     gap: 0.25rem;
+    margin-top: 0.75rem;
 
     button {
       width: 2.5rem;
@@ -81,13 +92,13 @@
   }
 
   .getInTouch {
-    margin-top: 6.25rem;
+    //margin-top: 6.25rem;
   }
 
   .gradient {
     position: absolute;
     top: 5.4rem;
-    left: -20rem;
+    left: -22rem;
     z-index: -1;
     overflow: visible;
     width: 50rem;

@@ -107,57 +107,69 @@ export const Menu = () => {
 	return (
 		<>
 			<div aria-hidden={false} className={clsx(styles.root, styles.white)}>
-				<Image alt="logo" className={styles.logo} src="/images/logo.svg" />
-				<nav className={styles.navigation}>
-					{NAVIGATION_MENU.map((item) => (
-						<Link
-							key={item.href}
-							href={item.href}
-							className={clsx(
-								'#' + activeSection === item.href && styles.active
-							)}
-						>
-							{item.label}
-						</Link>
-					))}
-				</nav>
-				<Display className={styles.it2025} color="secondary" size="xs">
-					IT - акселератор 2025
-				</Display>
-				<Description className={styles.description} color="secondary" size="xs">
-					Бесплатная программа для студентов всех вузов
-				</Description>
-				<Button size="s">участвовать</Button>
-				<Description className={styles.getInTouch} size="xs">
-					cвяжись с нами
-				</Description>
+				<div>
+					<Image alt="logo" className={styles.logo} src="/images/logo.svg" />
+					<nav className={styles.navigation}>
+						{NAVIGATION_MENU.map((item) => (
+							<Link
+								key={item.href}
+								href={item.href}
+								className={clsx(
+									'#' + activeSection === item.href && styles.active
+								)}
+							>
+								{item.label}
+							</Link>
+						))}
+					</nav>
+				</div>
+				<div className={styles.withMascot}>
+					<Display className={styles.it2025} color="secondary" size="xs">
+						IT - акселератор 2025
+					</Display>
+					<Description
+						className={styles.description}
+						color="secondary"
+						size="xs"
+					>
+						бесплатная программа для студентов всех вузов
+					</Description>
+					<Button size="s">участвовать</Button>
 
-				<div className={styles.btns}>
-					<IconButton className={styles.vk} />
-					<IconButton className={styles.tg} />
+					<Image
+						alt="maskot"
+						className={styles.maskot}
+						src="/images/maskot.webp"
+					/>
 				</div>
 
-				<Link className={styles.privacy} href="#">
-					<Description color="darkGray" size="xxs">
-						политика конфиденциальности
-					</Description>
-				</Link>
-				<Description color="darkGray" size="xxs">
-					cifra 2025
-				</Description>
+				<div>
+					<Image
+						alt="gradient"
+						className={styles.gradient}
+						fetchPriority="high"
+						priority
+						src="/images/violet-gr.webp"
+					/>
 
-				<Image
-					alt="gradient"
-					className={styles.gradient}
-					fetchPriority="high"
-					priority
-					src="/images/violet-gr.webp"
-				/>
-				<Image
-					alt="maskot"
-					className={styles.maskot}
-					src="/images/maskot.webp"
-				/>
+					<Description className={styles.getInTouch} size="xs">
+						cвяжись с нами
+					</Description>
+
+					<div className={styles.btns}>
+						<IconButton className={styles.vk} />
+						<IconButton className={styles.tg} />
+					</div>
+
+					<Link className={styles.privacy} href="#">
+						<Description color="darkGray" size="xxs">
+							политика конфиденциальности
+						</Description>
+					</Link>
+					<Description color="darkGray" size="xxs">
+						cifra 2025
+					</Description>
+				</div>
 			</div>
 
 			<div
@@ -166,55 +178,67 @@ export const Menu = () => {
 				className={clsx(styles.root, styles.purple)}
 				style={{ clipPath }}
 			>
-				<Image alt="logo" className={styles.logo} src="/images/logo.svg" />
-				<nav className={styles.navigation}>
-					{NAVIGATION_MENU.map((item) => (
-						<Link
-							key={item.href}
-							href={item.href}
-							className={clsx(
-								'#' + activeSection === item.href && styles.active
-							)}
-						>
-							{item.label}
-						</Link>
-					))}
-				</nav>
-				<Display className={styles.it2025} color="secondary" size="xs">
-					IT - акселератор 2025
-				</Display>
-				<Description className={styles.description} color="secondary" size="xs">
-					Бесплатная программа для студентов всех вузов
-				</Description>
-				<Button size="s">участвовать</Button>
-				<Description className={styles.getInTouch} size="xs">
-					cвяжись с нами
-				</Description>
+				<div>
+					<Image alt="logo" className={styles.logo} src="/images/logo.svg" />
+					<nav className={styles.navigation}>
+						{NAVIGATION_MENU.map((item) => (
+							<Link
+								key={item.href}
+								href={item.href}
+								className={clsx(
+									'#' + activeSection === item.href && styles.active
+								)}
+							>
+								{item.label}
+							</Link>
+						))}
+					</nav>
+				</div>
+				<div className={styles.withMascot}>
+					<Display className={styles.it2025} color="secondary" size="xs">
+						IT - акселератор 2025
+					</Display>
+					<Description
+						className={styles.description}
+						color="secondary"
+						size="xs"
+					>
+						бесплатная программа для студентов всех вузов
+					</Description>
+					<Button size="s">участвовать</Button>
 
-				<div className={styles.btns}>
-					<IconButton className={styles.vk} />
-					<IconButton className={styles.tg} />
+					<Image
+						alt="maskot"
+						className={styles.maskot}
+						src="/images/maskot.webp"
+					/>
 				</div>
 
-				<Link className={styles.privacy} href="#">
-					<Description color="violete" size="xxs">
-						политика конфиденциальности
+				<div>
+					<Description className={styles.getInTouch} size="xs">
+						cвяжись с нами
 					</Description>
-				</Link>
-				<Description color="violete" size="xxs">
-					cifra 2025
-				</Description>
 
-				<Image
-					alt="gradient"
-					className={styles.gradient}
-					src="/images/gray-gr.webp"
-				/>
-				<Image
-					alt="maskot"
-					className={styles.maskot}
-					src="/images/maskot.webp"
-				/>
+					<div className={styles.btns}>
+						<IconButton className={styles.vk} />
+						<IconButton className={styles.tg} />
+					</div>
+
+					<Link className={styles.privacy} href="#">
+						<Description color="violete" size="xxs">
+							политика конфиденциальности
+						</Description>
+					</Link>
+					<Description color="violete" size="xxs">
+						cifra 2025
+					</Description>
+
+					<Image
+						alt="gradient"
+						className={styles.gradient}
+						src="/images/gray-gr.webp"
+					/>
+				</div>
 			</div>
 		</>
 	);
