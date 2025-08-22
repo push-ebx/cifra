@@ -1,38 +1,18 @@
-'use client';
-
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-
-import { CrossIcon } from '@/components/icons/cross-icon';
 import {
 	Button,
 	Container,
 	Description,
 	Display,
 	Image,
-	Input,
-	Modal,
-	Tab,
 } from '@/components/ui';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 import { Checkbox } from '@/components/ui/checkbox/checkbox';
 import { Form } from '@/components/widgets';
 
 import styles from './footer.module.scss';
 
 export const Footer = () => {
-	const searchParams = useSearchParams();
-	const router = useRouter();
-	const pathname = usePathname();
-
-	const openModal = () => {
-		const params = new URLSearchParams(searchParams.toString());
-		params.set('modal', 'true');
-
-		const qs = params.toString();
-		const hash = typeof window !== 'undefined' ? window.location.hash : '';
-
-		const href = qs ? `${pathname}?${qs}${hash}` : `${pathname}${hash}`;
-		router.replace(href, { scroll: false });
-	};
+	const bp = useBreakpoint();
 
 	return (
 		<Container className={styles.root} tag="footer">
@@ -48,14 +28,12 @@ export const Footer = () => {
 					</Display>
 					<Button
 						className={styles.button}
-						onClick={openModal}
-						size="l"
+						size={bp === 'mobile' ? 'l' : 'l'}
 						variant="secondary"
 					>
 						начать
 					</Button>
 				</div>
-
 				<Description className={styles.date} color="violete" size="xxs">
 					Cifra {new Date().getFullYear()}
 				</Description>

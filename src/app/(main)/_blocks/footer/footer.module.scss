@@ -1,3 +1,5 @@
+@use '/src/styles/mixins/breakpoint';
+
 footer.root {
   padding-top: 3.75rem;
   padding-bottom: 2rem;
@@ -8,6 +10,10 @@ footer.root {
   z-index: 23;
   position: relative;
   height: 100dvh;
+
+  @include breakpoint.tabletDown {
+    height: auto;
+  }
 
   .content {
     display: flex;
@@ -27,13 +33,25 @@ footer.root {
 
   .heading {
     text-align: center;
+
+    @include breakpoint.tabletDown {
+      font-size: 2.5rem;
+      margin-top: 1rem;
+    }
   }
 
   .image {
+    width: 30rem;
   }
 
   .button {
     margin-top: 1.5rem;
+
+    @include breakpoint.tabletDown {
+      height: 3.75rem;
+      padding: 1.25rem 5rem;
+      font-size: 1.25rem;
+    }
   }
 
   .date {

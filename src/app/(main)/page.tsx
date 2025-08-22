@@ -42,14 +42,14 @@ const Home = async () => {
 			{/*	<EducationalProgramMobile />*/}
 			{/*</div>*/}
 			<VideoSection />
-			{/*<WhatDoUGet />*/}
-			{/*<CifraFroU />*/}
-			{/*<Slider />*/}
-			{/*<Timeline />*/}
+			<WhatDoUGet />
+			<CifraFroU />
+			<Slider />
+			<Timeline />
 			<div style={{ position: 'relative' }}>
 				<Graduates />
 			</div>
-			{/*<RunningLine />*/}
+			<RunningLine />
 			<Partners />
 			<div style={{ position: 'relative' }}>
 				<Faq />

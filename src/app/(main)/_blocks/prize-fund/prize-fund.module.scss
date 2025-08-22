@@ -14,11 +14,45 @@ section.root {
     padding-bottom: 5rem;
   }
 
+  @include breakpoint.tabletDown {
+    padding-top: 3.1rem;
+    padding-bottom: 3rem;
+  }
+
   .contentWrapper {
     width: 44.25rem;
 
+    @include breakpoint.tabletDown {
+      width: 100%;
+    }
+
     .heading {
       max-width: 10rem;
+
+      @include breakpoint.tabletDown {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .carousel {
+    --slide-spacing: 0.63rem;
+    --slide-size: 21.36619rem;
+    --slide-height: 20.4rem;
+    display: none;
+    margin-top: 2.44rem;
+    margin-bottom: 1.5rem;
+
+    @include breakpoint.tabletDown {
+      display: flex;
+    }
+  }
+
+  .carouselDots {
+    display: none;
+
+    @include breakpoint.tabletDown {
+      display: block;
     }
   }
 
@@ -26,29 +60,44 @@ section.root {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 1.5rem;
-    margin-top: 2rem;
-
-    .card {
-      position: relative;
-      height: 20.125rem;
-      width: 100%;
+    @include breakpoint.tabletDown {
+      display: none;
+      grid-template-columns: 1fr;
     }
 
-    .contentCard {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      justify-content: end;
-      padding: 1rem;
-      background-color: rgba(255, 255, 255, 0.08);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
 
-      .image {
-        position: absolute;
-        left: 50%;
-        top: 1rem;
-        transform: translateX(-50%);
-        width: 12.9375rem;
+  .card {
+    position: relative;
+    height: 20.125rem;
+    width: 100%;
+
+    @include breakpoint.tabletDown {
+      width: 21.36619rem;
+    }
+  }
+
+  .contentCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: end;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.08);
+
+    .image {
+      position: absolute;
+      left: 50%;
+      top: 1rem;
+      transform: translateX(-50%);
+      width: 12.9375rem;
+
+      @include breakpoint.tabletDown {
+        //width: 12.94588rem;
+        width: auto;
+        height: 12.94588rem;
       }
     }
   }

@@ -12,12 +12,22 @@ section.root {
     padding-right: 1.88rem;
   }
 
+  @include breakpoint.tabletDown {
+    padding-top: 2.3rem;
+    padding-right: 1.25rem;
+  }
+
   .headings {
     display: flex;
     flex-direction: column;
 
     span:nth-child(2) {
       max-width: 19rem;
+
+      @include breakpoint.tabletDown {
+        max-width: 100%;
+        text-align: center;
+      }
     }
   }
 
@@ -34,6 +44,12 @@ section.root {
       margin-top: -5rem;
       margin-left: -3rem;
     }
+
+    @include breakpoint.tabletDown {
+      width: 23rem;
+      margin-left: 0;
+      margin-top: 0;
+    }
   }
 }
 
@@ -48,5 +64,9 @@ section.root {
   @include breakpoint.desktopDown {
     width: 115rem;
     left: -43rem;
+  }
+
+  @include breakpoint.tabletDown {
+    top: -18rem
   }
 }

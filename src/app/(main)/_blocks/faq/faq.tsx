@@ -49,9 +49,12 @@ export const Faq = () => {
 							{item.question}
 						</Body>
 						<Expandable
-							className={styles.expandable}
 							duration={500}
 							isExpanded={index === indexExpanded}
+							className={clsx(
+								styles.expandable,
+								index === indexExpanded && styles.isExpanded
+							)}
 						>
 							<Body size="s">{item.answer}</Body>
 						</Expandable>

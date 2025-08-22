@@ -1,3 +1,5 @@
+'use client';
+
 import {
 	Body,
 	Button,
@@ -6,10 +8,32 @@ import {
 	Display,
 	Heading,
 } from '@/components/ui';
+import { Carousel } from '@/components/ui/carousel/carousel';
+import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './cifra-fro-u.module.scss';
 
 export const CifraFroU = () => {
+	const { activeSlide, setActiveSlide } = useCarouselControls(1);
+
+	const _cards = [
+		...cards.map((card, index) => (
+			<div key={index} className={styles.card}>
+				<Display color="violete" size="xs">
+					0{index + 1}
+				</Display>
+				<Body size="s" weight="regular">
+					{card.title}
+				</Body>
+			</div>
+		)),
+		<Button key="cb" className={styles.circle} variant="circle">
+			<Description color="secondary" size="m">
+				Воу...Это же я Участвовать!
+			</Description>
+		</Button>,
+	];
+
 	return (
 		<Container
 			className={styles.root}
@@ -20,23 +44,23 @@ export const CifraFroU = () => {
 			<Heading className={styles.heading} color="violete" size="xl">
 				Как понять, что Цифра для тебя?
 			</Heading>
-			<div className={styles.cards}>
-				{cards.map((card, index) => (
-					<div key={index} className={styles.card}>
-						<Display color="violete" size="xs">
-							0{index + 1}
-						</Display>
-						<Body size="s" weight="regular">
-							{card.title}
-						</Body>
-					</div>
-				))}
-				<Button variant="circle">
-					<Description color="secondary" size="m">
-						Воу...Это же я Участвовать!
-					</Description>
-				</Button>
-			</div>
+
+			<Carousel
+				active={activeSlide}
+				className={styles.carousel}
+				onChangeAction={(index) => setActiveSlide(index)}
+				onClick={(e) => e.stopPropagation()}
+				options={{
+					align: 'center',
+					dragFree: false,
+					containScroll: 'trimSnaps',
+					skipSnaps: true,
+				}}
+			>
+				{_cards}
+			</Carousel>
+
+			<div className={styles.cards}>{_cards}</div>
 		</Container>
 	);
 };

@@ -3,11 +3,16 @@
 import { useRef, useState } from 'react';
 
 import { Body, Container, Heading, Image } from '@/components/ui';
+import { Carousel } from '@/components/ui/carousel/carousel';
+import { CarouselDots } from '@/components/ui/carousel-dots/carousel-dots';
 import { PauseButton, PlayButton } from '@/components/widgets';
+import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './graduates.module.scss';
 
 export const Graduates = () => {
+	const { activeSlide, setActiveSlide } = useCarouselControls(1);
+
 	const [activeVideos, setActiveVideos] = useState<Set<number>>(new Set());
 	const [pausedVideos, setPausedVideos] = useState<Set<number>>(new Set());
 	const [playingVideos, setPlayingVideos] = useState<Set<number>>(new Set());
@@ -59,60 +64,80 @@ export const Graduates = () => {
 		}
 	};
 
+	const _cards = cards.map((card, index) => (
+		<div key={index} className={styles.card}>
+			<div className={styles.videoContainer}>
+				{activeVideos.has(index) ? (
+					<div
+						className={styles.videoWrapper}
+						onClick={() => togglePlayPause(index)}
+					>
+						<video
+							// @ts-expect-error ...
+							ref={(el) => (videoRefs.current[index] = el)}
+							autoPlay
+							className={styles.video}
+							controls={false}
+							src={card.srcVideo}
+						/>
+						{pausedVideos.has(index) && (
+							<div className={styles.pauseOverlay}>
+								<PauseButton height={'3rem'} width={'3rem'} />
+							</div>
+						)}
+						{playingVideos.has(index) && (
+							<div className={styles.playOverlay}>
+								<PlayButton
+									className={styles.playButton}
+									height={'3rem'}
+									width={'3rem'}
+								/>
+							</div>
+						)}
+					</div>
+				) : (
+					<div className={styles.preview} onClick={() => toggleVideo(index)}>
+						<Image alt="preview" loading="lazy" src={card.srcImage} />
+						<PlayButton className={styles.playButton} />
+					</div>
+				)}
+			</div>
+			<Heading size="m">{card.name}</Heading>
+			<Body color="darkGray" size="s">
+				{card.subtitle}
+			</Body>
+		</div>
+	));
+
 	return (
 		<Container className={styles.root} data-theme="white" tag="section">
 			<Heading className={styles.heading} color="violete" size="xl">
 				Выпускники
 			</Heading>
-			<div className={styles.cards}>
-				{cards.map((card, index) => (
-					<div key={index} className={styles.card}>
-						<div className={styles.videoContainer}>
-							{activeVideos.has(index) ? (
-								<div
-									className={styles.videoWrapper}
-									onClick={() => togglePlayPause(index)}
-								>
-									<video
-										// @ts-expect-error ...
-										ref={(el) => (videoRefs.current[index] = el)}
-										autoPlay
-										className={styles.video}
-										controls={false}
-										src={card.srcVideo}
-									/>
-									{pausedVideos.has(index) && (
-										<div className={styles.pauseOverlay}>
-											<PauseButton height={'3rem'} width={'3rem'} />
-										</div>
-									)}
-									{playingVideos.has(index) && (
-										<div className={styles.playOverlay}>
-											<PlayButton
-												className={styles.playButton}
-												height={'3rem'}
-												width={'3rem'}
-											/>
-										</div>
-									)}
-								</div>
-							) : (
-								<div
-									className={styles.preview}
-									onClick={() => toggleVideo(index)}
-								>
-									<Image alt="preview" loading="lazy" src={card.srcImage} />
-									<PlayButton className={styles.playButton} />
-								</div>
-							)}
-						</div>
-						<Heading size="m">{card.name}</Heading>
-						<Body color="darkGray" size="s">
-							{card.subtitle}
-						</Body>
-					</div>
-				))}
+			<Carousel
+				active={activeSlide}
+				className={styles.carousel}
+				onChangeAction={(index) => setActiveSlide(index)}
+				onClick={(e) => e.stopPropagation()}
+				options={{
+					align: 'center',
+					dragFree: false,
+					containScroll: 'trimSnaps',
+					skipSnaps: true,
+				}}
+			>
+				{_cards}
+			</Carousel>
+			<div className={styles.carouselDots}>
+				<CarouselDots
+					activeColor="#752CE8"
+					activeSlide={activeSlide}
+					onDotClick={setActiveSlide}
+					totalSlides={_cards?.length ?? 0}
+				/>
 			</div>
+
+			<div className={styles.cards}>{_cards}</div>
 		</Container>
 	);
 };

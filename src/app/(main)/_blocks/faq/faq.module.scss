@@ -1,12 +1,16 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   padding-top: 5rem;
   padding-bottom: 10rem;
   display: flex;
   flex-direction: column;
   align-items: end;
-  //position: sticky;
-  //top: 0;
   z-index: 2;
+
+  @include breakpoint.tabletDown {
+    padding-bottom: 6.25rem;
+  }
 
   a {
     color: var(--violete-dark);
@@ -20,6 +24,14 @@ section.root {
     .heading {
       width: 30rem;
     }
+
+    @include breakpoint.tabletDown {
+      max-width: 100%;
+
+      .heading {
+        width: 100%;
+      }
+    }
   }
 
   .faq {
@@ -29,16 +41,29 @@ section.root {
     max-width: 44.25rem;
     width: 100%;
 
+    @include breakpoint.tabletDown {
+      margin-top: 1rem;
+      max-width: 100%;
+    }
+
     .faqItem {
       padding: 1.5rem 0;
       border-bottom: var(--border-height-s) dashed var(--violete);
       display: flex;
+      align-items: flex-start;
       cursor: pointer;
 
       .question {
         width: 21rem;
         margin-right: 4.375rem;
         transition: color var(--animation-duration-m) var(--animation-easing-default);
+
+        @include breakpoint.tabletDown {
+          /* мобильный/планшет — первый ряд (вопрос) */
+          width: 15rem;
+          flex: 1 1 auto;
+          margin-right: 0;
+        }
       }
 
       .expandable {
@@ -52,6 +77,18 @@ section.root {
         a:hover {
           color: var(--violete);
         }
+
+        @include breakpoint.tabletDown {
+          /* мобильный/планшет — второй ряд (ответ) */
+          order: 3;
+          width: 100%;
+          transition: margin var(--animation-duration-m) var(--animation-easing-default);
+          margin: 0;
+
+          &.isExpanded {
+            margin: 0.75rem 0 0 0;
+          }
+        }
       }
 
       .cross {
@@ -59,9 +96,23 @@ section.root {
         height: 1.375rem;
         transition: transform var(--animation-duration-m) var(--animation-easing-default);
 
+        @include breakpoint.tabletDown {
+          /* на одной строке с вопросом, справа */
+          order: 2;
+          margin-left: auto;
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
         &.isExpanded {
           transform: rotate(45deg);
         }
+      }
+
+      @include breakpoint.tabletDown {
+        /* превращаем в обычный аккордеон */
+        flex-wrap: wrap;     /* перенос строк */
+        align-items: center; /* выравнивание вопроса и крестика по центру */
       }
     }
   }

@@ -7,10 +7,10 @@ import styles from './educational-program-mobile.module.scss';
 
 const programs = [
 	'Образовательный блок',
-	'Курсы и лекции',
-	'Воркшопы и мастер-классы',
-	'Семинары и конференции',
-	'Онлайн-курсы и вебинары',
+	'сертификат государственного образца',
+	'Мастер-классы от экспертов',
+	'База знаний',
+	// 'Онлайн-курсы и вебинары',
 ];
 
 export const EducationalProgramMobile = () => {
@@ -25,7 +25,7 @@ export const EducationalProgramMobile = () => {
 		>
 			<div className={styles.sticky}>
 				<Body color="violete" size="m">
-					образовательная программа {index}
+					образовательная программа
 				</Body>
 				<div className={styles.programs}>
 					{programs.map((program, _index) => {

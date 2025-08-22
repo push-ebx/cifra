@@ -11,6 +11,10 @@ section.root {
     padding-top: 7.5rem;
   }
 
+  @include breakpoint.tabletDown {
+    padding-top: 5.3rem;
+  }
+
   .heading {
     max-width: 44.25rem;
     text-align: start;
@@ -30,6 +34,14 @@ section.root {
       &:hover {
         .indexWrapper {
           background-color: var(--violete-dark);
+        }
+      }
+
+      @include breakpoint.tabletDown {
+        flex-direction: column;
+
+        .indexWrapper {
+          width: fit-content;
         }
       }
 
@@ -56,6 +68,10 @@ section.root {
         gap: 1rem;
         padding: 2rem 0;
         border-bottom: var(--violete) var(--border-height-s) dashed;
+
+        @include breakpoint.tabletDown {
+          padding-top: 0;
+        }
       }
     }
   }

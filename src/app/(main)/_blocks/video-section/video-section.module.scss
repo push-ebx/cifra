@@ -6,6 +6,10 @@
   z-index: 24;
   position: relative;
 
+  @include breakpoint.tabletDown {
+    height: auto;
+  }
+
   .previewContainer {
     position: relative;
     width: 100%;

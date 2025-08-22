@@ -14,8 +14,17 @@ section.root {
     padding-bottom: 9.3rem;
   }
 
+  @include breakpoint.tabletDown {
+    padding-bottom: 6.25rem;
+    position: relative;
+  }
+
   .heading {
     max-width: 44.25rem;
+
+    @include breakpoint.tabletDown {
+      width: 100%;
+    }
   }
 
   .wrapper {
@@ -28,6 +37,10 @@ section.root {
     grid-template-columns: repeat(2, 16.5rem);
     gap: 2rem;
     margin-top: 2rem;
+
+    @include breakpoint.tabletDown {
+      grid-template-columns: 1fr;
+    }
 
     .card {
       display: flex;

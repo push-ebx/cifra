@@ -7,17 +7,38 @@ import { AnimatePresence, motion } from 'motion/react';
 import { DesignerIcon } from '@/components/icons';
 import { Body, Button, Container, Heading, Image } from '@/components/ui';
 import { CarouselControls } from '@/components/ui/carousel-controls/carousel-controls';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './slider.module.scss';
 
 export const Slider = () => {
 	const visibleSlides = 1;
+	const bp = useBreakpoint();
 
 	const { activeSlide, handleNext, handlePrev } = useCarouselControls(
 		slides.length,
 		visibleSlides
 	);
+
+	const variants =
+		bp === 'mobile'
+			? {
+					initial: { opacity: 0, rotate: 0 },
+					animate: { opacity: 1, rotate: 0 },
+					exit: (dir: 'next' | 'prev') => ({
+						opacity: 0,
+						x: dir === 'next' ? 5 : -5,
+					}),
+				}
+			: {
+					initial: { opacity: 0, rotate: 0 },
+					animate: { opacity: 1, rotate: 0 },
+					exit: (dir: 'next' | 'prev') => ({
+						opacity: 0,
+						rotate: dir === 'next' ? 5 : -5,
+					}),
+				};
 
 	const [direction, setDirection] = useState<'next' | 'prev'>('next');
 	return (
@@ -50,14 +71,7 @@ export const Slider = () => {
 							exit="exit"
 							initial="initial"
 							transition={{ duration: 0.35, ease: 'easeInOut' }}
-							variants={{
-								initial: { opacity: 0, rotate: 0 },
-								animate: { opacity: 1, rotate: 0 },
-								exit: (dir: 'next' | 'prev') => ({
-									opacity: 0,
-									rotate: dir === 'next' ? 5 : -5,
-								}),
-							}}
+							variants={variants}
 						>
 							<Image
 								alt={slides[activeSlide].title}
