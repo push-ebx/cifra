@@ -31,30 +31,30 @@ export const revalidate = 60;
 const Home = async () => {
 	return (
 		<>
-			{/*<Hero />*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<AcceleratorIs />*/}
-			{/*	<PrizeFund />*/}
-			{/*</div>*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Tracks />*/}
-			{/*	<EducationalProgram />*/}
-			{/*	<EducationalProgramMobile />*/}
-			{/*</div>*/}
+			<Hero />
+			<div style={{ position: 'relative' }}>
+				<AcceleratorIs />
+				<PrizeFund />
+			</div>
+			<div style={{ position: 'relative' }}>
+				<Tracks />
+				<EducationalProgram />
+				<EducationalProgramMobile />
+			</div>
 			{/*<VideoSection />*/}
-			{/*<WhatDoUGet />*/}
+			<WhatDoUGet />
 			<CifraFroU />
-			<Slider />
-			<Timeline />
-			<div style={{ position: 'relative' }}>
-				<Graduates />
-			</div>
-			<RunningLine />
-			<Partners />
-			<div style={{ position: 'relative' }}>
-				<Faq />
-				<Footer />
-			</div>
+			{/*<Slider />*/}
+			{/*<Timeline />*/}
+			{/*<div style={{ position: 'relative' }}>*/}
+			{/*	<Graduates />*/}
+			{/*</div>*/}
+			{/*<RunningLine />*/}
+			{/*<Partners />*/}
+			{/*<div style={{ position: 'relative' }}>*/}
+			{/*	<Faq />*/}
+			{/*	<Footer />*/}
+			{/*</div>*/}
 			<JsonLd schema={webPageSchema} />
 		</>
 	);

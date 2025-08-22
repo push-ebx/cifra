@@ -11,6 +11,10 @@ section.root {
     padding-top: 7.5rem;
   }
 
+  @include breakpoint.tabletDown {
+    padding-top: 5.3rem;
+  }
+
   .heading {
     max-width: 44.25rem;
     text-align: start;

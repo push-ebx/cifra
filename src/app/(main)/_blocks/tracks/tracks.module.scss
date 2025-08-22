@@ -12,6 +12,10 @@ section.root {
     padding: 9.3rem var(--padding-horizontal-base);
   }
 
+  @include breakpoint.tabletDown {
+    padding: 6.25rem var(--padding-horizontal-base);
+  }
+
   .content {
     width: 44.25rem;
     display: flex;

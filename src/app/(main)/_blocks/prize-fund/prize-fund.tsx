@@ -1,9 +1,32 @@
+'use client';
+
 import { RubleIcon } from '@/components/icons/ruble-icon';
 import { Container, Display, GlassCard, Heading, Image } from '@/components/ui';
+import { Carousel } from '@/components/ui/carousel/carousel';
+import { CarouselDots } from '@/components/ui/carousel-dots/carousel-dots';
+import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './prize-fund.module.scss';
 
 export const PrizeFund = () => {
+	const { activeSlide, setActiveSlide } = useCarouselControls(1);
+
+	const _cards = cards.map((card, index) => (
+		<GlassCard
+			key={index}
+			cardClassName={styles.card}
+			contentClassName={styles.contentCard}
+		>
+			<Display color="secondary" size="xxs">
+				{card.subtitle}
+			</Display>
+			<Display color="secondary" size="m">
+				{card.title}
+			</Display>
+			<Image alt={card.subtitle} className={styles.image} src={card.imageSrc} />
+		</GlassCard>
+	));
+
 	return (
 		<Container
 			className={styles.root}
@@ -15,27 +38,28 @@ export const PrizeFund = () => {
 				<Heading className={styles.heading} color="secondary" size="xl">
 					Призовой фонд
 				</Heading>
-				<div className={styles.cards}>
-					{cards.map((card, index) => (
-						<GlassCard
-							key={index}
-							cardClassName={styles.card}
-							contentClassName={styles.contentCard}
-						>
-							<Display color="secondary" size="xxs">
-								{card.subtitle}
-							</Display>
-							<Display color="secondary" size="m">
-								{card.title}
-							</Display>
-							<Image
-								alt={card.subtitle}
-								className={styles.image}
-								src={card.imageSrc}
-							/>
-						</GlassCard>
-					))}
-				</div>
+
+				<Carousel
+					active={activeSlide}
+					className={styles.carousel}
+					onChangeAction={(index) => setActiveSlide(index)}
+					onClick={(e) => e.stopPropagation()}
+					options={{
+						align: 'center',
+						dragFree: false,
+						containScroll: 'trimSnaps',
+						skipSnaps: true,
+					}}
+				>
+					{_cards}
+				</Carousel>
+				<CarouselDots
+					activeSlide={activeSlide}
+					onDotClick={setActiveSlide}
+					totalSlides={_cards?.length ?? 0}
+				/>
+
+				<div className={styles.cards}>{_cards}</div>
 			</div>
 		</Container>
 	);

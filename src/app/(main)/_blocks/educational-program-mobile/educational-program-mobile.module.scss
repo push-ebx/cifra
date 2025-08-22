@@ -1,10 +1,10 @@
 @use '/src/styles/mixins/breakpoint';
 
 section.root {
-  --text-count: 5;
+  --text-count: 4;
   position: sticky;
   top: 0;
-  height: calc(var(--text-count) * 50vh + 120vh);
+  height: calc(var(--text-count) * 50vh + 100vh);
   background-color: var(--violete-dark);
   z-index: 23;
   display: none;
@@ -22,7 +22,7 @@ section.root {
   top: 0;
   z-index: 1;
   align-items: center;
-  justify-content:  center;
+  justify-content: center;
   gap: 3.5rem;
   flex-direction: column;
   text-align: center;
@@ -38,6 +38,12 @@ section.root {
   height: 80dvh;
   justify-content: space-between;
   flex-direction: column;
+
+  @include breakpoint.tabletDown {
+    //height: 80dvh;
+    height: auto;
+    gap: 2rem;
+  }
 
   .program {
     transition: opacity var(--animation-duration-m) var(--animation-easing-default);

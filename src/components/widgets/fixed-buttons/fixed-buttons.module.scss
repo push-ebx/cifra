@@ -13,6 +13,11 @@
   .vk, .tg {
     width: 4.625rem;
     height: 4.625rem;
+
+    @include breakpoint.tabletDown {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
 
   .vk {
@@ -27,5 +32,9 @@
 
   @include breakpoint.desktopDown {
     display: flex;
+  }
+
+  @include breakpoint.tabletDown {
+    bottom: 2.5rem;
   }
 }

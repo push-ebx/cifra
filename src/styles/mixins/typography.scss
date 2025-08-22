@@ -1,3 +1,5 @@
+@use '/src/styles/mixins/breakpoint';
+
 @mixin displayXL {
   font-size: 4.75rem; // 76px
   line-height: 110%;
@@ -5,6 +7,10 @@
   font-weight: 800;
   text-transform: uppercase;
   font-family: var(--font-ppmachina-inktrap), sans-serif;
+
+  @include breakpoint.tabletDown {
+    font-size: 2.25rem;
+  }
 }
 
 @mixin displayL {
@@ -14,6 +20,10 @@
   font-weight: 800;
   text-transform: uppercase;
   font-family: var(--font-ppmachina-inktrap), sans-serif;
+
+  @include breakpoint.tabletDown {
+    font-size: 1.5rem;
+  }
 }
 
 @mixin displayM {
@@ -23,6 +33,10 @@
   font-weight: 800;
   text-transform: uppercase;
   font-family: var(--font-ppmachina-inktrap), sans-serif;
+
+  @include breakpoint.tabletDown {
+    font-size: 2.77175rem;
+  }
 }
 
 @mixin displayS {
@@ -41,6 +55,10 @@
   font-weight: 800;
   text-transform: uppercase;
   font-family: var(--font-ppmachina-inktrap), sans-serif;
+
+  @include breakpoint.tabletDown {
+    font-size: 0.92394rem;
+  }
 }
 
 @mixin displayXXS {
@@ -60,6 +78,10 @@
   font-weight: 800;
   text-transform: uppercase;
   font-family: var(--font-ppmachina-inktrap), sans-serif;
+
+  @include breakpoint.tabletDown {
+    font-size: 2.5rem;
+  }
 }
 
 @mixin heading1 {
@@ -75,6 +97,10 @@
   line-height: 110%;
   letter-spacing: -0.02em;
   font-family: var(--font-ppmachina-plain), sans-serif;
+
+  @include breakpoint.tabletDown {
+    font-size: 1.25rem;
+  }
 }
 
 @mixin bodyM {
@@ -162,5 +188,5 @@
   line-height: 100%;
   font-weight: 400;
   letter-spacing: -0.02em;
-  font-family: var(--font-ppmachina-plain), sans-serif;  
+  font-family: var(--font-ppmachina-plain), sans-serif;
 }
