@@ -27,7 +27,7 @@ export const PlayButton = ({
 			</g>
 			<defs>
 				<clipPath id="clip0_699_8784">
-					<rect fill={fill} height={height} width={width} />
+					<rect fill={fill} height="135.425" width="135.425" />
 				</clipPath>
 			</defs>
 		</svg>

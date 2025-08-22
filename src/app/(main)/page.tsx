@@ -44,11 +44,11 @@ const Home = async () => {
 			{/*<CifraFroU />*/}
 			{/*<Slider />*/}
 			{/*<Timeline />*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Graduates />*/}
-			{/*</div>*/}
+			<div style={{ position: 'relative' }}>
+				<Graduates />
+			</div>
 			{/*<RunningLine />*/}
-			{/*<Partners />*/}
+			<Partners />
 			{/*<div style={{ position: 'relative' }}>*/}
 			{/*	<Faq />*/}
 			{/*	<Footer />*/}

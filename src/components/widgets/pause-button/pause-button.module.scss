@@ -1,0 +1,14 @@
+.root {
+  cursor: pointer;
+  transition: transform var(--animation-duration-m) var(--animation-easing-default),
+  color var(--animation-duration-m) var(--animation-easing-default);
+  color: white;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
