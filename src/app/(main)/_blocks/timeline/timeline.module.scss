@@ -1,9 +1,15 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   padding-top: 5rem;
   padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  @include breakpoint.desktopDown {
+    margin-top: 9rem;
+  }
 
   .heading {
     max-width: 44.25rem;
