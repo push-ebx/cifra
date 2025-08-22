@@ -14,6 +14,11 @@ section.root {
   @include breakpoint.desktopDown {
     height: 100vh;
     justify-content: center;
+    padding: 0 var(--padding-horizontal-base) 0;
+  }
+
+  .heading {
+    text-align: center;
   }
 }
 
@@ -45,17 +50,36 @@ section.root {
     width: 22.3125rem;
     margin-top: 20rem;
 
+    @include breakpoint.desktopDown {
+      width: 100%;
+      margin-top: 12.25rem;
+      align-items: center;
+    }
+
     .position {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+
+      @include breakpoint.desktopDown {
+        text-align: center;
+        margin-top: 16rem;
+        max-width: 33.3rem;
+      }
     }
   }
 
   .carouselControls {
     color: white;
+
     button:first-child {
       transform: rotate(180deg);
+    }
+
+    @include breakpoint.desktopDown {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
   }
 
