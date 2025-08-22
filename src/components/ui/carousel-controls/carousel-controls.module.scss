@@ -1,0 +1,25 @@
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  color: white;
+
+  button {
+    transition: color var(--animation-duration-m) var(--animation-easing-default);
+
+    &:disabled {
+      color: var(--carousel-button-foreground-disabled);
+    }
+
+    &:not([disabled]) {
+      @media (hover: hover) {
+        &:hover {
+          color: var(--carousel-button-foreground-hover);
+        }
+      }
+
+      &:active {
+        color: var(--carousel-button-foreground-active);
+      }
+    }
+  }
+}

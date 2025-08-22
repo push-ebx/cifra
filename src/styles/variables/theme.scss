@@ -32,6 +32,12 @@
   --button-circle-background: var(--violete-dark);
   --button-circle-foreground: var(--text-secondary);
 
+  // Carousel.Button
+  --carousel-button-foreground: white;
+  --carousel-button-foreground-hover: var(--violete);
+  --carousel-button-foreground-active: white;
+  --carousel-button-foreground-disabled: var(--violete-light);
+
   // Unsorted
   --default-hover-color: light-dark(var(--black-a1), var(--white-a1));
   --invert-hover-color: light-dark(var(--white-a2), var(--black-a2));

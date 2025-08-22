@@ -9,46 +9,49 @@ import { clsx } from 'clsx';
 import styles from './image.module.scss';
 
 export type ImageProps = ComponentProps<'img'> & {
-  src: string;
-  alt: string;
-  objectFit?: CSSProperties['objectFit'];
+	src: string;
+	alt: string;
+	objectFit?: CSSProperties['objectFit'];
+	quality?: number;
 };
 
 export const Image = (props: ImageProps) => {
-  const {
-    className,
-    style,
-    sizes = '100vw',
-    width,
-    height,
-    objectFit,
-    ...restProps
-  } = props;
+	const {
+		className,
+		style,
+		sizes = '100vw',
+		width,
+		height,
+		objectFit,
+		quality = '100',
+		...restProps
+	} = props;
 
-  const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoad = () => {
-    setIsLoading(false);
-  };
+	const handleLoad = () => {
+		setIsLoading(false);
+	};
 
-  return (
-    <div className={styles.root} data-loading={isLoading}>
-      <NexImage
-        className={clsx(styles.image, className)}
-        height={0}
-        onLoad={handleLoad}
-        sizes={sizes}
-        width={0}
-        style={{
-          ...(width ? { '--image-width': width } : {}),
-          ...(height ? { '--image-height': height } : {}),
-          ...(objectFit ? { '--object-fit': objectFit } : {}),
-          ...style,
-        }}
-        {...restProps}
-      />
-    </div>
-  );
+	return (
+		<div className={styles.root} data-loading={isLoading}>
+			<NexImage
+				className={clsx(styles.image, className)}
+				height={0}
+				onLoad={handleLoad}
+				quality={quality}
+				sizes={sizes}
+				width={0}
+				style={{
+					...(width ? { '--image-width': width } : {}),
+					...(height ? { '--image-height': height } : {}),
+					...(objectFit ? { '--object-fit': objectFit } : {}),
+					...style,
+				}}
+				{...restProps}
+			/>
+		</div>
+	);
 };
 
 Image.displayName = 'Image';
