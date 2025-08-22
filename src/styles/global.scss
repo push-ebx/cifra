@@ -4,6 +4,7 @@
 @use 'variables/fonts';
 @use 'variables/sizes';
 @use 'variables/theme';
+@use 'mixins/breakpoint';
 
 html,
 body,
@@ -12,8 +13,15 @@ body,
 }
 
 html {
-  //font-size: 16px;
-  font-size: 1.1111vw;
+  font-size: calc(100vw * 16 / #{sizes.$screen-min-desktop});
+
+  @include breakpoint.desktopDown {
+    font-size: calc(100vw * 16 / #{sizes.$screen-min-tablet});
+  }
+
+  @include breakpoint.tabletDown {
+    font-size: calc(100vw * 16 / #{sizes.$screen-min-mobile});
+  }
 }
 
 body {
@@ -34,4 +42,5 @@ body {
 
 .main {
   min-height: 100vh;
+  margin-top: var(--header-height);
 }

@@ -1,3 +1,5 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   padding-top: 5rem;
   padding-bottom: 12rem;
@@ -6,6 +8,11 @@ section.root {
   align-items: end;
   background-color: var(--violete-dark);
   position: relative;
+  z-index: 4;
+
+  @include breakpoint.desktopDown {
+    padding-bottom: 5rem;
+  }
 
   .contentWrapper {
     width: 44.25rem;

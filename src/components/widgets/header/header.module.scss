@@ -6,25 +6,3 @@
   justify-content: center;
   align-items: center;
 }
-
-body:has(.root) :global(.main) {
-  min-height: calc(100vh - var(--header-height));
-}
-
-.logo {
-  margin-right: auto;
-}
-
-.content {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.actions {
-  margin-left: auto;
-}
-
-.mobileActions {
-  margin-left: auto;
-}

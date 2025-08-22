@@ -1,9 +1,16 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   padding-top: 1.6875rem;
   padding-right: 13.75rem;
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  @include breakpoint.desktopDown {
+    padding-top: 2.5rem;
+    padding-right: 1.88rem;
+  }
 
   .headings {
     display: flex;
@@ -20,6 +27,13 @@ section.root {
     margin-top: -5rem;
     margin-left: 13rem;
     transition: transform 0.1s linear;
+
+    @include breakpoint.desktopDown {
+      width: 47.3rem;
+      height: auto;
+      margin-top: -5rem;
+      margin-left: -3rem;
+    }
   }
 }
 
@@ -30,4 +44,9 @@ section.root {
   left: 0;
   right: 0;
   z-index: -1;
+
+  @include breakpoint.desktopDown {
+    width: 115rem;
+    left: -43rem;
+  }
 }

@@ -1,5 +1,11 @@
+@use '/src/styles/mixins/breakpoint';
+
+$screen-min-mobile: 375;
+$screen-min-tablet: 768;
+$screen-min-desktop: 1440;
+
 :root {
-  --header-height: 4rem;
+  --header-height: 4.5rem;
   --max-content-width: 80rem;
 
   @for $i from 1 through 16 {
@@ -16,4 +22,13 @@
   // Обводка
   --border-height-s: max(1px, 0.0625rem);
   --border-height-m: max(1.5px, 0.09375rem);
+
+  @include breakpoint.desktopDown {
+    --header-height: 3.0625rem;
+    --padding-horizontal-base: 1.88rem;
+  }
+
+  @include breakpoint.tabletDown {
+    --padding-horizontal-base: 1.25rem;
+  }
 }

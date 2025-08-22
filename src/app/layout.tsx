@@ -4,6 +4,10 @@ import localFont from 'next/font/local';
 
 import ReactLenis from 'lenis/react';
 
+import { Button } from '@/components/ui';
+import { Menu } from '@/components/widgets';
+import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
+
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
 
@@ -51,7 +55,8 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 			<body>
 				<ReactLenis root>
 					<div id={'app-root'}>
-						{/*<Menu />*/}
+						<Menu />
+						<FixedButtons />
 						<main className={'main'}>{children}</main>
 						{/*<Footer />*/}
 					</div>

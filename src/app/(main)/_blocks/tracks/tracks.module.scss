@@ -1,3 +1,5 @@
+@use '/src/styles/mixins/breakpoint';
+
 section.root {
   padding: 5.3rem var(--padding-horizontal-base);
   display: flex;
@@ -6,11 +8,19 @@ section.root {
   top: 0;
   z-index: 1;
 
+  @include breakpoint.desktopDown {
+    padding: 9.3rem var(--padding-horizontal-base);
+  }
+
   .content {
     width: 44.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include breakpoint.desktopDown {
+      width: 100%;
+    }
 
     .image {
       width: 18.5rem;

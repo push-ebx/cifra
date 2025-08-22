@@ -15,7 +15,6 @@ import { Timeline } from '@/app/(main)/_blocks/timeline/timeline';
 import { Tracks } from '@/app/(main)/_blocks/tracks/tracks';
 import { VideoSection } from '@/app/(main)/_blocks/video-section/video-section';
 import { WhatDoUGet } from '@/app/(main)/_blocks/what-do-u-get/what-do-u-get';
-import { Button } from '@/components/ui';
 import { JsonLd } from '@/components/utils';
 import { Menu } from '@/components/widgets';
 
@@ -31,7 +30,6 @@ export const revalidate = 60;
 const Home = async () => {
 	return (
 		<>
-			<Menu />
 			<Hero />
 			<div style={{ position: 'relative' }}>
 				<AcceleratorIs />
@@ -41,20 +39,20 @@ const Home = async () => {
 				<Tracks />
 				<EducationalProgram />
 			</div>
-			<VideoSection />
-			<WhatDoUGet />
-			<CifraFroU />
-			<Slider />
-			<Timeline />
-			<div style={{ position: 'relative' }}>
-				<Graduates />
-			</div>
-			<RunningLine />
-			<Partners />
-			<div style={{ position: 'relative' }}>
-				<Faq />
-				<Footer />
-			</div>
+			{/*<VideoSection />*/}
+			{/*<WhatDoUGet />*/}
+			{/*<CifraFroU />*/}
+			{/*<Slider />*/}
+			{/*<Timeline />*/}
+			{/*<div style={{ position: 'relative' }}>*/}
+			{/*	<Graduates />*/}
+			{/*</div>*/}
+			{/*<RunningLine />*/}
+			{/*<Partners />*/}
+			{/*<div style={{ position: 'relative' }}>*/}
+			{/*	<Faq />*/}
+			{/*	<Footer />*/}
+			{/*</div>*/}
 			<JsonLd schema={webPageSchema} />
 		</>
 	);

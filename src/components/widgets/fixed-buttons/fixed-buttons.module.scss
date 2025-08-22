@@ -1,0 +1,31 @@
+@use '/src/styles/mixins/breakpoint';
+
+.root {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  position: fixed;
+  z-index: 3;
+  bottom: 5rem;
+  width: 100%;
+
+  .vk, .tg {
+    width: 4.625rem;
+    height: 4.625rem;
+  }
+
+  .vk {
+    background: url("/images/media/vk-hover.webp");
+    background-size: cover;
+  }
+
+  .tg {
+    background: url("/images/media/tg-hover.webp");
+    background-size: cover;
+  }
+
+  @include breakpoint.desktopDown {
+    display: flex;
+  }
+}
