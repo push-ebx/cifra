@@ -45,6 +45,8 @@ export const viewport: Viewport = {
 	initialScale: 1,
 	viewportFit: 'cover',
 	userScalable: false,
+	maximumScale: 1,
+	minimumScale: 1,
 };
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
