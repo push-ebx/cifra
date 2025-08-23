@@ -108,6 +108,24 @@ export const Form = () => {
 								</Description>
 							</Tab>
 						</div>
+						<div className={styles.tabsMobile}>
+							<Tab
+								isActive={form.track === 'Биотехнологии'}
+								onClick={() => handleChange('track', 'Биотехнологии')}
+							>
+								<Description color={'violete'} size={'xxs'}>
+									Биотехнологии
+								</Description>
+							</Tab>
+							<Tab
+								isActive={form.track === 'IT'}
+								onClick={() => handleChange('track', 'IT')}
+							>
+								<Description color={'violete'} size={'xxs'}>
+									IT
+								</Description>
+							</Tab>
+						</div>
 					</div>
 
 					<div className={styles.inputsWrapper}>
