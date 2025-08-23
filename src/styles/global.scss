@@ -35,6 +35,7 @@ body {
 
   scroll-behavior: smooth;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 section[id] { scroll-margin-top: 2rem; }
@@ -46,6 +47,6 @@ section[id] { scroll-margin-top: 2rem; }
 }
 
 .main {
-  min-height: 100vh;
+  min-height: 100dvh;
   margin-top: var(--header-height);
 }

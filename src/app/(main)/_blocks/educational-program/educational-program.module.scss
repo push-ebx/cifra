@@ -17,7 +17,7 @@ section.root {
 .sticky {
   position: sticky;
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   top: 0;
   z-index: 1;
@@ -49,18 +49,18 @@ section.root {
   }
 
   &:nth-child(2) {
-    top: calc(1 * 100vh - 3px - 250px);
+    top: calc(1 * 100dvh - 3px - 250px);
   }
 
   &:nth-child(3) {
-    top: calc(2 * 100vh - 3px - 250px);
+    top: calc(2 * 100dvh - 3px - 250px);
   }
 
   &:nth-child(4) {
-    top: calc(3 * 100vh - 3px - 250px);
+    top: calc(3 * 100dvh - 3px - 250px);
   }
 
   &:nth-child(5) {
-    top: calc(4 * 100vh - 3px - 250px);
+    top: calc(4 * 100dvh - 3px - 250px);
   }
 }
