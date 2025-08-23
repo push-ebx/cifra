@@ -1,3 +1,5 @@
+@use "src/styles/mixins/breakpoint";
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -26,6 +28,10 @@
   opacity: 0;
   transform: translateY(12px);
   transition: opacity .25s ease, transform .25s ease;
+
+  @include breakpoint.tabletDown {
+    width: 22rem;
+  }
 }
 
 .contentShown {
