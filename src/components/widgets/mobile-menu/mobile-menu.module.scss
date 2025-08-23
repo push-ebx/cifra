@@ -1,0 +1,120 @@
+@use '/src/styles/mixins/typography';
+@use '/src/styles/mixins/breakpoint';
+
+.panel {
+  width: 15.4375rem;                  /* 247px */
+  padding: 1.5rem;                    /* 24px */
+  border-radius: 1rem;                /* 16px */
+  background: var(--violete-dark);         /* твоя фиолетовая переменная */
+  color: var(--text-secondary);       /* светлый текст на фиолете */
+  position: relative;
+  overflow: hidden;
+}
+
+/* список ссылок */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;                       /* 12px */
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;                    /* 16px */
+  line-height: 1.25rem;               /* 20px */
+  transition: opacity var(--animation-duration-m) var(--animation-easing-default);
+
+  @include typography.descriptionL;
+
+  &:hover { opacity: .9; }
+}
+
+/* блок с маскотом и CTA */
+.hero {
+  position: relative;
+  margin-top: 1rem;                   /* 16px */
+  padding-top: 2.5rem;                /* под маскота */
+}
+
+.mascot {
+  position: absolute;
+  top: -1.2rem;
+  right: 3.35rem;
+  width: 7.625rem;
+  height: auto;
+  pointer-events: none;
+
+  @include breakpoint.tabletDown {
+    top: -1.5rem;
+    right: 3.5rem;
+    width: 7.625rem;
+    height: auto;
+    pointer-events: none;
+  }
+}
+
+.title {
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.subtitle {
+  margin-top: 0.5rem;                 /* 8px */
+}
+
+.cta {
+  width: 100%;
+  margin-top: 1.5rem;                   /* 16px */
+}
+
+/* контакты/соцсети/футер */
+.contact {
+  margin-top: 4rem;                 /* 24px */
+}
+
+.contactTitle {
+  color: var(--text-secondary);
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;                        /* 8px */
+  margin-top: 0.75rem;
+
+  /* иконки из твоих классов */
+  .vk {
+    background: url('/images/media/vk-purple.png');
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    &:hover {
+      background: url('/images/media/vk-hover.webp');
+      background-size: cover;
+    }
+  }
+
+  .tg {
+    background: url('/images/media/tg-purple.png');
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    &:hover {
+      background: url('/images/media/tg-hover.webp');
+      background-size: cover;
+    }
+  }
+}
+
+.privacy {
+  display: inline-block;
+  margin-top: 2.5rem;                   /* 16px */
+  max-width: 10.5rem;
+}
+
+.footer {
+  margin-top: 0.25rem;                /* 4px */
+  opacity: .7;
+}

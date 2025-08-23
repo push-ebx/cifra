@@ -106,7 +106,7 @@
 
   .gradient {
     position: absolute;
-    top: 5.4rem;
+    top: -9.6rem;
     left: -22rem;
     z-index: -1;
     overflow: visible;
@@ -153,7 +153,6 @@
       &:hover {
         background: url("/images/media/vk-hover.webp");
         background-size: cover;
-        width: 100px;
       }
     }
 

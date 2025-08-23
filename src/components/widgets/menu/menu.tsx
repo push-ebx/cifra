@@ -165,9 +165,6 @@ export const Menu = () => {
 						className={styles.maskot}
 						src="/images/maskot.webp"
 					/>
-				</div>
-
-				<div>
 					<Image
 						alt="gradient"
 						className={styles.gradient}
@@ -175,14 +172,24 @@ export const Menu = () => {
 						priority
 						src="/images/violet-gr.webp"
 					/>
+				</div>
 
+				<div>
 					<Description className={styles.getInTouch} size="xs">
 						cвяжись с нами
 					</Description>
 
 					<div className={styles.btns}>
-						<IconButton className={styles.vk} />
-						<IconButton className={styles.tg} />
+						<a
+							href="https://vk.com/cifra.startup"
+							rel="nofollow"
+							target="_blank"
+						>
+							<IconButton className={styles.vk} />
+						</a>
+						<a href="https://t.me/cifra_startup" rel="nofollow" target="_blank">
+							<IconButton className={styles.tg} />
+						</a>
 					</div>
 
 					<Link className={styles.privacy} href="#">
@@ -247,6 +254,11 @@ export const Menu = () => {
 						className={styles.maskot}
 						src="/images/maskot.webp"
 					/>
+					<Image
+						alt="gradient"
+						className={styles.gradient}
+						src="/images/gray-gr.webp"
+					/>
 				</div>
 
 				<div>
@@ -255,8 +267,16 @@ export const Menu = () => {
 					</Description>
 
 					<div className={styles.btns}>
-						<IconButton className={styles.vk} />
-						<IconButton className={styles.tg} />
+						<a
+							href="https://vk.com/cifra.startup"
+							rel="nofollow"
+							target="_blank"
+						>
+							<IconButton className={styles.vk} />
+						</a>
+						<a href="https://t.me/cifra_startup" rel="nofollow" target="_blank">
+							<IconButton className={styles.tg} />
+						</a>
 					</div>
 
 					<Link className={styles.privacy} href="#">
@@ -267,12 +287,6 @@ export const Menu = () => {
 					<Description color="violete" size="xxs">
 						cifra 2025
 					</Description>
-
-					<Image
-						alt="gradient"
-						className={styles.gradient}
-						src="/images/gray-gr.webp"
-					/>
 				</div>
 			</div>
 		</>

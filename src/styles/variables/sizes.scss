@@ -24,11 +24,12 @@ $screen-min-desktop: 1440;
   --border-height-m: max(1.5px, 0.09375rem);
 
   @include breakpoint.desktopDown {
-    --header-height: 3.0625rem;
+    --header-height: 4.5rem;
     --padding-horizontal-base: 1.88rem;
   }
 
   @include breakpoint.tabletDown {
+    --header-height: 3.5rem;
     --padding-horizontal-base: 1.25rem;
   }
 }

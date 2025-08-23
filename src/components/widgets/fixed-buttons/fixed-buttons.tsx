@@ -25,8 +25,12 @@ export const FixedButtons = () => {
 			<Button onClick={openModal} size={bp === 'mobile' ? 's' : 'l'}>
 				участвовать
 			</Button>
-			<IconButton className={styles.vk} />
-			<IconButton className={styles.tg} />
+			<a href="https://vk.com/cifra.startup" rel="nofollow" target="_blank">
+				<IconButton className={styles.vk} />
+			</a>
+			<a href="https://t.me/cifra_startup" rel="nofollow" target="_blank">
+				<IconButton className={styles.tg} />
+			</a>
 		</Container>
 	);
 };

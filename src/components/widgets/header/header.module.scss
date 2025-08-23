@@ -1,8 +1,56 @@
-@use '/src/styles/mixins/breakpoint';
+  @use '/src/styles/mixins/breakpoint';
 
-.root {
-  height: var(--header-height);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .root {
+    height: var(--header-height);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.875rem;
+    position: fixed;
+    top: 0;
+    background: var(--violete);
+    z-index: 24;
+    display: none;
+
+    @include breakpoint.desktopDown {
+      display: flex;
+    }
+
+    @include breakpoint.tabletDown {
+      padding: 0 1.25rem;
+    }
+  }
+
+  /* кнопки в правой части хедера */
+  .closeBtn {
+    position: fixed;
+    top: calc(var(--header-height) / 2);
+    transform: translateY(-50%);
+    right: var(--padding-horizontal-base);
+    z-index: 101; /* выше backdrop (90) и выше меню (100) */
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  /* затемнение */
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    z-index: 90;
+  }
+
+  /* позиционирование панели меню поверх всего */
+  .menuPanel {
+    position: fixed;
+    top: var(--header-height);
+    right: var(--padding-horizontal-base);
+    z-index: 100;
+  }
+
+  /* иконка-крестик */
+  .closeIcon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }

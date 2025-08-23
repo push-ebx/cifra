@@ -6,7 +6,7 @@ import ReactLenis from 'lenis/react';
 
 import { AppLoader } from '@/app/_app-loader';
 import { Button } from '@/components/ui';
-import { Menu } from '@/components/widgets';
+import { Header, Menu } from '@/components/widgets';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 
 import '@/styles/global.scss';
@@ -60,6 +60,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 						<Menu />
 						<FixedButtons />
 						{/*<AppLoader />*/}
+						<Header />
 						<main className={'main'}>{children}</main>
 						{/*<Footer />*/}
 					</div>
