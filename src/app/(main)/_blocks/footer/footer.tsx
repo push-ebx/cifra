@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import { CrossIcon } from '@/components/icons/cross-icon';
 import {
@@ -19,11 +19,10 @@ import styles from './footer.module.scss';
 export const Footer = () => {
 	const bp = useBreakpoint();
 
-	const searchParams = useSearchParams();
 	const router = useRouter();
 
 	const openModal = () => {
-		const params = new URLSearchParams(searchParams.toString());
+		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
 	};

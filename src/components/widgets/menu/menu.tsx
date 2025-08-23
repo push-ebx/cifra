@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import clsx from 'clsx';
 import { useLenis } from 'lenis/react';
@@ -31,7 +31,6 @@ export const Menu = () => {
 	const purpleRef = useRef<HTMLDivElement | null>(null);
 	const [clipPath, setClipPath] = useState<string>('inset(0 0 100% 0)');
 
-	const searchParams = useSearchParams();
 	const router = useRouter();
 
 	useEffect(() => {
@@ -112,7 +111,7 @@ export const Menu = () => {
 	}, []);
 
 	const openModal = () => {
-		const params = new URLSearchParams(searchParams.toString());
+		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
 	};

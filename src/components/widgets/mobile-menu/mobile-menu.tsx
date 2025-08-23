@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import clsx from 'clsx';
 
@@ -24,11 +24,10 @@ const NAV_ITEMS = [
 ];
 
 export const MobileMenu: FC<MobileMenuProps> = ({ className }) => {
-	const searchParams = useSearchParams();
 	const router = useRouter();
 
 	const openModal = () => {
-		const params = new URLSearchParams(searchParams.toString());
+		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
 	};

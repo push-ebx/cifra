@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -43,11 +43,10 @@ export const Slider = () => {
 
 	const [direction, setDirection] = useState<'next' | 'prev'>('next');
 
-	const searchParams = useSearchParams();
 	const router = useRouter();
 
 	const openModal = () => {
-		const params = new URLSearchParams(searchParams.toString());
+		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
 	};

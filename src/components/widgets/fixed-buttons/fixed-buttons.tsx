@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import { Button, Container } from '@/components/ui';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
@@ -11,11 +11,10 @@ import styles from './fixed-buttons.module.scss';
 export const FixedButtons = () => {
 	const bp = useBreakpoint();
 
-	const searchParams = useSearchParams();
 	const router = useRouter();
 
 	const openModal = () => {
-		const params = new URLSearchParams(searchParams.toString());
+		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
 	};

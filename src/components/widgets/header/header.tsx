@@ -24,7 +24,11 @@ export const Header = () => {
 	return (
 		<>
 			<Container className={styles.root} tag="header">
-				<Image alt="logo" src="/images/Logo-header.svg" />
+				<Image
+					alt="logo"
+					className={styles.logo}
+					src="/images/Logo-header.svg"
+				/>
 
 				{!open ? (
 					<button className={styles.menuBtn} onClick={() => setOpen(true)}>

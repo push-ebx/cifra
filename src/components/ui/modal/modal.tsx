@@ -3,7 +3,7 @@
 import type { FC, MouseEvent, ReactNode } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { CrossIcon } from '@/components/icons/cross-icon';
 import { useScrollLock } from '@/hooks/client';
@@ -16,32 +16,67 @@ interface ModalProps {
 
 export const Modal: FC<ModalProps> = ({ children }) => {
 	const router = useRouter();
-	const searchParams = useSearchParams();
 	const pathname = usePathname();
 
 	const [mounted, setMounted] = useState(false);
 	const [hash, setHash] = useState('');
+	const [search, setSearch] = useState(''); // ← текущее ?query
 	const [isVisible, setIsVisible] = useState(false); // ← в дереве
 	const [animateIn, setAnimateIn] = useState(false); // ← стадия анимации
 
-	const isOpen = searchParams.get('modal') === 'true';
-	useScrollLock(isOpen, 0, 'fixed');
-
+	// синхронизация с адресной строкой
 	useEffect(() => {
 		setMounted(true);
 		setHash(window.location.hash || '');
+		setSearch(window.location.search || '');
+
+		// слушаем изменения истории и назад/вперёд
+		const patch = (type: 'pushState' | 'replaceState') => {
+			const orig = history[type];
+			// @ts-nocheck
+			history[type] = function (...args) {
+				// @ts-nocheck
+				const ret = orig.apply(this, args);
+				window.dispatchEvent(new Event(type));
+				return ret;
+			};
+			return () => {
+				// @ts-nocheck
+				history[type] = orig;
+			};
+		};
+
+		const onUrlChange = () => setSearch(window.location.search || '');
+
+		const unpatchPush = patch('pushState');
+		const unpatchReplace = patch('replaceState');
+		window.addEventListener('popstate', onUrlChange);
+		window.addEventListener('pushState', onUrlChange);
+		window.addEventListener('replaceState', onUrlChange);
+
+		return () => {
+			unpatchPush();
+			unpatchReplace();
+			window.removeEventListener('popstate', onUrlChange);
+			window.removeEventListener('pushState', onUrlChange);
+			window.removeEventListener('replaceState', onUrlChange);
+		};
 	}, []);
+
+	const params = new URLSearchParams(search);
+	const isOpen = params.get('modal') === 'true';
+
+	useScrollLock(isOpen, 0, 'fixed');
 
 	const buildHref = useCallback(
 		(open: boolean) => {
-			const params = new URLSearchParams(searchParams.toString());
-			if (open) params.set('modal', 'true');
-			else params.delete('modal');
-
-			const qs = params.toString();
+			const p = new URLSearchParams(search);
+			if (open) p.set('modal', 'true');
+			else p.delete('modal');
+			const qs = p.toString();
 			return qs ? `${pathname}?${qs}${hash}` : `${pathname}${hash}`;
 		},
-		[hash, pathname, searchParams]
+		[hash, pathname, search]
 	);
 
 	const closeModal = useCallback(() => {
@@ -52,6 +87,7 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 		if (e.target === e.currentTarget) closeModal();
 	};
 
+	// Esc для закрытия
 	useEffect(() => {
 		if (!isOpen) return;
 		const onKeyDown = (e: KeyboardEvent) => {
@@ -61,16 +97,17 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 		return () => window.removeEventListener('keydown', onKeyDown);
 	}, [isOpen, closeModal]);
 
+	// плавное появление/исчезновение
 	useEffect(() => {
 		if (isOpen) {
 			setIsVisible(true);
 			requestAnimationFrame(() => setAnimateIn(true));
 		} else if (isVisible) {
 			setAnimateIn(false);
-			const timeout = setTimeout(() => setIsVisible(false), 250); // match transition
-			return () => clearTimeout(timeout);
+			const t = setTimeout(() => setIsVisible(false), 250);
+			return () => clearTimeout(t);
 		}
-	}, [isOpen]);
+	}, [isOpen, isVisible]);
 
 	if (!mounted || !isVisible) return null;
 
@@ -88,9 +125,9 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 			>
 				<CrossIcon
 					className={styles.crossIcon}
-					height={'1.5rem'}
+					height="1.5rem"
 					onClick={closeModal}
-					width={'1.5rem'}
+					width="1.5rem"
 				/>
 				{children}
 			</div>
