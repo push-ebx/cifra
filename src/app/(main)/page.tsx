@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import type { WebPage, WithContext } from 'schema-dts';
 
 import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-is';
@@ -29,6 +31,23 @@ const webPageSchema: WithContext<WebPage> = {
 export const revalidate = 60;
 
 const Home = async () => {
+	const imagesDir = path.join(process.cwd(), 'public', 'images', 'gallery');
+	let images: string[] = [];
+
+	try {
+		images = fs
+			.readdirSync(imagesDir)
+			.filter((f) => /\.(png|jpe?g|webp|gif|avif)$/i.test(f))
+			.map((f) => `/images/gallery/${f}`);
+	} catch (e) {
+		// опционально: лог/фоллбек
+		images = [
+			'/images/gallery/1.webp',
+			'/images/gallery/2.webp',
+			'/images/gallery/3.webp',
+		];
+	}
+
 	return (
 		<>
 			<Hero />
@@ -49,7 +68,7 @@ const Home = async () => {
 			<div style={{ position: 'relative' }}>
 				<Graduates />
 			</div>
-			<RunningLine />
+			<RunningLine images={images} />
 			<Partners />
 			<div style={{ position: 'relative' }}>
 				<Faq />

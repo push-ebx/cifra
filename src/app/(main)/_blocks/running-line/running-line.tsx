@@ -13,7 +13,9 @@ const srcImages = [
 	'/images/gallery/3.webp',
 ];
 
-export const RunningLine = () => {
+type Props = { images: string[] };
+
+export const RunningLine = ({ images }: Props) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const bp = useBreakpoint();
 
@@ -21,7 +23,7 @@ export const RunningLine = () => {
 		let timeout: NodeJS.Timeout;
 
 		const tick = () => {
-			setCurrentIndex((prev) => (prev + 1) % srcImages.length);
+			setCurrentIndex((prev) => (prev + 1) % images.length);
 			timeout = setTimeout(tick, 500);
 		};
 
@@ -39,7 +41,7 @@ export const RunningLine = () => {
 						: 'как это было как это было как это было как это было'}
 				</Heading>
 				<div className={styles.gallery}>
-					<Image alt="img" src={srcImages[currentIndex]} />
+					<Image alt="img" src={images[currentIndex]} />
 				</div>
 			</div>
 		</section>
