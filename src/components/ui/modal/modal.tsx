@@ -21,8 +21,8 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 	const [mounted, setMounted] = useState(false);
 	const [hash, setHash] = useState('');
 	const [search, setSearch] = useState(''); // ← текущее ?query
-	const [isVisible, setIsVisible] = useState(false); // ← в дереве
-	const [animateIn, setAnimateIn] = useState(false); // ← стадия анимации
+	const [isVisible, setIsVisible] = useState(false); //
+	const [animateIn, setAnimateIn] = useState(false); //
 
 	// синхронизация с адресной строкой
 	useEffect(() => {

@@ -6,6 +6,7 @@ import { Body, Container, Heading, Image } from '@/components/ui';
 import { Carousel } from '@/components/ui/carousel/carousel';
 import { CarouselDots } from '@/components/ui/carousel-dots/carousel-dots';
 import { PauseButton, PlayButton } from '@/components/widgets';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './graduates.module.scss';
@@ -18,6 +19,8 @@ export const Graduates = () => {
 	const [playingVideos, setPlayingVideos] = useState<Set<number>>(new Set());
 
 	const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+	const bp = useBreakpoint();
 
 	const toggleVideo = (index: number) => {
 		setActiveVideos((prev) => {
@@ -114,30 +117,35 @@ export const Graduates = () => {
 			<Heading className={styles.heading} color="violete" size="xl">
 				Выпускники
 			</Heading>
-			<Carousel
-				active={activeSlide}
-				className={styles.carousel}
-				onChangeAction={(index) => setActiveSlide(index)}
-				onClick={(e) => e.stopPropagation()}
-				options={{
-					align: 'center',
-					dragFree: false,
-					containScroll: 'trimSnaps',
-					skipSnaps: true,
-				}}
-			>
-				{_cards}
-			</Carousel>
-			<div className={styles.carouselDots}>
-				<CarouselDots
-					activeColor="#752CE8"
-					activeSlide={activeSlide}
-					onDotClick={setActiveSlide}
-					totalSlides={_cards?.length ?? 0}
-				/>
-			</div>
 
-			<div className={styles.cards}>{_cards}</div>
+			{bp === 'tablet' ? (
+				<div className={styles.cards}>{_cards}</div>
+			) : (
+				<>
+					<Carousel
+						active={activeSlide}
+						className={styles.carousel}
+						onChangeAction={setActiveSlide}
+						onClick={(e) => e.stopPropagation()}
+						options={{
+							align: 'center',
+							dragFree: false,
+							containScroll: 'trimSnaps',
+							skipSnaps: true,
+						}}
+					>
+						{_cards}
+					</Carousel>
+					<div className={styles.carouselDots}>
+						<CarouselDots
+							activeColor="#752CE8"
+							activeSlide={activeSlide}
+							onDotClick={setActiveSlide}
+							totalSlides={cards.length}
+						/>
+					</div>
+				</>
+			)}
 		</Container>
 	);
 };
