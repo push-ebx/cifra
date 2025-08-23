@@ -4,7 +4,7 @@ section.root {
   --text-count: 4;
   position: sticky;
   top: 0;
-  height: calc(var(--text-count) * 50vh + 100dvh);
+  height: calc(var(--text-count) * 50vh + 100svh);
   background-color: var(--violete-dark);
   z-index: 23;
   display: none;
@@ -17,7 +17,7 @@ section.root {
 .sticky {
   position: sticky;
   display: flex;
-  height: 100dvh;
+  height: 100svh;
   width: 100%;
   top: 0;
   z-index: 1;
@@ -35,7 +35,7 @@ section.root {
 .programs {
   display: flex;
   align-items: center;
-  height: 80dvh;
+  height: 80svh;
   justify-content: space-between;
   flex-direction: column;
 

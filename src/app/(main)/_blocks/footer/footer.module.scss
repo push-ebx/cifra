@@ -9,7 +9,7 @@ footer.root {
   background-color: var(--violete-dark);
   z-index: 23;
   position: relative;
-  height: 100dvh;
+  height: 100svh;
 
   @include breakpoint.tabletDown {
     height: auto;
