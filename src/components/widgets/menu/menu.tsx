@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import clsx from 'clsx';
+import { useLenis } from 'lenis/react';
 
 import { Button, Description, Display, Image, Link } from '@/components/ui';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
@@ -24,6 +25,8 @@ export const Menu = () => {
 	const activeSection = useActiveSection(
 		NAVIGATION_MENU.map((i) => i.href.replace('#', ''))
 	);
+
+	const lenis = useLenis();
 
 	const purpleRef = useRef<HTMLDivElement | null>(null);
 	const [clipPath, setClipPath] = useState<string>('inset(0 0 100% 0)');
@@ -121,15 +124,24 @@ export const Menu = () => {
 					<Image alt="logo" className={styles.logo} src="/images/logo.svg" />
 					<nav className={styles.navigation}>
 						{NAVIGATION_MENU.map((item) => (
-							<Link
+							<a
 								key={item.href}
 								href={item.href}
-								className={clsx(
-									'#' + activeSection === item.href && styles.active
-								)}
+								className={clsx({
+									[styles.active]: `#${activeSection}` === item.href,
+								})}
+								onClick={(e) => {
+									e.preventDefault();
+									const id = item.href.slice(1);
+									const el = document.getElementById(id);
+									if (el && lenis) {
+										lenis.scrollTo(el, { offset: -80 }); // offset под фикс-хедер
+									}
+									history.replaceState(null, '', item.href);
+								}}
 							>
 								{item.label}
-							</Link>
+							</a>
 						))}
 					</nav>
 				</div>
@@ -194,15 +206,24 @@ export const Menu = () => {
 					<Image alt="logo" className={styles.logo} src="/images/logo.svg" />
 					<nav className={styles.navigation}>
 						{NAVIGATION_MENU.map((item) => (
-							<Link
+							<a
 								key={item.href}
 								href={item.href}
-								className={clsx(
-									'#' + activeSection === item.href && styles.active
-								)}
+								className={clsx({
+									[styles.active]: `#${activeSection}` === item.href,
+								})}
+								onClick={(e) => {
+									e.preventDefault();
+									const id = item.href.slice(1);
+									const el = document.getElementById(id);
+									if (el && lenis) {
+										lenis.scrollTo(el, { offset: 0 });
+									}
+									history.replaceState(null, '', item.href);
+								}}
 							>
 								{item.label}
-							</Link>
+							</a>
 						))}
 					</nav>
 				</div>

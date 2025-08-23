@@ -25,7 +25,7 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 	const [animateIn, setAnimateIn] = useState(false); // ← стадия анимации
 
 	const isOpen = searchParams.get('modal') === 'true';
-	useScrollLock(isOpen);
+	useScrollLock(isOpen, 0, 'fixed');
 
 	useEffect(() => {
 		setMounted(true);

@@ -1,5 +1,6 @@
 'use client';
 
+import type { FormEvent } from 'react';
 import { useState } from 'react';
 
 import { Button, Description, Image, Input, Modal, Tab } from '@/components/ui';
@@ -24,15 +25,20 @@ export const Form = () => {
 		setForm((prev) => ({ ...prev, [field]: value }));
 	};
 
-	const handleSubmit = async (e: React.FormEvent) => {
+	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		setLoading(true);
 		setStatus('idle');
 
+		const formWithDate = {
+			...form,
+			submittedAt: new Date().toLocaleDateString('ru-RU'),
+		};
+
 		try {
 			const res = await fetch('/api/sendForm', {
 				method: 'POST',
-				body: JSON.stringify(form),
+				body: JSON.stringify(formWithDate),
 				headers: { 'Content-Type': 'application/json' },
 			});
 
@@ -49,7 +55,7 @@ export const Form = () => {
 			} else {
 				setStatus('error');
 			}
-		} catch (err: any) {
+		} catch (err: unknown) {
 			setStatus('error');
 		}
 

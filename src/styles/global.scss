@@ -33,8 +33,11 @@ body {
   font-family: var(--font-ppmachina);
   -webkit-tap-highlight-color: transparent;
 
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+section[id] { scroll-margin-top: 2rem; }
 
 *,
 ::after,
