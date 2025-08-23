@@ -81,6 +81,10 @@ export const Graduates = () => {
 							autoPlay
 							className={styles.video}
 							controls={false}
+							disablePictureInPicture
+							muted
+							playsInline
+							preload="metadata"
 							src={card.srcVideo}
 						/>
 						{pausedVideos.has(index) && (
