@@ -1,5 +1,7 @@
 'use client';
 
+import { useRouter, useSearchParams } from 'next/navigation';
+
 import {
 	Body,
 	Button,
@@ -16,6 +18,15 @@ import styles from './cifra-fro-u.module.scss';
 export const CifraFroU = () => {
 	const { activeSlide, setActiveSlide } = useCarouselControls(1);
 
+	const searchParams = useSearchParams();
+	const router = useRouter();
+
+	const openModal = () => {
+		const params = new URLSearchParams(searchParams.toString());
+		params.set('modal', 'true');
+		router.replace(`?${params.toString()}`, { scroll: false });
+	};
+
 	const _cards = [
 		...cards.map((card, index) => (
 			<div key={index} className={styles.card}>
@@ -27,7 +38,12 @@ export const CifraFroU = () => {
 				</Body>
 			</div>
 		)),
-		<Button key="cb" className={styles.circle} variant="circle">
+		<Button
+			key="cb"
+			className={styles.circle}
+			onClick={openModal}
+			variant="circle"
+		>
 			<Description color="secondary" size="m">
 				Воу...Это же я Участвовать!
 			</Description>

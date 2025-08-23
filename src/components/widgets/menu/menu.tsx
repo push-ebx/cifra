@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import clsx from 'clsx';
 
@@ -26,6 +27,9 @@ export const Menu = () => {
 
 	const purpleRef = useRef<HTMLDivElement | null>(null);
 	const [clipPath, setClipPath] = useState<string>('inset(0 0 100% 0)');
+
+	const searchParams = useSearchParams();
+	const router = useRouter();
 
 	useEffect(() => {
 		const purpleSections = Array.from(
@@ -104,6 +108,12 @@ export const Menu = () => {
 		};
 	}, []);
 
+	const openModal = () => {
+		const params = new URLSearchParams(searchParams.toString());
+		params.set('modal', 'true');
+		router.replace(`?${params.toString()}`, { scroll: false });
+	};
+
 	return (
 		<>
 			<div aria-hidden={false} className={clsx(styles.root, styles.white)}>
@@ -134,7 +144,9 @@ export const Menu = () => {
 					>
 						бесплатная программа для студентов всех вузов
 					</Description>
-					<Button size="s">участвовать</Button>
+					<Button onClick={openModal} size="s">
+						участвовать
+					</Button>
 
 					<Image
 						alt="maskot"
@@ -205,7 +217,9 @@ export const Menu = () => {
 					>
 						бесплатная программа для студентов всех вузов
 					</Description>
-					<Button size="s">участвовать</Button>
+					<Button onClick={openModal} size="s">
+						участвовать
+					</Button>
 
 					<Image
 						alt="maskot"

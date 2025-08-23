@@ -20,15 +20,17 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 	const pathname = usePathname();
 
 	const [mounted, setMounted] = useState(false);
-	const [hash, setHash] = useState(''); // <— сохраняем текущий hash один раз на клиенте
+	const [hash, setHash] = useState('');
+	const [isVisible, setIsVisible] = useState(false); // ← в дереве
+	const [animateIn, setAnimateIn] = useState(false); // ← стадия анимации
+
+	const isOpen = searchParams.get('modal') === 'true';
+	useScrollLock(isOpen);
 
 	useEffect(() => {
 		setMounted(true);
 		setHash(window.location.hash || '');
 	}, []);
-
-	const isOpen = searchParams.get('modal') === 'true';
-	useScrollLock(isOpen);
 
 	const buildHref = useCallback(
 		(open: boolean) => {
@@ -59,17 +61,31 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 		return () => window.removeEventListener('keydown', onKeyDown);
 	}, [isOpen, closeModal]);
 
-	if (!mounted || !isOpen) return null;
+	useEffect(() => {
+		if (isOpen) {
+			setIsVisible(true);
+			requestAnimationFrame(() => setAnimateIn(true));
+		} else if (isVisible) {
+			setAnimateIn(false);
+			const timeout = setTimeout(() => setIsVisible(false), 250); // match transition
+			return () => clearTimeout(timeout);
+		}
+	}, [isOpen]);
+
+	if (!mounted || !isVisible) return null;
 
 	return createPortal(
 		<div
 			aria-label="Модальное окно"
 			aria-modal="true"
-			className={styles.overlay}
+			className={`${styles.overlay} ${animateIn ? styles.overlayShown : ''}`}
 			onClick={onOverlayClick}
 			role="dialog"
 		>
-			<div className={styles.content} onClick={(e) => e.stopPropagation()}>
+			<div
+				className={`${styles.content} ${animateIn ? styles.contentShown : ''}`}
+				onClick={(e) => e.stopPropagation()}
+			>
 				<CrossIcon
 					className={styles.crossIcon}
 					height={'1.5rem'}

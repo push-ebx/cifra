@@ -1,34 +1,36 @@
-@use 'src/styles/mixins/breakpoint';
-
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(0,0,0,.5);
   z-index: 9999;
+
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.overlayShown {
+  opacity: 1;
 }
 
 .content {
-  height: auto;
-  background-color: #fff;
+  background: #fff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
   width: 32.75rem;
+  position: relative;
 
-  @include breakpoint.tabletDown {
-    padding: 1.5rem;
-    width: 20.9375rem;
-  }
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.contentShown {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .crossIcon {
@@ -37,4 +39,3 @@
   right: 2.5rem;
   rotate: 45deg;
 }
-

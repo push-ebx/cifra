@@ -26,9 +26,9 @@ export const VideoSection = () => {
 	return (
 		<div className={styles.root}>
 			<div className={styles.previewContainer}>
-				{isPortrait && (
+				{isPortrait && window.innerWidth <= 768 && (
 					<div className={styles.rotateButton}>
-						<RotateIcon fill={'white'} />
+						<RotateIcon fill="white" />
 						<Display color="secondary" size="xs">
 							поверни чтобы посмотреть
 						</Display>

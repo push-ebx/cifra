@@ -25,7 +25,7 @@ export const Footer = () => {
 	const openModal = () => {
 		const params = new URLSearchParams(searchParams.toString());
 		params.set('modal', 'true');
-		router.replace(`?${params.toString()}`);
+		router.replace(`?${params.toString()}`, { scroll: false });
 	};
 
 	return (

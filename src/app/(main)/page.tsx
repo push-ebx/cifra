@@ -32,15 +32,15 @@ const Home = async () => {
 	return (
 		<>
 			<Hero />
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<AcceleratorIs />*/}
-			{/*	<PrizeFund />*/}
-			{/*</div>*/}
-			{/*<div style={{ position: 'relative' }}>*/}
-			{/*	<Tracks />*/}
-			{/*	<EducationalProgram />*/}
-			{/*	<EducationalProgramMobile />*/}
-			{/*</div>*/}
+			<div style={{ position: 'relative' }}>
+				<AcceleratorIs />
+				<PrizeFund />
+			</div>
+			<div style={{ position: 'relative' }}>
+				<Tracks />
+				<EducationalProgram />
+				<EducationalProgramMobile />
+			</div>
 			<VideoSection />
 			<WhatDoUGet />
 			<CifraFroU />

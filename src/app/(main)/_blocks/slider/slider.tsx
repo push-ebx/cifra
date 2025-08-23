@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -41,6 +42,16 @@ export const Slider = () => {
 				};
 
 	const [direction, setDirection] = useState<'next' | 'prev'>('next');
+
+	const searchParams = useSearchParams();
+	const router = useRouter();
+
+	const openModal = () => {
+		const params = new URLSearchParams(searchParams.toString());
+		params.set('modal', 'true');
+		router.replace(`?${params.toString()}`, { scroll: false });
+	};
+
 	return (
 		<Container className={styles.root} id="teams" tag="section">
 			<Heading className={styles.heading} color="secondary" size="xl">
@@ -51,7 +62,7 @@ export const Slider = () => {
 					<Heading color="secondary" size="1">
 						решил кем видишь себя в команде?
 					</Heading>
-					<Button size="s" variant="outline">
+					<Button onClick={openModal} size="s" variant="outline">
 						да, го в команду
 					</Button>
 				</div>

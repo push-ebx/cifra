@@ -142,3 +142,22 @@
 .link {
   color: var(--violete-dark);
 }
+
+.form {
+  text-align: center;
+  padding: 6.22rem 2.06rem 12.72rem 2rem;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.textForm {
+  width: 23.6875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
