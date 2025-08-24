@@ -81,31 +81,3 @@ section.root {
     }
   }
 }
-
-.debugMark {
-  background-color: red;
-  width: 100px;
-  height: 3px;
-  position: absolute;
-  left: 0;
-
-  &:nth-child(1) {
-    top: 0;
-  }
-
-  &:nth-child(2) {
-    top: calc(1 * 100dvh - 3px - 250px);
-  }
-
-  &:nth-child(3) {
-    top: calc(2 * 100dvh - 3px - 250px);
-  }
-
-  &:nth-child(4) {
-    top: calc(3 * 100dvh - 3px - 250px);
-  }
-
-  &:nth-child(5) {
-    top: calc(4 * 100dvh - 3px - 250px);
-  }
-}
