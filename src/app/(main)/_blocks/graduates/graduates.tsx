@@ -22,6 +22,8 @@ export const Graduates = () => {
 
 	const bp = useBreakpoint();
 
+	console.log(bp);
+
 	const toggleVideo = (index: number) => {
 		setActiveVideos((prev) => {
 			const newSet = new Set(prev);
@@ -122,7 +124,7 @@ export const Graduates = () => {
 				Выпускники
 			</Heading>
 
-			{bp === 'tablet' ? (
+			{bp === 'laptop' ? (
 				<div className={styles.cards}>{_cards}</div>
 			) : (
 				<>
@@ -185,18 +187,18 @@ const cards = [
 		srcVideo: '/video/manukyan.mp4',
 		srcImage: '/images/graduates/video-preiview.webp',
 	},
-	{
-		name: 'Манукян Ваник',
-		subtitle:
-			'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
-		srcVideo: '/video/manukyan.mp4',
-		srcImage: '/images/graduates/video-preiview.webp',
-	},
-	{
-		name: 'Манукян Ваник',
-		subtitle:
-			'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
-		srcVideo: '/video/manukyan.mp4',
-		srcImage: '/images/graduates/video-preiview.webp',
-	},
+	// {
+	// 	name: 'Манукян Ваник',
+	// 	subtitle:
+	// 		'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
+	// 	srcVideo: '/video/manukyan.mp4',
+	// 	srcImage: '/images/graduates/video-preiview.webp',
+	// },
+	// {
+	// 	name: 'Манукян Ваник',
+	// 	subtitle:
+	// 		'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
+	// 	srcVideo: '/video/manukyan.mp4',
+	// 	srcImage: '/images/graduates/video-preiview.webp',
+	// },
 ];

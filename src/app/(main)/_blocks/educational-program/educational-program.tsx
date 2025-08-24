@@ -6,11 +6,10 @@ import { useScrollIndex } from '@/hooks/client/use-scroll-index';
 import styles from './educational-program.module.scss';
 
 const programs = [
-	'Образовательный блок',
-	'Курсы и лекции',
-	'Воркшопы и мастер-классы',
-	'Семинары и конференции',
-	'Онлайн-курсы и вебинары',
+	'образовательный блок',
+	'мастер-классы\nот экспертов',
+	'сертификат\nгосударственного\nобразца',
+	'база знаний',
 ];
 
 export const EducationalProgram = () => {

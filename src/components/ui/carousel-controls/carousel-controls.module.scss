@@ -10,16 +10,16 @@
       color: var(--carousel-button-foreground-disabled);
     }
 
-    &:not([disabled]) {
-      @media (hover: hover) {
-        &:hover {
-          color: var(--carousel-button-foreground-hover);
-        }
-      }
-
-      &:active {
-        color: var(--carousel-button-foreground-active);
-      }
-    }
+    //&:not([disabled]) {
+    //  @media (hover: hover) {
+    //    &:hover {
+    //      color: var(--carousel-button-foreground-hover);
+    //    }
+    //  }
+    //
+    //  &:active {
+    //    color: var(--carousel-button-foreground-active);
+    //  }
+    //}
   }
 }

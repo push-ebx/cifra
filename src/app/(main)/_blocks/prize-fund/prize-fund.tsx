@@ -83,8 +83,8 @@ const cards = [
 		imageSrc: '/images/cards/star.webp',
 	},
 	{
-		title: 'в Крым',
-		subtitle: 'каникулы всей\nкомандой',
+		title: 'в крыму',
+		subtitle: 'каникулы \nкомандой',
 		imageSrc: '/images/cards/mountains.webp',
 	},
 	{
@@ -103,7 +103,7 @@ const cards = [
 	},
 	{
 		title: 'подарки',
-		subtitle: 'от партнеров\nспециальные',
+		subtitle: 'партнерские',
 		imageSrc: '/images/cards/server.webp',
 	},
 ];
