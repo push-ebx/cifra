@@ -11,8 +11,7 @@ section.root {
   @include breakpoint.desktopDown {
     padding: 9.3rem var(--padding-horizontal-base);
   }
-
-  @include breakpoint.tabletDown {
+  @include breakpoint.tabletDown  {
     padding: 6.25rem var(--padding-horizontal-base);
   }
 
@@ -39,17 +38,125 @@ section.root {
 
   .tracks {
     display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    border-left: var(--border-height-s) dashed var(--violete);
-    padding-left: 2rem;
+    gap: 0.5rem;
     margin-top: 3.5rem;
-    width: 21.875rem;
+    width: 100%;
+    border-left: none;
+    padding-left: 0;
 
-    > div {
+    .vBlock {
+      position: relative;
+      z-index: 1;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .card[aria-selected="true"] .vBlock {
+      display: none;
+    }
+
+    .card {
+      max-height: 23.625rem;
+      justify-content: space-between;
+      padding: 1rem;
+      position: relative;
+      flex: 0 0 5.125rem;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 0.0625rem dashed var(--Stroke-Violet, #D0B4FD);
+
+      transition:
+              flex-basis 450ms ease,
+              opacity 450ms ease,
+              background-color 450ms ease;
+
+
+      .cardText {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 15.9375rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transition: opacity 250ms ease;
+        pointer-events: none;
+      }
+
+      .cardContent {
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 250ms ease, transform 250ms ease;
+
+        img {
+          width: 15.25rem;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      .vTitle {
+        color: black;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: center;
+
+        font-size: 0.875rem;
+        line-height: 1;
+        letter-spacing: 0.04em;
+
+        opacity: 1;
+        transition: opacity 200ms ease;
+        user-select: none;
+        pointer-events: none;
+
+        }
+
+      .vIcon {
+        opacity: 1;
+        transition: opacity 200ms ease;
+        user-select: none;
+        pointer-events: none;
+        color: white;
+      }
+
+      &:hover {
+        background: var(--violete-dark);
+        opacity: 1;
+
+        .vTitle {
+          color: white;
+        }
+
+        svg {
+          fill: var(--white);
+          color: var(--violete-dark);
+
+          circle {
+            fill: var(--white);
+          }
+        }
+      }
+    }
+
+    .cardActive {
+      border-radius: 1rem;
+      flex-basis: 18.5rem !important;
+      opacity: 1 !important;
+      background-color: #752CE8;
+      border: none;
+
+      .cardContent {
+        opacity: 1; transform: translateY(0);
+      }
     }
   }
 }

@@ -20,6 +20,7 @@ import { VideoSection } from '@/app/(main)/_blocks/video-section/video-section';
 import { WhatDoUGet } from '@/app/(main)/_blocks/what-do-u-get/what-do-u-get';
 import { JsonLd } from '@/components/utils';
 import { Menu } from '@/components/widgets';
+import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 
 const webPageSchema: WithContext<WebPage> = {
 	'@context': 'https://schema.org',

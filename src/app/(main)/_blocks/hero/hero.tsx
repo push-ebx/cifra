@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { Container, Display, Heading, Image } from '@/components/ui';
+import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 
 import styles from './hero.module.scss';
 

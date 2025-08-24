@@ -1,7 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
+import clsx from 'clsx';
+
+import { head, rock, tetris } from '@/components/icons';
 import { Body, Container, Heading, Image } from '@/components/ui';
 
 import styles from './tracks.module.scss';
@@ -11,21 +14,28 @@ const tracksData = [
 		title: 'Образование',
 		description:
 			'Используй цифровые технологии в образовании. Улучши процесс обучения в школе, вузе или компании',
+		imageSrc: '/images/tracks/track-1.webp',
+		icon: head,
 	},
 	{
 		title: 'Креативные индустрии',
 		description:
 			'Представь в цифровом формате современное творчество и внедри его в реальность',
+		imageSrc: '/images/tracks/track-2.webp',
+		icon: rock,
 	},
 	{
 		title: 'Промышленность',
 		description:
 			'Оптимизируй процессы с искусственным интеллектом в промышленной индустрии',
+		imageSrc: '/images/tracks/track-3.webp',
+		icon: tetris,
 	},
 ];
 
 export const Tracks = () => {
-	const rootRef = useRef(null);
+	const rootRef = useRef<HTMLDivElement | null>(null);
+	const [active, setActive] = useState(0);
 
 	return (
 		<Container
@@ -44,18 +54,61 @@ export const Tracks = () => {
 						Вы сами с командой определяете направление: можно прийти со своим
 						проектом или выбрать кейс от партнеров
 					</Body>
-					<div className={styles.tracks}>
+
+					{/* Лента карточек */}
+					<div aria-label="Треки" className={styles.tracks} role="tablist">
 						{tracksData.map((track, index) => (
-							<div key={index}>
-								<Heading size="m">{track.title}</Heading>
-								<Body color={'darkGray'} size="s">
-									{track.description}
-								</Body>
+							<div
+								key={index}
+								aria-selected={active === index}
+								onClick={() => setActive(index)}
+								role="tab"
+								tabIndex={0}
+								className={clsx(
+									styles.card,
+									active === index && styles.cardActive
+								)}
+								onKeyDown={(e) => {
+									if (e.key === 'Enter' || e.key === ' ') {
+										e.preventDefault();
+										setActive(index);
+									}
+									if (e.key === 'ArrowLeft')
+										setActive((p) => (p ? p - 1 : tracksData.length - 1));
+									if (e.key === 'ArrowRight')
+										setActive((p) => (p === tracksData.length - 1 ? 0 : p + 1));
+								}}
+							>
+								<div aria-hidden className={styles.vBlock}>
+									<span className={styles.vIcon}>{track.icon}</span>
+									<Heading
+										className={styles.vTitle}
+										size={'m'}
+										weight={'regular'}
+									>
+										{track.title}
+									</Heading>
+								</div>
+
+								{/* бейдж-иконка */}
+								{/*<span className={styles.badge}>{rock}</span>*/}
+
+								{/* контент (появляется у активной) */}
+								<div className={styles.cardContent}>
+									<Image alt={'track'} src={track.imageSrc} />
+									<div className={styles.cardText}>
+										<Heading color={'secondary'} size="m">
+											{track.title}
+										</Heading>
+										<Body color="secondary" size="s">
+											{track.description}
+										</Body>
+									</div>
+								</div>
 							</div>
 						))}
 					</div>
 				</div>
-				<Image alt="girl" className={styles.image} src="/images/girl.webp" />
 			</div>
 		</Container>
 	);
