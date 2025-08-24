@@ -155,7 +155,7 @@ export const Menu = () => {
 					>
 						бесплатная программа для студентов всех вузов
 					</Description>
-					<Button onClick={openModal} size="m">
+					<Button onClick={openModal} size="s">
 						участвовать
 					</Button>
 
@@ -244,7 +244,7 @@ export const Menu = () => {
 					>
 						бесплатная программа для студентов всех вузов
 					</Description>
-					<Button onClick={openModal} size="m" variant="secondary">
+					<Button onClick={openModal} size="s" variant="secondary">
 						участвовать
 					</Button>
 
