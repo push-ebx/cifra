@@ -1,7 +1,7 @@
 @use '/src/styles/mixins/breakpoint';
 
 section.root {
-  --text-count: 5;
+  --text-count: 4;
   position: sticky;
   top: 0;
   height: calc(var(--text-count) * 50svh + 120svh);
@@ -23,12 +23,14 @@ section.root {
   z-index: 1;
   align-items: center;
   justify-content:  center;
-  gap: 3.5rem;
+  //gap: 3.5rem;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 5rem;
 
   span:first-child {
-    width: 13rem;
+    width: 44rem;
+    margin-top: 3rem;
   }
 }
 

@@ -6,6 +6,7 @@ import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-i
 import { CifraFroU } from '@/app/(main)/_blocks/cifra-fro-u/cifra-fro-u';
 import { EducationalProgram } from '@/app/(main)/_blocks/educational-program/educational-program';
 import { EducationalProgramMobile } from '@/app/(main)/_blocks/educational-program-mobile/educational-program-mobile';
+import { EducationalProgramV2 } from '@/app/(main)/_blocks/educational-program-v2/educational-program-v2';
 import { Faq } from '@/app/(main)/_blocks/faq/faq';
 import { Footer } from '@/app/(main)/_blocks/footer/footer';
 import { Graduates } from '@/app/(main)/_blocks/graduates/graduates';
@@ -52,12 +53,13 @@ const Home = async () => {
 		<>
 			<Hero />
 			<div style={{ position: 'relative' }}>
-				<AcceleratorIs />
-				<PrizeFund />
+				{/*<AcceleratorIs />*/}
+				{/*<PrizeFund />*/}
 			</div>
 			<div style={{ position: 'relative' }}>
 				<Tracks />
-				<EducationalProgram />
+				{/*<EducationalProgram />*/}
+				<EducationalProgramV2 />
 				<EducationalProgramMobile />
 			</div>
 			<VideoSection />
