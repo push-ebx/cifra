@@ -11,21 +11,28 @@ import styles from './prize-fund.module.scss';
 export const PrizeFund = () => {
 	const { activeSlide, setActiveSlide } = useCarouselControls(1);
 
-	const _cards = cards.map((card, index) => (
-		<GlassCard
-			key={index}
-			cardClassName={styles.card}
-			contentClassName={styles.contentCard}
-		>
-			<Display color="secondary" size="xxs">
-				{card.subtitle}
-			</Display>
-			<Display color="secondary" size="m">
-				{card.title}
-			</Display>
-			<Image alt={card.subtitle} className={styles.image} src={card.imageSrc} />
-		</GlassCard>
-	));
+	const _cards = [
+		...cards.map((card, index) => (
+			<GlassCard
+				key={index}
+				cardClassName={styles.card}
+				contentClassName={styles.contentCard}
+			>
+				<Display color="secondary" size="xxs">
+					{card.subtitle}
+				</Display>
+				<Display color="secondary" size="m">
+					{card.title}
+				</Display>
+				<Image
+					alt={card.subtitle}
+					className={styles.image}
+					src={card.imageSrc}
+				/>
+			</GlassCard>
+		)),
+		<Image key="maskot" alt="maskot" src="/images/cards/maskot.webp" />,
+	];
 
 	return (
 		<Container
@@ -76,9 +83,9 @@ const cards = [
 		imageSrc: '/images/cards/star.webp',
 	},
 	{
-		title: 'в Казань',
-		subtitle: 'IT-путешествие',
-		imageSrc: '/images/cards/plane.webp',
+		title: 'в Крым',
+		subtitle: 'каникулы всей\nкомандой',
+		imageSrc: '/images/cards/mountains.webp',
 	},
 	{
 		title: (
@@ -90,22 +97,13 @@ const cards = [
 		imageSrc: '/images/cards/ruble.webp',
 	},
 	{
-		title: (
-			<>
-				2 млн <RubleIcon />
-			</>
-		),
-		subtitle: 'серверы для твоего стартапа на ',
-		imageSrc: '/images/cards/server.webp',
-	},
-	{
-		title: 'fast track',
-		subtitle: 'привлечение посевных инвестиций через',
-		imageSrc: '/images/cards/cube.webp',
-	},
-	{
 		title: 'IPR',
 		subtitle: 'регистрация интеллектуальных прав',
 		imageSrc: '/images/cards/ipr.webp',
+	},
+	{
+		title: 'подарки',
+		subtitle: 'от партнеров\nспециальные',
+		imageSrc: '/images/cards/server.webp',
 	},
 ];
