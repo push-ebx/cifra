@@ -34,6 +34,7 @@
 
     a {
       @include typography.descriptionL;
+      transition: color var(--animation-duration-m) var(--animation-easing-default);
     }
   }
 
@@ -74,21 +75,21 @@
     }
 
     .vk {
-      background: url("/images/media/vk-white.webp");
+      background: url("/images/media/vk-purple.webp");
       background-size: cover;
 
       &:hover {
-        background: url("/images/media/vk-hover.webp");
+        background: url("/images/media/vk_violet.png");
         background-size: cover;
       }
     }
 
     .tg {
-      background: url("/images/media/tg-white.webp");
+      background: url("/images/media/tg-purple.webp");
       background-size: cover;
 
       &:hover {
-        background: url("/images/media/tg-hover.webp");
+        background: url("/images/media/tg_violet.png");
         background-size: cover;
       }
     }
@@ -116,8 +117,8 @@
 }
 
 .active {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  //text-decoration: underline;
+  //text-underline-offset: 0.3rem;
 }
 
 .white {
@@ -131,11 +132,18 @@
   .active {
     color: var(--text-primary);
   }
+
+  a:hover {
+    color: var(--text-primary);
+  }
+
+  a:active {
+    color: var(--violete-dark);
+  }
 }
 
 .purple {
   color: var(--violete);
-  pointer-events: none;
 
   .getInTouch {
     color: var(--text-secondary);
@@ -145,23 +153,35 @@
     color: var(--text-secondary);
   }
 
+  a {
+    pointer-events: auto;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  a:active {
+    color: white;
+  }
+
   .btns {
     .vk {
-      background: url("/images/media/vk-purple.png");
+      background: url("/images/media/vk_white.webp");
       background-size: cover;
 
       &:hover {
-        background: url("/images/media/vk-hover.webp");
+        background: url("/images/media/vk_outline.webp");
         background-size: cover;
       }
     }
 
     .tg {
-      background: url("/images/media/tg-purple.png");
+      background: url("/images/media/tg_white.webp");
       background-size: cover;
 
       &:hover {
-        background: url("/images/media/tg-hover.webp");
+        background: url("/images/media/tg_outline.webp");
         background-size: cover;
       }
     }

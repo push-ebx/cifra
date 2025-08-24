@@ -134,7 +134,7 @@ export const Menu = () => {
 									const id = item.href.slice(1);
 									const el = document.getElementById(id);
 									if (el && lenis) {
-										lenis.scrollTo(el, { offset: -80 }); // offset под фикс-хедер
+										lenis.scrollTo(el, { offset: 0 }); // offset под фикс-хедер
 									}
 									history.replaceState(null, '', item.href);
 								}}
@@ -155,7 +155,7 @@ export const Menu = () => {
 					>
 						бесплатная программа для студентов всех вузов
 					</Description>
-					<Button onClick={openModal} size="s">
+					<Button onClick={openModal} size="m">
 						участвовать
 					</Button>
 
@@ -244,7 +244,7 @@ export const Menu = () => {
 					>
 						бесплатная программа для студентов всех вузов
 					</Description>
-					<Button onClick={openModal} size="s">
+					<Button onClick={openModal} size="m" variant="secondary">
 						участвовать
 					</Button>
 
