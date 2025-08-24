@@ -63,7 +63,7 @@ export const Form = () => {
 	};
 
 	return (
-		<Modal>
+		<Modal className={styles.modal}>
 			{status === 'success' ? (
 				<div className={styles.form}>
 					<Image

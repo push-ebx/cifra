@@ -12,9 +12,10 @@ import styles from './modal.module.scss';
 
 interface ModalProps {
 	children: ReactNode;
+	className?: string;
 }
 
-export const Modal: FC<ModalProps> = ({ children }) => {
+export const Modal: FC<ModalProps> = ({ children, className }) => {
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -120,7 +121,7 @@ export const Modal: FC<ModalProps> = ({ children }) => {
 			role="dialog"
 		>
 			<div
-				className={`${styles.content} ${animateIn ? styles.contentShown : ''}`}
+				className={`${styles.content} ${animateIn ? styles.contentShown : ''} ${className}`}
 				onClick={(e) => e.stopPropagation()}
 			>
 				<CrossIcon
