@@ -14,6 +14,7 @@
     align-items: center;
     justify-content: center;
 
+    // общий плэй-блок (если где-то нужен)
     .playButton {
       position: absolute;
       display: flex;
@@ -23,14 +24,10 @@
       gap: 1rem;
       user-select: none;
     }
-
-    div:last-child {
-      width: 100%;
-      height: 100%;
-    }
   }
 }
 
+/* подсказка "поверни чтобы посмотреть" */
 .rotateButton {
   @include breakpoint.tabletDown {
     max-width: 12.0625rem;
@@ -41,5 +38,94 @@
     justify-content: center;
     align-items: center;
     user-select: none;
+    z-index: 3;
   }
+}
+
+/* контейнер видео; по умолчанию прямоугольный */
+.videoContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  .video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // заполняем контейнер
+  }
+}
+
+/* превью с кнопкой по центру */
+.preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;      // если нужен квадрат — можно вернуть aspect-ratio: 1;
+    // aspect-ratio: 1;
+  }
+
+  .playButtonPreview {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+}
+
+/* оболочка активного видео */
+.videoWrapper {
+  position: relative;
+  cursor: pointer;
+
+  .video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Плей по центру при ПАУЗЕ — постоянный */
+  .pauseOverlay {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;            // всегда видно, пока компонент рендерится
+    pointer-events: none;  // не мешает кликам
+    svg { height: 3rem; width: 3rem; }
+  }
+
+  /* Вспышка при старте воспроизведения */
+  .playOverlay {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeOut 500ms ease forwards;
+    pointer-events: none;
+    svg { height: 3rem; width: 3rem; }
+  }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
