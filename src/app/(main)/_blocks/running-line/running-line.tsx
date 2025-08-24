@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { Heading, Image } from '@/components/ui';
+import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 
 import styles from './running-line.module.scss';
@@ -44,6 +45,7 @@ export const RunningLine = ({ images }: Props) => {
 					<Image alt="img" src={images[currentIndex]} />
 				</div>
 			</div>
+			<FixedButtons type="secondary" />
 		</section>
 	);
 };

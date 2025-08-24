@@ -56,6 +56,7 @@ export const Hero = () => {
 					src="/images/maskot-hero.webp"
 					style={{ transform: `translateY(${offset}rem)` }}
 				/>
+				<FixedButtons />
 			</Container>
 		</>
 	);

@@ -4,6 +4,7 @@ section.root {
   height: 54.5rem;
   background-color: var(--violete-dark);
   display: flex;
+  flex-direction: column;
   justify-content: end;
   align-items: center;
   padding-right: 2.75rem;
