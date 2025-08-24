@@ -45,7 +45,7 @@ section.root {
     flex-direction: column;
     justify-content: space-between;
     border: var(--border-height-s) var(--violete) dashed;
-    height: 13.8rem;
+    //height: 13.8rem;
     border-radius: 1rem;
     padding: 1rem;
     transition: color var(--animation-duration-m) var(--animation-easing-default),
@@ -66,6 +66,9 @@ section.root {
   }
 
   .circle {
+    width: 13.75rem;
+    height: 13.875rem;
+
     @include breakpoint.tabletDown {
       width: 13.75rem;
       height: 13.75rem;
@@ -80,6 +83,12 @@ section.root {
   }
 }
 
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
 .gradient {
   position: absolute;
   top: 0;
@@ -87,4 +96,23 @@ section.root {
   left: 0;
   right: 0;
   z-index: -1;
+}
+
+.media {
+  inline-size: 8.375rem;
+  block-size: 8.375rem;
+  flex: 0 0 8.375rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.75rem;
+
+  video {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.gif {
 }
