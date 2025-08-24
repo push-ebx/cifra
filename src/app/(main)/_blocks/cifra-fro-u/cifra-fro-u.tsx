@@ -1,6 +1,9 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+
+import { clsx } from 'clsx';
 
 import {
 	Body,
@@ -17,7 +20,6 @@ import styles from './cifra-fro-u.module.scss';
 
 export const CifraFroU = () => {
 	const { activeSlide, setActiveSlide } = useCarouselControls(1);
-
 	const router = useRouter();
 
 	const openModal = () => {
@@ -26,15 +28,51 @@ export const CifraFroU = () => {
 		router.replace(`?${params.toString()}`, { scroll: false });
 	};
 
+	const GifLoop = ({ src, className }: { src: string; className?: string }) => {
+		const ref = useRef<HTMLVideoElement | null>(null);
+
+		useEffect(() => {
+			const v = ref.current;
+			if (!v) return;
+			v.play().catch(() => void 0);
+
+			const io = new IntersectionObserver(
+				([e]) => (e.isIntersecting ? v.play().catch(() => void 0) : v.pause()),
+				{ threshold: 0.2 }
+			);
+			io.observe(v);
+			return () => io.disconnect();
+		}, []);
+
+		return (
+			<div className={clsx(styles.media, className)}>
+				<video
+					ref={ref}
+					autoPlay
+					controls={false}
+					loop
+					muted
+					playsInline
+					preload="metadata"
+				>
+					<source src={src} type="video/mp4" />
+				</video>
+			</div>
+		);
+	};
+
 	const _cards = [
 		...cards.map((card, index) => (
 			<div key={index} className={styles.card}>
-				<Display color="violete" size="xs">
-					0{index + 1}
-				</Display>
-				<Body size="s" weight="regular">
-					{card.title}
-				</Body>
+				<GifLoop className={styles.gif} src={card.gifSrc} />
+				<div className={styles.cardText}>
+					<Display color="violete" size="xs">
+						0{index + 1}
+					</Display>
+					<Body size="s" weight="regular">
+						{card.title}
+					</Body>
+				</div>
 			</div>
 		)),
 		<Button
@@ -85,17 +123,22 @@ CifraFroU.displayName = 'CifraFroU';
 const cards = [
 	{
 		title: 'Ты действующий студент любого вуза ',
+		gifSrc: '/video/student.mp4',
 	},
 	{
 		title: 'Хочешь пополнить портфолио',
+		gifSrc: '/video/2.mp4',
 	},
 	{
-		title: 'Мечтаешь работать с крупным заказчиком',
+		title: 'Мечтаешь работать с крупным заказчиком',
+		gifSrc: '/video/3.mp4',
 	},
 	{
 		title: 'Хочешь зарабатывать на своих идеях',
+		gifSrc: '/video/4.mp4',
 	},
 	{
-		title: 'Целишься\nв IT тусовку',
+		title: 'Целишься\nв IT тусовку',
+		gifSrc: '/video/5.mp4',
 	},
 ];

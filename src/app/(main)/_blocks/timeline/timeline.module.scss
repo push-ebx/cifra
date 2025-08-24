@@ -22,7 +22,7 @@ section.root {
   }
 
   .trackLines {
-    width:  100%;
+    width: 100%;
     display: grid;
     max-width: 44.25rem;
     grid-template-columns: repeat(2, 1fr);
@@ -48,6 +48,11 @@ section.root {
       gap: 1.5rem;
       padding: 1rem 0;
       border-top: var(--border-height-s) dashed var(--violete);
+      width: 28.25rem;
+
+      @include breakpoint.tabletDown {
+        width: 100%;
+      }
 
       .date {
         display: flex;

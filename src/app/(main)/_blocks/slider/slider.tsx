@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 
 import { AnimatePresence, motion } from 'motion/react';
 
-import { DesignerIcon } from '@/components/icons';
 import { Body, Button, Container, Heading, Image } from '@/components/ui';
 import { CarouselControls } from '@/components/ui/carousel-controls/carousel-controls';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
@@ -100,8 +99,8 @@ export const Slider = () => {
 				<div className={styles.controlsPosition}>
 					<CarouselControls
 						className={styles.carouselControls}
-						disableNext={activeSlide === slides.length - visibleSlides}
-						disablePrev={activeSlide === 0}
+						disableNext={false}
+						disablePrev={false}
 						onNext={() => {
 							setDirection('next');
 							handleNext();
