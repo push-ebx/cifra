@@ -4,7 +4,6 @@ section.root {
   height: 54.5rem;
   background-color: var(--violete-dark);
   display: flex;
-  flex-direction: column;
   justify-content: end;
   align-items: center;
   padding-right: 2.75rem;
@@ -14,6 +13,7 @@ section.root {
   @include breakpoint.tabletDown {
     height: auto;
     padding: 3.12rem var(--padding-horizontal-base);
+    flex-direction: column;
   }
 
   .wrapper {
