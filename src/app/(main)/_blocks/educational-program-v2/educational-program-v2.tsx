@@ -89,8 +89,7 @@ export const EducationalProgramV2 = () => {
 								color={idx + 1 <= activeStep ? 'secondary' : 'violete'}
 								size="1"
 							>
-								/0
-								{activeStep}
+								/0 {idx + 1}
 							</Heading>
 							<Heading
 								color={idx + 1 <= activeStep ? 'secondary' : 'violete'}

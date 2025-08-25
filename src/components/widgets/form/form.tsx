@@ -18,6 +18,13 @@ export const Form = () => {
 		track: 'Биотехнологии',
 	});
 
+	const isFormValid =
+		form.lastName.trim() &&
+		form.firstName.trim() &&
+		form.phone.trim() &&
+		form.telegram.trim() &&
+		form.school.trim();
+
 	const [loading, setLoading] = useState(false);
 	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -27,6 +34,12 @@ export const Form = () => {
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
+
+		if (!isFormValid) {
+			setStatus('error');
+			return;
+		}
+
 		setLoading(true);
 		setStatus('idle');
 

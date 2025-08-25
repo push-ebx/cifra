@@ -37,6 +37,12 @@ section.root {
   .ctaButton {
     margin-right: 9rem;
 
+    &:hover {
+      background-color: var(--button-primary-background);
+      color: var(--button-primary-foreground);
+      border: var(--border-height-s) solid transparent;
+    }
+
     @include breakpoint.tabletDown {
       display: none;
     }
