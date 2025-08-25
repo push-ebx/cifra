@@ -17,7 +17,16 @@ export const Partners = () => {
 			</div>
 			<div className={styles.partners}>
 				{(bp === 'mobile' ? mobilePartners : partners).map((partner, index) => (
-					<Image key={index} alt={'partner'} src={partner} />
+					<Image
+						key={index}
+						alt={'partner'}
+						src={partner}
+						className={
+							partner === '/images/partners/mobile/geek-battle.webp'
+								? styles.geekBattle
+								: ''
+						}
+					/>
 				))}
 				<a
 					href="https://startup-studia.ru/"
@@ -53,4 +62,6 @@ const mobilePartners = [
 	'/images/partners/mobile/tochka.webp',
 	// '/images/partners/mobile/platform-nti.webp',
 	'/images/partners/mobile/digital-growth.webp',
+	'/images/partners/mobile/geek-battle.webp',
+	'/images/partners/mobile/fsp.webp',
 ];

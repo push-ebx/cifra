@@ -109,7 +109,7 @@ export const CifraFroU = () => {
 					dragFree: false,
 					containScroll: 'trimSnaps',
 					skipSnaps: true,
-					loop: true,
+					loop: false,
 				}}
 			>
 				{_cards}

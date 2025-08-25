@@ -8,6 +8,7 @@ import { AppLoader } from '@/app/_app-loader';
 import { Button } from '@/components/ui';
 import { Header, Menu } from '@/components/widgets';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
+import { YandexMetric } from '@/components/widgets/ym/_ym';
 
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
@@ -55,6 +56,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 			className={`${PPMachinaPlain.variable} ${PPMachinaInktrap.variable}`}
 			lang="ru"
 		>
+			<YandexMetric id={103878591} />
 			<body>
 				<div id={'modal-root'}></div>
 				<ReactLenis root>

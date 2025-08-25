@@ -8,7 +8,7 @@ section.root {
   align-items: end;
 
   @include breakpoint.desktopDown {
-    padding-top: 9rem;
+    padding-top: 6.25rem;
   }
 
   @include breakpoint.tabletDown {

@@ -39,11 +39,16 @@ section.root {
 
       @include breakpoint.tabletDown {
         height: 4.1rem;
+        max-width: 10rem;
       }
     }
 
     .struktura {
       cursor: pointer;
+    }
+
+    .geekBattle {
+      height: 3.5rem;
     }
   }
 }
