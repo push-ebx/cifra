@@ -12,6 +12,7 @@ import styles from './mobile-menu.module.scss';
 
 type MobileMenuProps = {
 	className?: string;
+	closeMenu: () => void;
 };
 
 const NAV_ITEMS = [
@@ -23,7 +24,7 @@ const NAV_ITEMS = [
 	{ label: 'FAQ', href: '#faq' },
 ];
 
-export const MobileMenu: FC<MobileMenuProps> = ({ className }) => {
+export const MobileMenu: FC<MobileMenuProps> = ({ className, closeMenu }) => {
 	const router = useRouter();
 
 	const openModal = () => {
@@ -34,11 +35,15 @@ export const MobileMenu: FC<MobileMenuProps> = ({ className }) => {
 
 	return (
 		<div>
-			{/* обнуляем паддинги модалки и рендерим свою фиолетовую панель */}
 			<div className={clsx(styles.panel, className)}>
 				<nav className={styles.nav}>
 					{NAV_ITEMS.map((i) => (
-						<a key={i.href} className={styles.link} href={i.href}>
+						<a
+							key={i.href}
+							className={styles.link}
+							href={i.href}
+							onClick={closeMenu}
+						>
 							{i.label}
 						</a>
 					))}

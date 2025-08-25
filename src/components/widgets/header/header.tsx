@@ -21,6 +21,8 @@ export const Header = () => {
 		};
 	}, [open]);
 
+	const closeMenu = () => setOpen(false);
+
 	return (
 		<>
 			<Container className={styles.root} tag="header">
@@ -104,7 +106,7 @@ export const Header = () => {
 						</svg>
 					</button>
 
-					<MobileMenu className={styles.menuPanel} />
+					<MobileMenu className={styles.menuPanel} closeMenu={closeMenu} />
 				</>
 			)}
 		</>

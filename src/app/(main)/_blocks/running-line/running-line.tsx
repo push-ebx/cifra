@@ -1,52 +1,87 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { Heading, Image } from '@/components/ui';
+import { Carousel } from '@/components/ui/carousel/carousel';
+import { SwipeSuggestion } from '@/components/ui/swipe-suggestion/swipe-suggestion';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
+import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './running-line.module.scss';
 
-const srcImages = [
-	'/images/gallery/1.webp',
-	'/images/gallery/2.webp',
-	'/images/gallery/3.webp',
-];
+type Props = {
+	imagesDesktop: string[];
+	imagesMobile: string[];
+};
 
-type Props = { images: string[] };
-
-export const RunningLine = ({ images }: Props) => {
+export const RunningLine = ({ imagesDesktop, imagesMobile }: Props) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const bp = useBreakpoint();
+	const { activeSlide, setActiveSlide } = useCarouselControls(1);
 
+	// выбираем набор изображений под устройство
+	const images = useMemo(() => {
+		return bp === 'mobile' ? imagesMobile : imagesDesktop;
+	}, [bp, imagesDesktop, imagesMobile]);
+
+	// сбрасываем индекс при смене набора
 	useEffect(() => {
-		let timeout: NodeJS.Timeout;
+		setCurrentIndex(0);
+	}, [images]);
 
-		const tick = () => {
+	// автопрокрутка превью в блоке .gallery
+	useEffect(() => {
+		if (!images.length) return;
+
+		const interval = setInterval(() => {
 			setCurrentIndex((prev) => (prev + 1) % images.length);
-			timeout = setTimeout(tick, 500);
-		};
+		}, 500);
 
-		timeout = setTimeout(tick, 500);
+		return () => clearInterval(interval);
+	}, [images]);
 
-		return () => clearTimeout(timeout);
-	}, []);
+	const slides = images.map((src, i) => (
+		<Image key={i} alt="slide" src={src} />
+	));
 
 	return (
-		<section className={styles.root} data-theme="purple">
-			<div className={styles.wrapper}>
-				<Heading className={styles.line} color="violete" size="xl">
-					{bp === 'mobile'
-						? 'как это было'
-						: 'как это было как это было как это было как это было'}
-				</Heading>
-				<div className={styles.gallery}>
-					<Image alt="img" src={images[currentIndex]} />
+		<SwipeSuggestion>
+			<section className={styles.root} data-theme="purple">
+				<div className={styles.wrapper}>
+					<Heading className={styles.line} color="violete" size="xl">
+						{bp === 'mobile'
+							? 'как это было'
+							: 'как это было как это было как это было как это было'}
+					</Heading>
+
+					<div className={styles.gallery}>
+						{images.length > 0 && (
+							<Image alt="img" src={images[currentIndex]} />
+						)}
+					</div>
+
+					<Carousel
+						active={activeSlide}
+						className={styles.carousel}
+						onChangeAction={(index) => setActiveSlide(index)}
+						onClick={(e) => e.stopPropagation()}
+						options={{
+							align: 'center',
+							dragFree: false,
+							containScroll: 'trimSnaps',
+							skipSnaps: true,
+							loop: true,
+						}}
+					>
+						{slides}
+					</Carousel>
 				</div>
-			</div>
-			<FixedButtons type="secondary" />
-		</section>
+
+				<FixedButtons type="secondary" />
+			</section>
+		</SwipeSuggestion>
 	);
 };
 

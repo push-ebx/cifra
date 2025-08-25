@@ -1,0 +1,59 @@
+@use '/src/styles/mixins/breakpoint';
+
+.root {
+  display: none;
+  position: relative;
+  z-index: 999;
+
+  @include breakpoint.tabletDown {
+    display: block;
+  }
+
+  .textWrapper {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.46);
+    z-index: 9999;
+
+    // изначально скрыт
+    opacity: 0;
+    visibility: hidden;
+    transition:
+            opacity 300ms ease,
+            visibility 300ms linear;
+
+    &.isVisible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .blink {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    animation: swipeBlink 1.2s ease-in-out infinite; // плавное мигание
+  }
+
+  .contentIn {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 260ms ease, opacity 260ms ease;
+  }
+  .contentOut {
+    transform: translateY(6px);
+    opacity: 0;
+    transition: transform 200ms ease, opacity 200ms ease;
+  }
+}
+
+/* Плавный цикл мигания */
+@keyframes swipeBlink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}

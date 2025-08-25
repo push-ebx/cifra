@@ -1,8 +1,13 @@
+'use client';
+
 import { Container, Heading, Image } from '@/components/ui';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 
 import styles from './partners.module.scss';
 
 export const Partners = () => {
+	const bp = useBreakpoint();
+
 	return (
 		<Container className={styles.root} data-theme="white" tag="section">
 			<div className={styles.headingWrapper}>
@@ -11,7 +16,7 @@ export const Partners = () => {
 				</Heading>
 			</div>
 			<div className={styles.partners}>
-				{partners.map((partner, index) => (
+				{(bp === 'mobile' ? mobilePartners : partners).map((partner, index) => (
 					<Image key={index} alt={'partner'} src={partner} />
 				))}
 				<a
@@ -22,7 +27,11 @@ export const Partners = () => {
 					<Image
 						alt="partner"
 						className={styles.struktura}
-						src="/images/partners/struktura.webp"
+						src={
+							bp === 'mobile'
+								? '/images/partners/mobile/struktura.webp'
+								: '/images/partners/struktura.webp'
+						}
 					/>
 				</a>
 			</div>
@@ -37,4 +46,11 @@ const partners = [
 	'/images/partners/tochka.webp',
 	'/images/partners/platform-nti.webp',
 	'/images/partners/digital-growth.webp',
+];
+
+const mobilePartners = [
+	'/images/partners/mobile/demidovsky.webp',
+	'/images/partners/mobile/tochka.webp',
+	// '/images/partners/mobile/platform-nti.webp',
+	'/images/partners/mobile/digital-growth.webp',
 ];

@@ -61,7 +61,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 					<div id={'app-root'}>
 						<Menu />
 						{/*<FixedButtons />*/}
-						{/*<AppLoader />*/}
+						<AppLoader />
 						<Header />
 						<main className={'main'}>{children}</main>
 						{/*<Footer />*/}

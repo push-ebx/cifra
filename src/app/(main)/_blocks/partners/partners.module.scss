@@ -30,11 +30,16 @@ section.root {
 
     @include breakpoint.tabletDown {
       gap: 1rem;
+      max-width: 100%;
     }
 
     img {
       width: auto;
       height: 4.875rem;
+
+      @include breakpoint.tabletDown {
+        height: 4.1rem;
+      }
     }
 
     .struktura {

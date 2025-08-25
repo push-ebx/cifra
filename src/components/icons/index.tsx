@@ -59,30 +59,10 @@ export const tetris = (
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<circle cx="25" cy="25" fill="#BB97F3" r="24.5" stroke="#BB97F3" />
-		<path
-			d="M16 28H22V34H16V28Z"
-			stroke="currentColor"
-			stroke-linecap="round"
-		/>
-		<path
-			d="M28 16H34V22H28V16Z"
-			stroke="currentColor"
-			stroke-linecap="round"
-		/>
-		<path
-			d="M28 22H34V28H28V22Z"
-			stroke="currentColor"
-			stroke-linecap="round"
-		/>
-		<path
-			d="M22 22H28V28H22V22Z"
-			stroke="currentColor"
-			stroke-linecap="round"
-		/>
-		<path
-			d="M16 22H22V28H16V22Z"
-			stroke="currentColor"
-			stroke-linecap="round"
-		/>
+		<path d="M16 28H22V34H16V28Z" stroke="currentColor" strokeLinecap="round" />
+		<path d="M28 16H34V22H28V16Z" stroke="currentColor" strokeLinecap="round" />
+		<path d="M28 22H34V28H28V22Z" stroke="currentColor" strokeLinecap="round" />
+		<path d="M22 22H28V28H22V22Z" stroke="currentColor" strokeLinecap="round" />
+		<path d="M16 22H22V28H16V22Z" stroke="currentColor" strokeLinecap="round" />
 	</svg>
 );

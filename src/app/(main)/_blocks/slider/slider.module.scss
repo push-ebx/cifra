@@ -33,8 +33,14 @@ section.root {
   }
 }
 
+.swipeSuggestion {
+  span {
+    margin-top: -8rem;
+  }
+}
+
 .fixedButtons {
-  margin-top: 6.5rem;
+  margin-top: 7.5rem;
   padding: 0;
   justify-content: start;
 }

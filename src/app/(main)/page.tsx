@@ -4,8 +4,6 @@ import type { WebPage, WithContext } from 'schema-dts';
 
 import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-is';
 import { CifraFroU } from '@/app/(main)/_blocks/cifra-fro-u/cifra-fro-u';
-import { EducationalProgram } from '@/app/(main)/_blocks/educational-program/educational-program';
-import { EducationalProgramMobile } from '@/app/(main)/_blocks/educational-program-mobile/educational-program-mobile';
 import { EducationalProgramV2 } from '@/app/(main)/_blocks/educational-program-v2/educational-program-v2';
 import { Faq } from '@/app/(main)/_blocks/faq/faq';
 import { Footer } from '@/app/(main)/_blocks/footer/footer';
@@ -20,8 +18,6 @@ import { Tracks } from '@/app/(main)/_blocks/tracks/tracks';
 import { VideoSection } from '@/app/(main)/_blocks/video-section/video-section';
 import { WhatDoUGet } from '@/app/(main)/_blocks/what-do-u-get/what-do-u-get';
 import { JsonLd } from '@/components/utils';
-import { Menu } from '@/components/widgets';
-import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 
 const webPageSchema: WithContext<WebPage> = {
 	'@context': 'https://schema.org',
@@ -32,23 +28,42 @@ const webPageSchema: WithContext<WebPage> = {
 
 export const revalidate = 60;
 
-const Home = async () => {
-	const imagesDir = path.join(process.cwd(), 'public', 'images', 'gallery');
-	let images: string[] = [];
-
+const readImages = (dirAbs: string, publicPrefix: string): string[] => {
 	try {
-		images = fs
-			.readdirSync(imagesDir)
+		return fs
+			.readdirSync(dirAbs)
 			.filter((f) => /\.(png|jpe?g|webp|gif|avif)$/i.test(f))
-			.map((f) => `/images/gallery/${f}`);
-	} catch (e) {
-		// опционально: лог/фоллбек
-		images = [
-			'/images/gallery/1.webp',
-			'/images/gallery/2.webp',
-			'/images/gallery/3.webp',
-		];
+			.map((f) => `${publicPrefix}/${f}`);
+	} catch {
+		return [];
 	}
+};
+
+const Home = async () => {
+	const desktopDir = path.join(
+		process.cwd(),
+		'public',
+		'images',
+		'gallery',
+		'desktop'
+	);
+	const mobileDir = path.join(
+		process.cwd(),
+		'public',
+		'images',
+		'gallery',
+		'mobile'
+	);
+
+	const imagesDesktop = readImages(desktopDir, '/images/gallery/desktop');
+	const imagesMobile = readImages(mobileDir, '/images/gallery/mobile');
+
+	// общий фолбэк, если вдруг обе папки пустые/недоступны
+	const fallback = [
+		'/images/gallery/1.webp',
+		'/images/gallery/2.webp',
+		'/images/gallery/3.webp',
+	];
 
 	return (
 		<>
@@ -59,9 +74,7 @@ const Home = async () => {
 			</div>
 			<div style={{ position: 'relative' }}>
 				<Tracks />
-				{/*<EducationalProgram />*/}
 				<EducationalProgramV2 />
-				{/*<EducationalProgramMobile />*/}
 			</div>
 			<VideoSection />
 			<WhatDoUGet />
@@ -71,7 +84,16 @@ const Home = async () => {
 			<div style={{ position: 'relative' }}>
 				<Graduates />
 			</div>
-			<RunningLine images={images} />
+			<RunningLine
+				imagesDesktop={imagesDesktop.length ? imagesDesktop : fallback}
+				imagesMobile={
+					imagesMobile.length
+						? imagesMobile
+						: imagesDesktop.length
+							? imagesDesktop
+							: fallback
+				}
+			/>
 			<Partners />
 			<div style={{ position: 'relative' }}>
 				<Faq />
@@ -83,5 +105,4 @@ const Home = async () => {
 };
 
 Home.displayName = 'Home';
-
 export default Home;
