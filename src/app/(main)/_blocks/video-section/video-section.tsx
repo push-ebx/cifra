@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { RotateIcon } from '@/components/icons';
 import { Display, Image } from '@/components/ui';
-import { PlayButton } from '@/components/widgets';
+import { PauseButton, PlayButton } from '@/components/widgets';
 
 import styles from './video-section.module.scss';
 
@@ -80,7 +80,6 @@ export const VideoSection = () => {
 	return (
 		<div className={styles.root}>
 			<div className={styles.previewContainer}>
-				{/* призыв к повороту как в первой версии */}
 				{showRotateHint && (
 					<div className={styles.rotateButton}>
 						<RotateIcon fill="white" />
@@ -96,10 +95,10 @@ export const VideoSection = () => {
 							ref={videoRef}
 							className={styles.video}
 							controls={false}
-							muted
+							disablePictureInPicture
 							playsInline
 							preload="metadata"
-							src="/video/promo.mp4"
+							src="/video/promo.webm"
 						/>
 						{isPaused && (
 							<div className={styles.pauseOverlay}>
@@ -108,7 +107,7 @@ export const VideoSection = () => {
 						)}
 						{isPlayingFlash && (
 							<div className={styles.playOverlay}>
-								<PlayButton height="3rem" width="3rem" />
+								<PauseButton height={'3rem'} width={'3rem'} />
 							</div>
 						)}
 					</div>
@@ -120,7 +119,6 @@ export const VideoSection = () => {
 							loading="lazy"
 							src="/images/video-preiview.webp"
 						/>
-						{/* кнопку play поверх превью показываем, когда НЕ просим повернуть телефон */}
 						{!showRotateHint && (
 							<div className={styles.playButtonPreview}>
 								<PlayButton />
