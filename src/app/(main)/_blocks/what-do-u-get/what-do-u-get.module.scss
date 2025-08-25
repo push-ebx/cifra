@@ -32,10 +32,15 @@ section.root {
       gap: 1rem;
 
       @include breakpoint.tabletDown {
-        flex-direction: column;
+
+        margin-top: 2.5rem;
 
         .indexWrapper {
           width: fit-content;
+
+          span {
+            font-size: 1.92706rem;
+          }
         }
       }
 
@@ -54,6 +59,12 @@ section.root {
         span {
           margin-top: 0.2rem;
         }
+
+        @include breakpoint.tabletDown {
+          margin-top: 0;
+          height: 2.3125rem;
+          min-width: 2.3125rem;
+        }
       }
 
       .card {
@@ -65,6 +76,7 @@ section.root {
 
         @include breakpoint.tabletDown {
           padding-top: 0;
+          gap: 1.5rem;
         }
       }
     }
