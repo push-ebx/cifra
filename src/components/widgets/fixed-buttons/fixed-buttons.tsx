@@ -32,6 +32,7 @@ export const FixedButtons = ({
 	return (
 		<Container className={clsx(styles.root, className)}>
 			<Button
+				className={styles.button}
 				onClick={openModal}
 				size={bp === 'mobile' ? 's' : 'l'}
 				variant={type === 'primary' ? 'primary' : 'secondary'}
