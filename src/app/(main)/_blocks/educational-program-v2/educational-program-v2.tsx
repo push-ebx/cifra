@@ -3,6 +3,7 @@
 import { clsx } from 'clsx';
 
 import { Container, Heading, Image } from '@/components/ui';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 import { useScrollIndexV2 } from '@/hooks/client/use-scroll-index-v2';
 
 import styles from './educational-program-v2.module.scss';
@@ -22,16 +23,51 @@ const steps = [
 	styles.step5,
 ];
 
+const mobileLine = (
+	<svg
+		fill="none"
+		height="36.125rem"
+		viewBox="0 0 18 579"
+		width="1.125rem"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path d="M9 1L8 559" stroke="#BB97F3" strokeWidth="4" />
+		<circle cx="8" cy="571" fill="#BB97F3" r="8" />
+		<circle cx="8" cy="171" fill="#BB97F3" r="8" />
+		<circle cx="10" cy="8" fill="#BB97F3" r="8" />
+		<circle cx="9" cy="335" fill="#BB97F3" r="8" />
+	</svg>
+);
+
+const desktopLine = (
+	<svg
+		fill="none"
+		height="46.375rem"
+		viewBox="0 0 24 742"
+		width="1.5rem"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path d="M12.0017 17.0001L12.0032 730.5" stroke="#BB97F3" strokeWidth="8" />
+		<circle cx="12.5" cy="11.5" fill="#BB97F3" r="11.5" />
+		<circle cx="12.5" cy="730.5" fill="#BB97F3" r="11.5" />
+		<circle cx="11.5" cy="483.5" fill="#BB97F3" r="11.5" />
+		<circle cx="11.5" cy="325.5" fill="#BB97F3" r="11.5" />
+		<circle cx="12.5" cy="167.5" fill="#BB97F3" r="11.5" />
+	</svg>
+);
+
 export const EducationalProgramV2 = () => {
+	const bp = useBreakpoint();
+
 	const { index: activeStep, rootRef } = useScrollIndexV2(programs.length, {
 		pivotRatio: 0.5,
-		startFromZero: true,
+		startFromZero: bp !== 'mobile',
 	});
 
 	return (
 		<Container ref={rootRef} className={styles.root} tag="section">
 			<Heading className={styles.title} color="secondary" size="xl">
-				образовательная программа
+				{bp === 'mobile' ? 'программа' : 'образовательная программа'}
 			</Heading>
 			<div className={styles.line}>
 				<Image
@@ -39,24 +75,7 @@ export const EducationalProgramV2 = () => {
 					className={clsx(styles.head, steps[activeStep])}
 					src="/images/head.webp"
 				/>
-				<svg
-					fill="none"
-					height="46.375rem"
-					viewBox="0 0 24 742"
-					width="1.5rem"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M12.0017 17.0001L12.0032 730.5"
-						stroke="#BB97F3"
-						stroke-width="8"
-					/>
-					<circle cx="12.5" cy="11.5" fill="#BB97F3" r="11.5" />
-					<circle cx="12.5" cy="730.5" fill="#BB97F3" r="11.5" />
-					<circle cx="11.5" cy="483.5" fill="#BB97F3" r="11.5" />
-					<circle cx="11.5" cy="325.5" fill="#BB97F3" r="11.5" />
-					<circle cx="12.5" cy="167.5" fill="#BB97F3" r="11.5" />
-				</svg>
+				{bp === 'mobile' ? mobileLine : desktopLine}
 
 				<div className={styles.programs}>
 					{programs.map((program, idx) => (
@@ -70,7 +89,8 @@ export const EducationalProgramV2 = () => {
 								color={idx + 1 <= activeStep ? 'secondary' : 'violete'}
 								size="1"
 							>
-								/0{idx + 1}
+								/0
+								{activeStep}
 							</Heading>
 							<Heading
 								color={idx + 1 <= activeStep ? 'secondary' : 'violete'}
