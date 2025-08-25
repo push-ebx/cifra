@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -80,7 +80,7 @@ export const Tracks = () => {
 								}}
 							>
 								<div aria-hidden className={styles.vBlock}>
-									<span className={styles.vIcon}>{track.icon}</span>
+									<span className={styles.vIconDesktop}>{track.icon}</span>
 									<Heading
 										className={styles.vTitle}
 										size={'m'}
@@ -88,21 +88,20 @@ export const Tracks = () => {
 									>
 										{track.title}
 									</Heading>
+									<span className={styles.vIcon}>{track.icon}</span>
 								</div>
 
-								{/* бейдж-иконка */}
-								{/*<span className={styles.badge}>{rock}</span>*/}
-
-								{/* контент (появляется у активной) */}
 								<div className={styles.cardContent}>
-									<Image alt={'track'} src={track.imageSrc} />
-									<div className={styles.cardText}>
-										<Heading color={'secondary'} size="m">
-											{track.title}
-										</Heading>
-										<Body color="secondary" size="s">
-											{track.description}
-										</Body>
+									<div className={styles.cardContentInner}>
+										<Image alt={'track'} src={track.imageSrc} />
+										<div className={styles.cardText}>
+											<Heading color={'secondary'} size="m">
+												{track.title}
+											</Heading>
+											<Body color="secondary" size="s">
+												{track.description}
+											</Body>
+										</div>
 									</div>
 								</div>
 							</div>

@@ -53,6 +53,11 @@ section.root {
       justify-content: space-between;
       align-items: center;
       pointer-events: none;
+
+      @include breakpoint.tabletDown {
+        flex-direction: row;
+        width: 100%;
+      }
     }
 
     .card[aria-selected="true"] .vBlock {
@@ -75,6 +80,9 @@ section.root {
               opacity 450ms ease,
               background-color 450ms ease;
 
+      @include breakpoint.tabletDown {
+        padding: 0.5rem 1rem;
+      }
 
       .cardText {
         display: flex;
@@ -109,16 +117,30 @@ section.root {
         transform: rotate(180deg);
         text-align: center;
 
-        font-size: 0.875rem;
-        line-height: 1;
-        letter-spacing: 0.04em;
-
         opacity: 1;
         transition: opacity 200ms ease;
         user-select: none;
         pointer-events: none;
 
+        @include breakpoint.tabletDown {
+          writing-mode: initial;
+          transform: none;
+
+          font-size: 1.125rem;
         }
+      }
+
+      .vIconDesktop {
+        opacity: 1;
+        transition: opacity 200ms ease;
+        user-select: none;
+        pointer-events: none;
+        color: white;
+
+        @include breakpoint.desktopDown {
+          display: none;
+        }
+      }
 
       .vIcon {
         opacity: 1;
@@ -126,6 +148,11 @@ section.root {
         user-select: none;
         pointer-events: none;
         color: white;
+        display: none;
+
+        @include breakpoint.tabletDown {
+          display: flex;
+        }
       }
 
       &:hover {
@@ -158,5 +185,60 @@ section.root {
         opacity: 1; transform: translateY(0);
       }
     }
+
+    @include breakpoint.tabletDown {
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .card {
+        width: 100%;
+        max-height: none;          // высота от контента
+        flex: 0 0 auto;
+        display: block;            // больше не поперечный flex
+        padding: 0.5rem 1rem;      // закрытая
+        overflow: visible;         // НЕ режем контент карточки
+        transition: padding 300ms ease, background-color 300ms ease;
+      }
+
+      /* Сам аккордеон: без display:none, анимируем до auto через grid */
+      .cardContent {
+        display: grid;
+        grid-template-rows: 0fr;   // закрыто
+        transition: grid-template-rows 400ms ease, opacity 300ms ease, transform 300ms ease;
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      .cardContentInner {
+        overflow: hidden;          // прячем содержимое при 0fr
+      }
+
+      .cardActive {
+        padding: 1rem;             // открытая — большие паддинги
+      }
+
+      .cardActive .cardContent {
+        grid-template-rows: 1fr;   // открыто
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Вертикальный блок заголовка и иконок — в строку */
+      .vBlock {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* Мелкие правки контента внутри */
+      .cardContent img {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+
+
   }
 }

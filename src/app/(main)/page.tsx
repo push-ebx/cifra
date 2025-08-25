@@ -61,7 +61,7 @@ const Home = async () => {
 				<Tracks />
 				{/*<EducationalProgram />*/}
 				<EducationalProgramV2 />
-				<EducationalProgramMobile />
+				{/*<EducationalProgramMobile />*/}
 			</div>
 			<VideoSection />
 			<WhatDoUGet />
