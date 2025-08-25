@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { Container, Display, Heading, Image } from '@/components/ui';
+import { Button, Container, Display, Heading, Image } from '@/components/ui';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 
 import styles from './hero.module.scss';
@@ -10,6 +11,8 @@ import styles from './hero.module.scss';
 export const Hero = () => {
 	const rootRef = useRef<HTMLDivElement>(null);
 	const [offset, setOffset] = useState(0);
+
+	const router = useRouter();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -26,6 +29,12 @@ export const Hero = () => {
 
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
+
+	const openModal = () => {
+		const params = new URLSearchParams(window.location.search);
+		params.set('modal', 'true');
+		router.replace(`?${params.toString()}`, { scroll: false });
+	};
 
 	return (
 		<>
@@ -56,6 +65,9 @@ export const Hero = () => {
 					src="/images/maskot-hero.webp"
 					style={{ transform: `translateY(${offset}rem)` }}
 				/>
+				<Button className={styles.ctaButton} onClick={openModal} size="l">
+					участвовать
+				</Button>
 				<FixedButtons />
 			</Container>
 		</>

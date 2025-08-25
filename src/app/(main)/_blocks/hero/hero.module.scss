@@ -6,6 +6,7 @@ section.root {
   display: flex;
   flex-direction: column;
   align-items: end;
+  padding-bottom: 8rem;
 
   @include breakpoint.desktopDown {
     padding-top: 2.5rem;
@@ -29,6 +30,10 @@ section.root {
         text-align: center;
       }
     }
+  }
+
+  .ctaButton {
+    margin-right: 9rem;
   }
 
   .maskot {
