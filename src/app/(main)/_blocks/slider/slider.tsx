@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+import type { PanInfo } from 'motion/react';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { Body, Button, Container, Heading, Image } from '@/components/ui';
 import { CarouselControls } from '@/components/ui/carousel-controls/carousel-controls';
+import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
@@ -28,7 +30,7 @@ export const Slider = () => {
 					animate: { opacity: 1, rotate: 0 },
 					exit: (dir: 'next' | 'prev') => ({
 						opacity: 0,
-						x: dir === 'next' ? 5 : -5,
+						rotate: dir === 'next' ? 5 : -5,
 					}),
 				}
 			: {
@@ -48,6 +50,25 @@ export const Slider = () => {
 		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
+	};
+
+	const SWIPE_CONFIDENCE = 800; // чем больше — тем «жёстче» порог
+	const swipePower = (offset: number, velocity: number) =>
+		Math.abs(offset) * Math.abs(velocity);
+
+	const onDragEnd = (_: unknown, info: PanInfo) => {
+		const { offset, velocity } = info;
+		const power = swipePower(offset.x, velocity.x);
+
+		if (power > SWIPE_CONFIDENCE) {
+			if (offset.x < 0) {
+				setDirection('prev');
+				handlePrev();
+			} else {
+				setDirection('next');
+				handleNext();
+			}
+		}
 	};
 
 	return (
@@ -77,10 +98,17 @@ export const Slider = () => {
 							animate="animate"
 							className={styles.card}
 							custom={direction}
+							drag="x"
+							dragConstraints={{ left: 0, right: 0 }} // «якорим» в исходной точке
+							dragElastic={0.25} // немного «тянется»
+							dragMomentum={false} // без инерции
 							exit="exit"
 							initial="initial"
+							onDragEnd={onDragEnd}
+							style={{ touchAction: 'pan-y', cursor: 'grab' }}
 							transition={{ duration: 0.35, ease: 'easeInOut' }}
 							variants={variants}
+							whileDrag={{ cursor: 'grabbing' }}
 						>
 							<Image
 								alt={slides[activeSlide].title}
@@ -130,6 +158,8 @@ export const Slider = () => {
 					</AnimatePresence>
 				</div>
 			</div>
+
+			<FixedButtons className={styles.fixedButtons} type="secondary" />
 		</Container>
 	);
 };
@@ -140,28 +170,28 @@ const slides = [
 	{
 		title: 'дизайнер',
 		subtitle:
-			'Креативный гений, который создает эффективные пользовательские интерфейсы, разрабатывает эстетически привлекательные дизайны и уделяет особое внимание пользовательскому опыту',
+			'Креативный гений, который создает эффективные пользовательские интерфейсы, разрабатывает эстетически привлекательные дизайны и уделяет особое внимание пользовательскому опыту',
 		imageSrc: '/images/slides/pic-1.webp',
 		icon: '/images/slides/icons/designer.webp',
 	},
 	{
 		title: 'маркетолог',
 		subtitle:
-			'Эксперт в области цифрового\nмаркетинга, который помогает команде успешно продвигать продукты и привлекать новых клиентов',
+			'Эксперт в области цифрового\nмаркетинга, который помогает команде успешно продвигать продукты и привлекать новых клиентов',
 		imageSrc: '/images/slides/pic-2.webp',
 		icon: '/images/slides/icons/marketing.webp',
 	},
 	{
 		title: 'менеджер',
 		subtitle:
-			'Он планирует и контролирует\nпроцессы разработки, управляет ресурсами и распределяет задачи между участниками команды',
+			'Он планирует и контролирует\nпроцессы разработки, управляет ресурсами и распределяет задачи между участниками команды',
 		imageSrc: '/images/slides/pic-3.webp',
 		icon: '/images/slides/icons/manager.webp',
 	},
 	{
 		title: 'программист',
 		subtitle:
-			'Он занимается программированием \n на различных языках и технологиях, разрабатывает архитектуру системы \ и обеспечивает надежность \n и безопасность программного продукта',
+			'Он занимается программированием \n на различных языках и технологиях, разрабатывает архитектуру системы и обеспечивает надежность \n и безопасность программного продукта',
 		imageSrc: '/images/slides/pic-4.webp',
 		icon: '/images/slides/icons/coder.webp',
 	},

@@ -17,9 +17,26 @@ section.root {
     padding: 0 var(--padding-horizontal-base) 0;
   }
 
+  @include breakpoint.tabletDown {
+    height: 50.75rem;
+    justify-content: start;
+    padding-top: 3.13rem;
+  }
+
   .heading {
     text-align: center;
+
+    @include breakpoint.tabletDown {
+      text-align: start;
+      margin-bottom: 1.8rem;
+    }
   }
+}
+
+.fixedButtons {
+  margin-top: 6.5rem;
+  padding: 0;
+  justify-content: start;
 }
 
 .slider {
@@ -63,6 +80,7 @@ section.root {
     @include breakpoint.tabletDown {
       margin-top: 7rem;
       height: 18rem;
+      align-items: start;
     }
 
     .position {
@@ -77,7 +95,9 @@ section.root {
       }
 
       @include breakpoint.tabletDown {
-        margin-top: 5rem;
+        margin-top: 14rem;
+        align-items: start;
+        text-align: start;
       }
     }
   }
@@ -93,6 +113,10 @@ section.root {
       width: 100%;
       display: flex;
       justify-content: space-between;
+    }
+
+    @include breakpoint.tabletDown {
+      display: none;
     }
   }
 
@@ -134,7 +158,11 @@ section.root {
     }
 
     @include breakpoint.tabletDown {
-      display: none;
+      width: 20.93206rem;
+      height: 21.50531rem;
+      left: -10rem;
+      top: -3rem;
+      //display: none;
     }
   }
 
@@ -146,8 +174,8 @@ section.root {
     transition: opacity 0.3s ease-in-out, z-index 0.6s ease;
 
     @include breakpoint.tabletDown {
-      width: 13rem;
-      height: 13rem;
+      width: 14.2rem;
+      height: auto;
     }
 
     .icon {

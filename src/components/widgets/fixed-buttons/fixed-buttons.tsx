@@ -12,9 +12,13 @@ import styles from './fixed-buttons.module.scss';
 
 type FixedButtonsProps = {
 	type?: 'primary' | 'secondary';
+	className?: string;
 };
 
-export const FixedButtons = ({ type = 'primary' }: FixedButtonsProps) => {
+export const FixedButtons = ({
+	type = 'primary',
+	className,
+}: FixedButtonsProps) => {
 	const bp = useBreakpoint();
 
 	const router = useRouter();
@@ -26,7 +30,7 @@ export const FixedButtons = ({ type = 'primary' }: FixedButtonsProps) => {
 	};
 
 	return (
-		<Container className={styles.root}>
+		<Container className={clsx(styles.root, className)}>
 			<Button
 				onClick={openModal}
 				size={bp === 'mobile' ? 's' : 'l'}
