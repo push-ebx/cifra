@@ -37,6 +37,14 @@ section.root {
     gap: 0.75rem;
   }
 
+  .description {
+    width: 26.125rem;
+
+    @include breakpoint.tabletDown {
+      width: 100%;
+    }
+  }
+
   .tracks {
     display: flex;
     gap: 0.5rem;
@@ -109,6 +117,10 @@ section.root {
         img {
           width: 15.25rem;
           margin-bottom: 1.5rem;
+        }
+
+        @include breakpoint.tabletDown {
+          transition: opacity 550ms ease, transform 550ms ease;
         }
       }
 

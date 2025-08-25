@@ -84,7 +84,6 @@ export const Graduates = () => {
 							className={styles.video}
 							controls={false}
 							disablePictureInPicture
-							muted
 							playsInline
 							preload="metadata"
 							src={card.srcVideo}
@@ -161,33 +160,31 @@ Graduates.displayName = 'Graduates';
 
 const cards = [
 	{
-		name: 'Манукян Ваник',
-		subtitle:
-			'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
-		srcVideo: '/video/manukyan.mp4',
-		srcImage: '/images/graduates/video-preiview.webp',
+		name: 'Георгий Кабанов',
+		subtitle: 'Основатель эко-отеля \n' + '«Усадьба Добрынино»',
+		srcVideo: '/video/georgy.mp4',
+		srcImage: '/images/graduates/georgy.webp',
 	},
 	{
-		name: 'Манукян Ваник',
-		subtitle:
-			'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
-		srcVideo: '/video/manukyan.mp4',
-		srcImage: '/images/graduates/video-preiview.webp',
+		name: 'Никита Баранов',
+		subtitle: 'Выступил с проектом перед В. В.\nПутиным и привлек 430 000 руб.',
+		srcVideo: '/video/nikita.mp4',
+		srcImage: '/images/graduates/nikita.webp',
 	},
-	{
-		name: 'Манукян Ваник',
-		subtitle:
-			'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
-		srcVideo: '/video/manukyan.mp4',
-		srcImage: '/images/graduates/video-preiview.webp',
-	},
-	{
-		name: 'Манукян Ваник',
-		subtitle:
-			'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
-		srcVideo: '/video/manukyan.mp4',
-		srcImage: '/images/graduates/video-preiview.webp',
-	},
+	// {
+	// 	name: 'Манукян Ваник',
+	// 	subtitle:
+	// 		'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
+	// 	srcVideo: '/video/manukyan.mp4',
+	// 	srcImage: '/images/graduates/video-preiview.webp',
+	// },
+	// {
+	// 	name: 'Манукян Ваник',
+	// 	subtitle:
+	// 		'Основал Стартап-студию, занял 2 место в всероссийском конкурсе технологических предпринимателей в Сколково',
+	// 	srcVideo: '/video/manukyan.mp4',
+	// 	srcImage: '/images/graduates/video-preiview.webp',
+	// },
 	// {
 	// 	name: 'Манукян Ваник',
 	// 	subtitle:

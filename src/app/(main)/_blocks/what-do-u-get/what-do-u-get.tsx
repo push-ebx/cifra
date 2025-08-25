@@ -2,7 +2,7 @@
 
 import { clsx } from 'clsx';
 
-import { Body, Container, Display, Heading, Image } from '@/components/ui';
+import { Body, Container, Display, Heading } from '@/components/ui';
 import { useScrollIndexV2 } from '@/hooks/client/use-scroll-index-v2';
 
 import styles from './what-do-u-get.module.scss';
@@ -45,7 +45,11 @@ export const WhatDoUGet = () => {
 						</div>
 						<div className={styles.card}>
 							<Heading size="m">{card.title}</Heading>
-							<Body color="primary" size="s">
+							<Body
+								className={styles[`subtitle-${index}`]}
+								color="primary"
+								size="s"
+							>
 								{card.subtitle}
 							</Body>
 						</div>

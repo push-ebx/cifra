@@ -60,7 +60,7 @@ export const EducationalProgramV2 = () => {
 	const bp = useBreakpoint();
 
 	const { index: activeStep, rootRef } = useScrollIndexV2(programs.length, {
-		pivotRatio: 0.5,
+		pivotRatio: bp === 'mobile' ? 0.5 : 1,
 		startFromZero: bp !== 'mobile',
 	});
 
@@ -89,7 +89,7 @@ export const EducationalProgramV2 = () => {
 								color={idx + 1 <= activeStep ? 'secondary' : 'violete'}
 								size="1"
 							>
-								/0 {idx + 1}
+								/0{idx + 1}
 							</Heading>
 							<Heading
 								color={idx + 1 <= activeStep ? 'secondary' : 'violete'}

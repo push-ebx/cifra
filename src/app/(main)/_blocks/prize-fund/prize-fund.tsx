@@ -2,8 +2,6 @@
 
 import { RubleIcon } from '@/components/icons/ruble-icon';
 import { Container, Display, GlassCard, Heading, Image } from '@/components/ui';
-import { Carousel } from '@/components/ui/carousel/carousel';
-import { CarouselDots } from '@/components/ui/carousel-dots/carousel-dots';
 import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './prize-fund.module.scss';

@@ -73,10 +73,34 @@ section.root {
         gap: 1rem;
         padding: 2rem 0;
         border-bottom: var(--violete) var(--border-height-s) dashed;
+        width: 41.75rem;
 
         @include breakpoint.tabletDown {
+          width: 100%;
           padding-top: 0;
-          gap: 1.5rem;
+          gap: 1rem;
+        }
+      }
+
+      .subtitle-1 {
+        width: 34.5625rem;
+      }
+
+      .subtitle-2 {
+        width: 34.9375rem;
+      }
+
+      .subtitle-3 {
+        width: 38.75rem;
+      }
+
+      .subtitle-4 {
+        width: 40.3125rem;
+      }
+
+      @include breakpoint.tabletDown {
+        .subtitle-1, .subtitle-2, .subtitle-3, .subtitle-4 {
+          width: 100%;
         }
       }
     }

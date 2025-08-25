@@ -33,7 +33,16 @@ section.root {
   }
 }
 
+.wrapper {
+  display: block;
+
+  @include breakpoint.tabletDown {
+    display: none;
+  }
+}
+
 .swipeSuggestion {
+  display: block;
   span {
     margin-top: -8rem;
   }

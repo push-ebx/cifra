@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { clsx } from 'clsx';
-
 import { RotateIcon } from '@/components/icons';
 import { Display, Image } from '@/components/ui';
 import { PauseButton, PlayButton } from '@/components/widgets';
@@ -77,6 +75,35 @@ export const VideoSection = () => {
 		else v.pause();
 	};
 
+	const wrapperRef = useRef<HTMLDivElement | null>(null);
+	// ...
+
+	useEffect(() => {
+		const mql = window.matchMedia('(orientation: portrait)');
+
+		const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+			const portrait =
+				'matches' in e ? e.matches : (e as MediaQueryList).matches;
+			setIsPortrait(portrait);
+
+			// если видео активно — после переворота центрируем его во вьюпорте
+			if (isActive) {
+				raf(() => {
+					const el = wrapperRef.current ?? videoRef.current;
+					el?.scrollIntoView({
+						block: 'center',
+						inline: 'nearest',
+						behavior: 'instant' as ScrollBehavior,
+					});
+				});
+			}
+		};
+
+		handler(mql);
+		mql.addEventListener('change', handler);
+		return () => mql.removeEventListener('change', handler);
+	}, [isActive]);
+
 	const showRotateHint = isPortrait && window.innerWidth <= 768;
 
 	return (
@@ -93,6 +120,7 @@ export const VideoSection = () => {
 
 				{isActive ? (
 					<div
+						ref={wrapperRef}
 						onClick={togglePlayPause}
 						className={
 							showRotateHint ? styles.videoWrapperMobile : styles.videoWrapper
@@ -104,6 +132,7 @@ export const VideoSection = () => {
 							controls={false}
 							disablePictureInPicture
 							playsInline
+							poster="/images/video-preiview.webp"
 							preload="metadata"
 							src="/video/promo.webm"
 						/>

@@ -9,6 +9,8 @@
   color: var(--text-secondary);       /* светлый текст на фиолете */
   position: relative;
   overflow: hidden;
+  overflow-y: scroll;
+  max-height: calc(100svh - var(--header-height) - 1rem);
 }
 
 /* список ссылок */

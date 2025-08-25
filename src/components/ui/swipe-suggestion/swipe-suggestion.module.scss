@@ -1,19 +1,20 @@
 @use '/src/styles/mixins/breakpoint';
 
 .root {
-  display: none;
+  display: block;
   position: relative;
   z-index: 999;
 
-  @include breakpoint.tabletDown {
-    display: block;
-  }
-
   .textWrapper {
+    display: none;
+
+    @include breakpoint.tabletDown {
+      display: flex;
+    }
+
     position: absolute;
     pointer-events: none;
     inset: 0;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.46);

@@ -2,6 +2,7 @@
 
 import type { FormEvent } from 'react';
 import { useState } from 'react';
+import { setTimeout } from 'next/dist/compiled/@edge-runtime/primitives';
 
 import { Button, Description, Image, Input, Modal, Tab } from '@/components/ui';
 import { Checkbox } from '@/components/ui/checkbox/checkbox';
@@ -15,7 +16,7 @@ export const Form = () => {
 		phone: '',
 		telegram: '',
 		school: '',
-		track: 'Биотехнологии',
+		track: 'IT',
 	});
 
 	const isFormValid =
@@ -93,7 +94,7 @@ export const Form = () => {
 						</div>
 					</div>
 				</div>
-			) : (
+			) : status !== 'error' ? (
 				<form onSubmit={handleSubmit}>
 					<Description className={styles.title} size={'xl'}>
 						Регистрируйся чтобы участвовать
@@ -105,19 +106,19 @@ export const Form = () => {
 					<div className={styles.tabsWrapper}>
 						<div className={styles.tabsDesktop}>
 							<Tab
-								isActive={form.track === 'Биотехнологии'}
-								onClick={() => handleChange('track', 'Биотехнологии')}
-							>
-								<Description color={'violete'} size={'xs'}>
-									Биотехнологии
-								</Description>
-							</Tab>
-							<Tab
 								isActive={form.track === 'IT'}
 								onClick={() => handleChange('track', 'IT')}
 							>
 								<Description color={'violete'} size={'xs'}>
 									IT
+								</Description>
+							</Tab>
+							<Tab
+								isActive={form.track === 'Биотехнологии'}
+								onClick={() => handleChange('track', 'Биотехнологии')}
+							>
+								<Description color={'violete'} size={'xs'}>
+									Биотехнологии
 								</Description>
 							</Tab>
 						</div>
@@ -200,25 +201,23 @@ export const Form = () => {
 							</a>
 						</Description>
 					</div>
-
-					{status === 'error' && (
-						<div className={styles.form}>
-							<Image
-								alt="maskot"
-								className={styles.maskot}
-								src="/images/maskot-error.webp"
-							/>
-							<div className={styles.text}>
-								<div className={styles.textForm}>
-									<Description size={'xl'}>пу-пу-пуууууу</Description>
-									<Description size={'xs'}>
-										Люда нам **** что-то пошло не так
-									</Description>
-								</div>
-							</div>
-						</div>
-					)}
 				</form>
+			) : (
+				<div className={styles.form}>
+					<Image
+						alt="maskot"
+						className={styles.maskot}
+						src="/images/maskot-error.webp"
+					/>
+					<div className={styles.text}>
+						<div className={styles.textForm}>
+							<Description size={'xl'}>пу-пу-пуууууу</Description>
+							<Description size={'xs'}>
+								Люда нам **** что-то пошло не так
+							</Description>
+						</div>
+					</div>
+				</div>
 			)}
 		</Modal>
 	);

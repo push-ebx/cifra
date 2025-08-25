@@ -65,14 +65,6 @@ section.root {
       width: 13.75rem;
       height: 14.625rem;
     }
-
-    &:hover {
-      background-color: var(--violete-dark);
-
-      span:last-child {
-        color: var(--text-secondary);
-      }
-    }
   }
 
   .circle {

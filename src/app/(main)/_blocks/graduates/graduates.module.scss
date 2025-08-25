@@ -46,6 +46,7 @@ section.root {
   .cards {
     display: grid;
     max-width: 44.25rem;
+    width: 100%;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem 1.5rem;
     margin-top: 2rem;

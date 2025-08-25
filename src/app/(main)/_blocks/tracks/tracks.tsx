@@ -50,7 +50,7 @@ export const Tracks = () => {
 					<Heading className={styles.heading} color="violete" size="xl">
 						треки
 					</Heading>
-					<Body size="l">
+					<Body className={styles.description} size="l">
 						Вы сами с командой определяете направление: можно прийти со своим
 						проектом или выбрать кейс от партнеров
 					</Body>

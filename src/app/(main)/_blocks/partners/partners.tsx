@@ -43,6 +43,17 @@ export const Partners = () => {
 						}
 					/>
 				</a>
+				{bp !== 'mobile' && (
+					<Image alt="partner" src={'/images/partners/geek-battle.webp'} />
+				)}
+
+				{bp !== 'mobile' && (
+					<Image
+						alt="partner"
+						className={styles.sportProg}
+						src={'/images/partners/sport-prog.webp'}
+					/>
+				)}
 			</div>
 		</Container>
 	);
@@ -60,7 +71,6 @@ const partners = [
 const mobilePartners = [
 	'/images/partners/mobile/demidovsky.webp',
 	'/images/partners/mobile/tochka.webp',
-	// '/images/partners/mobile/platform-nti.webp',
 	'/images/partners/mobile/digital-growth.webp',
 	'/images/partners/mobile/geek-battle.webp',
 	'/images/partners/mobile/fsp.webp',

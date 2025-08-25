@@ -1,0 +1,55 @@
+@use '/src/styles/mixins/breakpoint';
+
+section.root {
+  padding: 3.12rem 0 4.7rem;
+  display: flex;
+  justify-content: start;
+  background-color: var(--violete-dark);
+  flex-direction: column;
+  height: auto;
+  position: relative;
+  z-index: 21;
+
+  .heading {
+    padding-left: var(--padding-horizontal-base);
+  }
+}
+
+.carousel {
+  --slide-spacing: 0.63rem;
+  --slide-size: 21.36619rem;
+  --slide-height: auto;
+  display: none;
+  margin-top: 2.44rem;
+  margin-bottom: 2rem;
+
+  @include breakpoint.tabletDown {
+    display: flex;
+  }
+}
+
+.wrapper {
+  display: none;
+
+  @include breakpoint.tabletDown {
+    display: block;
+  }
+}
+
+.swipeSuggestion {
+  span {
+    margin-top: -8rem;
+  }
+}
+
+.fixedButtons {
+  justify-content: start;
+  padding-left: var(--padding-horizontal-base);
+}
+
+.position {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem
+}
