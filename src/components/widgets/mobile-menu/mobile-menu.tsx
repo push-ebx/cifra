@@ -93,10 +93,6 @@ export const MobileMenu: FC<MobileMenuProps> = ({ className, closeMenu }) => {
 							политика конфиденциальности
 						</Description>
 					</Link>
-
-					<Description className={styles.footer} color="violete" size="xxs">
-						cifra 2025
-					</Description>
 				</div>
 			</div>
 		</div>

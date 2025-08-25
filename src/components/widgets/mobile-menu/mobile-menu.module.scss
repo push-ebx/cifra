@@ -79,39 +79,28 @@
 
 .socials {
   display: flex;
-  gap: 1rem;                        /* 8px */
+  gap: 1rem;
   margin-top: 0.75rem;
 
-  /* иконки из твоих классов */
   .vk {
-    background: url('/images/media/vk-purple.png');
+    background: url('/images/media/vk_white.webp');
     background-size: cover;
     width: 2.5rem;
     height: 2.5rem;
-
-    &:hover {
-      background: url('/images/media/vk-hover.webp');
-      background-size: cover;
-    }
   }
 
   .tg {
-    background: url('/images/media/tg-purple.png');
+    background: url('/images/media/tg_white.webp');
     background-size: cover;
     width: 2.5rem;
     height: 2.5rem;
-
-    &:hover {
-      background: url('/images/media/tg-hover.webp');
-      background-size: cover;
-    }
   }
 }
 
 .privacy {
   display: inline-block;
-  margin-top: 2.5rem;                   /* 16px */
-  max-width: 10.5rem;
+  margin-top: 2.5rem;
+  //max-width: 10.5rem;
 }
 
 .footer {
