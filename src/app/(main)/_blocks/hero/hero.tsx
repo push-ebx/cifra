@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { Button, Container, Display, Heading, Image } from '@/components/ui';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
+import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 
 import styles from './hero.module.scss';
 
@@ -13,6 +14,8 @@ export const Hero = () => {
 	const [offset, setOffset] = useState(0);
 
 	const router = useRouter();
+
+	const bp = useBreakpoint();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -62,8 +65,12 @@ export const Hero = () => {
 				<Image
 					alt="maskot"
 					className={styles.maskot}
-					src="/images/maskot-hero.webp"
 					style={{ transform: `translateY(${offset}rem)` }}
+					src={
+						bp === 'mobile'
+							? '/images/hero-375.webp'
+							: '/images/maskot-hero.webp'
+					}
 				/>
 				<Button className={styles.ctaButton} onClick={openModal} size="l">
 					участвовать
