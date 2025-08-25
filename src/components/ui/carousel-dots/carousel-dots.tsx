@@ -23,7 +23,7 @@ export const CarouselDots = ({
 	const dotBaseStyle: React.CSSProperties = {
 		width: '0.5rem',
 		height: '0.5rem',
-		margin: '0.1rem',
+		margin: '0.2rem',
 		borderRadius: '50%',
 		cursor: 'pointer',
 		border: 'none',

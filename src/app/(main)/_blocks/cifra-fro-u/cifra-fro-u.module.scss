@@ -9,6 +9,8 @@ section.root {
 
   @include breakpoint.tabletDown {
     padding-top: 2rem;
+    padding-bottom: 6.25rem;
+    align-items: center;
   }
 
   .heading {
@@ -33,10 +35,18 @@ section.root {
     --slide-height: 14.625rem;
     display: none;
     margin-top: 2.44rem;
-    margin-bottom: 6.25rem;
+    margin-bottom: 1.5rem;
 
     @include breakpoint.tabletDown {
       display: flex;
+    }
+  }
+
+  .carouselDots {
+    display: none;
+
+    @include breakpoint.tabletDown {
+      display: block;
     }
   }
 

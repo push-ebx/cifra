@@ -14,9 +14,43 @@ import {
 	Heading,
 } from '@/components/ui';
 import { Carousel } from '@/components/ui/carousel/carousel';
+import { CarouselDots } from '@/components/ui/carousel-dots/carousel-dots';
 import { useCarouselControls } from '@/hooks/client/use-carousel-controls';
 
 import styles from './cifra-fro-u.module.scss';
+
+const GifLoop = ({ src, className }: { src: string; className?: string }) => {
+	const ref = useRef<HTMLVideoElement | null>(null);
+
+	useEffect(() => {
+		const v = ref.current;
+		if (!v) return;
+		v.play().catch(() => void 0);
+
+		const io = new IntersectionObserver(
+			([e]) => (e.isIntersecting ? v.play().catch(() => void 0) : v.pause()),
+			{ threshold: 0.2 }
+		);
+		io.observe(v);
+		return () => io.disconnect();
+	}, []);
+
+	return (
+		<div className={clsx(styles.media, className)}>
+			<video
+				// ref={ref}
+				autoPlay
+				controls={false}
+				loop
+				muted
+				playsInline
+				preload="metadata"
+			>
+				<source src={src} type="video/mp4" />
+			</video>
+		</div>
+	);
+};
 
 export const CifraFroU = () => {
 	const { activeSlide, setActiveSlide } = useCarouselControls(1);
@@ -26,39 +60,6 @@ export const CifraFroU = () => {
 		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
-	};
-
-	const GifLoop = ({ src, className }: { src: string; className?: string }) => {
-		const ref = useRef<HTMLVideoElement | null>(null);
-
-		useEffect(() => {
-			const v = ref.current;
-			if (!v) return;
-			v.play().catch(() => void 0);
-
-			const io = new IntersectionObserver(
-				([e]) => (e.isIntersecting ? v.play().catch(() => void 0) : v.pause()),
-				{ threshold: 0.2 }
-			);
-			io.observe(v);
-			return () => io.disconnect();
-		}, []);
-
-		return (
-			<div className={clsx(styles.media, className)}>
-				<video
-					ref={ref}
-					autoPlay
-					controls={false}
-					loop
-					muted
-					playsInline
-					preload="metadata"
-				>
-					<source src={src} type="video/mp4" />
-				</video>
-			</div>
-		);
 	};
 
 	const _cards = [
@@ -108,10 +109,19 @@ export const CifraFroU = () => {
 					dragFree: false,
 					containScroll: 'trimSnaps',
 					skipSnaps: true,
+					loop: true,
 				}}
 			>
 				{_cards}
 			</Carousel>
+			<div className={styles.carouselDots}>
+				<CarouselDots
+					activeColor="#752CE8"
+					activeSlide={activeSlide}
+					onDotClick={setActiveSlide}
+					totalSlides={_cards?.length ?? 0}
+				/>
+			</div>
 
 			<div className={styles.cards}>{_cards}</div>
 		</Container>

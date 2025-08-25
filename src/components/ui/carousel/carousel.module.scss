@@ -38,4 +38,5 @@
     display: flex;
     touch-action: pan-y pinch-zoom;
     gap: var(--slide-spacing);
+    padding-inline: var(--slide-spacing);
 }
