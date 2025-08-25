@@ -31,7 +31,12 @@ export const PrizeFund = () => {
 				/>
 			</GlassCard>
 		)),
-		<Image key="maskot" alt="maskot" src="/images/cards/maskot.webp" />,
+		<Image
+			key="maskot"
+			alt="maskot"
+			className={styles.maskot}
+			src="/images/cards/maskot.webp"
+		/>,
 	];
 
 	return (
@@ -46,27 +51,27 @@ export const PrizeFund = () => {
 					Призовой фонд
 				</Heading>
 
-				<Carousel
-					active={activeSlide}
-					className={styles.carousel}
-					onChangeAction={(index) => setActiveSlide(index)}
-					onClick={(e) => e.stopPropagation()}
-					options={{
-						align: 'center',
-						dragFree: false,
-						containScroll: 'trimSnaps',
-						skipSnaps: true,
-					}}
-				>
-					{_cards}
-				</Carousel>
-				<div className={styles.carouselDots}>
-					<CarouselDots
-						activeSlide={activeSlide}
-						onDotClick={setActiveSlide}
-						totalSlides={_cards?.length ?? 0}
-					/>
-				</div>
+				{/*<Carousel*/}
+				{/*	active={activeSlide}*/}
+				{/*	className={styles.carousel}*/}
+				{/*	onChangeAction={(index) => setActiveSlide(index)}*/}
+				{/*	onClick={(e) => e.stopPropagation()}*/}
+				{/*	options={{*/}
+				{/*		align: 'center',*/}
+				{/*		dragFree: false,*/}
+				{/*		containScroll: 'trimSnaps',*/}
+				{/*		skipSnaps: true,*/}
+				{/*	}}*/}
+				{/*>*/}
+				{/*	{_cards}*/}
+				{/*</Carousel>*/}
+				{/*<div className={styles.carouselDots}>*/}
+				{/*	<CarouselDots*/}
+				{/*		activeSlide={activeSlide}*/}
+				{/*		onDotClick={setActiveSlide}*/}
+				{/*		totalSlides={_cards?.length ?? 0}*/}
+				{/*	/>*/}
+				{/*</div>*/}
 
 				<div className={styles.cards}>{_cards}</div>
 			</div>
