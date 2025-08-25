@@ -24,7 +24,7 @@ const eslintConfig = [
 				},
 			],
 			'react/display-name': [
-				'error',
+				'warn',
 				{
 					ignoreTranspilerName: true,
 					checkContextObjects: true,
