@@ -192,38 +192,36 @@ section.root {
 
       .card {
         width: 100%;
-        max-height: none;          // высота от контента
+        max-height: none;
         flex: 0 0 auto;
-        display: block;            // больше не поперечный flex
-        padding: 0.5rem 1rem;      // закрытая
-        overflow: visible;         // НЕ режем контент карточки
+        display: block;
+        padding: 0.5rem 1rem;
+        overflow: visible;
         transition: padding 300ms ease, background-color 300ms ease;
       }
 
-      /* Сам аккордеон: без display:none, анимируем до auto через grid */
       .cardContent {
         display: grid;
-        grid-template-rows: 0fr;   // закрыто
+        grid-template-rows: 0fr;
         transition: grid-template-rows 400ms ease, opacity 300ms ease, transform 300ms ease;
         opacity: 0;
         transform: translateY(8px);
       }
 
       .cardContentInner {
-        overflow: hidden;          // прячем содержимое при 0fr
+        overflow: hidden;
       }
 
       .cardActive {
-        padding: 1rem;             // открытая — большие паддинги
+        padding: 1rem;
       }
 
       .cardActive .cardContent {
-        grid-template-rows: 1fr;   // открыто
+        grid-template-rows: 1fr;
         opacity: 1;
         transform: translateY(0);
       }
 
-      /* Вертикальный блок заголовка и иконок — в строку */
       .vBlock {
         height: auto;
         display: flex;
@@ -232,13 +230,10 @@ section.root {
         width: 100%;
       }
 
-      /* Мелкие правки контента внутри */
       .cardContent img {
         width: 100%;
         margin-bottom: 1rem;
       }
     }
-
-
   }
 }
