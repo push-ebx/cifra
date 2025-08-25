@@ -37,7 +37,6 @@
     align-items: center;
     user-select: none;
     z-index: 3;
-    rotate: 90deg;
   }
 }
 
@@ -70,7 +69,7 @@
   cursor: pointer;
 
   @include breakpoint.tabletDown {
-    height: 100svh;
+    height: 23.75rem;
   }
 
   img {
@@ -80,7 +79,7 @@
     // aspect-ratio: 1;
 
     @include breakpoint.tabletDown {
-      height: 100svh;
+      height: 23.75rem;
     }
   }
 
@@ -90,6 +89,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 
     &:hover {
       svg {
@@ -153,4 +153,16 @@
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+.videoWrapperMobile {
+  @include breakpoint.tabletDown {
+    height: 23.75rem;
+  }
+}
+
+.videoMobile {
+  @include breakpoint.tabletDown {
+    height: 23.75rem;
+  }
 }

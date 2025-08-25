@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+import { clsx } from 'clsx';
+
 import { RotateIcon } from '@/components/icons';
 import { Display, Image } from '@/components/ui';
 import { PauseButton, PlayButton } from '@/components/widgets';
@@ -80,7 +82,7 @@ export const VideoSection = () => {
 	return (
 		<div className={styles.root}>
 			<div className={styles.previewContainer}>
-				{showRotateHint && (
+				{isActive && showRotateHint && (
 					<div className={styles.rotateButton}>
 						<RotateIcon fill="white" />
 						<Display color="secondary" size="xs">
@@ -90,10 +92,15 @@ export const VideoSection = () => {
 				)}
 
 				{isActive ? (
-					<div className={styles.videoWrapper} onClick={togglePlayPause}>
+					<div
+						onClick={togglePlayPause}
+						className={
+							showRotateHint ? styles.videoWrapperMobile : styles.videoWrapper
+						}
+					>
 						<video
 							ref={videoRef}
-							className={styles.video}
+							className={showRotateHint ? styles.videoMobile : styles.video}
 							controls={false}
 							disablePictureInPicture
 							playsInline
@@ -119,7 +126,7 @@ export const VideoSection = () => {
 							loading="lazy"
 							src="/images/video-preiview.webp"
 						/>
-						{!showRotateHint && (
+						{!isActive && (
 							<div className={styles.playButtonPreview}>
 								<PlayButton />
 								<Display color="secondary" size="xs">
