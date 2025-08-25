@@ -1,17 +1,44 @@
+'use client';
+
+import { clsx } from 'clsx';
+
 import { Body, Container, Display, Heading, Image } from '@/components/ui';
+import { useScrollIndexV2 } from '@/hooks/client/use-scroll-index-v2';
 
 import styles from './what-do-u-get.module.scss';
 
 export const WhatDoUGet = () => {
+	const { index: active, rootRef } = useScrollIndexV2(cards.length, {
+		pivotRatio: 0.35,
+		startFromZero: true,
+	});
+
+	const stickyActive = Math.max(0, Math.min(active ?? 0, cards.length - 1));
+
 	return (
-		<Container className={styles.root} data-theme="white" tag="section">
+		<Container
+			ref={rootRef}
+			className={styles.root}
+			data-theme="white"
+			tag="section"
+		>
 			<Heading className={styles.heading} color="violete" size="xl">
 				Что получишь?
 			</Heading>
 			<div className={styles.cards}>
 				{cards.map((card, index) => (
-					<div key={index} className={styles.cardWrapper}>
-						<div className={styles.indexWrapper}>
+					<div
+						key={index}
+						className={clsx(styles.cardWrapper)}
+						data-index={index + 1}
+						data-scroll-item={true}
+					>
+						<div
+							className={clsx(
+								styles.indexWrapper,
+								stickyActive === index && styles.active
+							)}
+						>
 							<Display color="secondary" size="xs">
 								{index + 1}
 							</Display>

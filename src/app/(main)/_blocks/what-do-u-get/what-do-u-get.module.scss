@@ -31,12 +31,6 @@ section.root {
       display: flex;
       gap: 1rem;
 
-      &:hover {
-        .indexWrapper {
-          background-color: var(--violete-dark);
-        }
-      }
-
       @include breakpoint.tabletDown {
         flex-direction: column;
 
@@ -74,6 +68,10 @@ section.root {
         }
       }
     }
+  }
+
+  .active {
+     background-color: var(--violete-dark) !important;
   }
 
   .maskot {
