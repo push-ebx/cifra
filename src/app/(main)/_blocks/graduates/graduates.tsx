@@ -138,6 +138,7 @@ export const Graduates = () => {
 							dragFree: false,
 							containScroll: 'trimSnaps',
 							skipSnaps: true,
+							loop: true,
 						}}
 					>
 						{_cards}
