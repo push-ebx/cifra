@@ -2,7 +2,6 @@
 
 import type { FormEvent } from 'react';
 import { useState } from 'react';
-import { setTimeout } from 'next/dist/compiled/@edge-runtime/primitives';
 import { useMetrica } from 'next-yandex-metrica';
 
 import { Button, Description, Image, Input, Modal, Tab } from '@/components/ui';
@@ -30,6 +29,8 @@ export const Form = () => {
 	const [loading, setLoading] = useState(false);
 	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+	const [checked, setChecked] = useState(false);
+
 	const { reachGoal } = useMetrica();
 
 	const handleChange = (field: string, value: string) => {
@@ -39,7 +40,9 @@ export const Form = () => {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 
-		if (!isFormValid) {
+		console.log(checked, !isFormValid);
+
+		if (!isFormValid || !checked) {
 			setStatus('error');
 			return;
 		}
@@ -197,7 +200,12 @@ export const Form = () => {
 					</Button>
 
 					<div className={styles.checkboxWrapper}>
-						<Checkbox />
+						<Checkbox
+							checked={checked}
+							onClick={() => {
+								setChecked((prev) => !prev);
+							}}
+						/>
 						<Description color={'darkGray'} size={'xxs'}>
 							Я даю согласие на обработку персональных данных в соответствии c{' '}
 							<a className={styles.link} href="#">
