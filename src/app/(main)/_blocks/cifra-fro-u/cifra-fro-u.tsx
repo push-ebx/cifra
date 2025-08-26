@@ -25,20 +25,36 @@ const GifLoop = ({ src, className }: { src: string; className?: string }) => {
 	useEffect(() => {
 		const v = ref.current;
 		if (!v) return;
-		v.play().catch(() => void 0);
 
+		const tryPlay = () =>
+			v.play().catch(() => {
+				/* игнорим */
+			});
+
+		// iOS любит, когда играем после готовности
+		const onCanPlay = () => tryPlay();
+		v.addEventListener('canplay', onCanPlay);
+
+		// Автовоспроизведение при появлении на экране
 		const io = new IntersectionObserver(
-			([e]) => (e.isIntersecting ? v.play().catch(() => void 0) : v.pause()),
+			([e]) => {
+				if (e.isIntersecting) tryPlay();
+				else v.pause();
+			},
 			{ threshold: 0.2 }
 		);
 		io.observe(v);
-		return () => io.disconnect();
+
+		return () => {
+			io.disconnect();
+			v.removeEventListener('canplay', onCanPlay);
+		};
 	}, []);
 
 	return (
 		<div className={clsx(styles.media, className)}>
 			<video
-				// ref={ref}
+				ref={ref}
 				autoPlay
 				controls={false}
 				loop

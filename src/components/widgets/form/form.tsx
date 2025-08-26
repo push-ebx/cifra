@@ -94,7 +94,7 @@ export const Form = () => {
 						</div>
 					</div>
 				</div>
-			) : status !== 'error' ? (
+			) : (
 				<form onSubmit={handleSubmit}>
 					<Description className={styles.title} size={'xl'}>
 						Регистрируйся чтобы участвовать
@@ -124,19 +124,19 @@ export const Form = () => {
 						</div>
 						<div className={styles.tabsMobile}>
 							<Tab
-								isActive={form.track === 'Биотехнологии'}
-								onClick={() => handleChange('track', 'Биотехнологии')}
-							>
-								<Description color={'violete'} size={'xxs'}>
-									Биотехнологии
-								</Description>
-							</Tab>
-							<Tab
 								isActive={form.track === 'IT'}
 								onClick={() => handleChange('track', 'IT')}
 							>
 								<Description color={'violete'} size={'xxs'}>
 									IT
+								</Description>
+							</Tab>
+							<Tab
+								isActive={form.track === 'Биотехнологии'}
+								onClick={() => handleChange('track', 'Биотехнологии')}
+							>
+								<Description color={'violete'} size={'xxs'}>
+									Биотехнологии
 								</Description>
 							</Tab>
 						</div>
@@ -202,25 +202,27 @@ export const Form = () => {
 						</Description>
 					</div>
 				</form>
-			) : (
-				<div className={styles.form}>
-					<Image
-						alt="maskot"
-						className={styles.maskot}
-						src="/images/maskot-error.webp"
-					/>
-					<div className={styles.text}>
-						<div className={styles.textForm}>
-							<Description size={'xl'}>пу-пу-пуууууу</Description>
-							<Description size={'xs'}>
-								Люда нам **** что-то пошло не так
-							</Description>
-						</div>
-					</div>
-				</div>
 			)}
 		</Modal>
 	);
 };
 
 Form.displayName = 'Form';
+
+// : (
+// 	<div className={styles.form}>
+// 		<Image
+// 			alt="maskot"
+// 			className={styles.maskot}
+// 			src="/images/maskot-error.webp"
+// 		/>
+// 		<div className={styles.text}>
+// 			<div className={styles.textForm}>
+// 				<Description size={'xl'}>пу-пу-пуууууу</Description>
+// 				<Description size={'xs'}>
+// 					Люда нам **** что-то пошло не так
+// 				</Description>
+// 			</div>
+// 		</div>
+// 	</div>
+// )
