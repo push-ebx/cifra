@@ -1,8 +1,8 @@
 @use '/src/styles/mixins/breakpoint';
 
 section.root {
-  position: sticky;
-  top: -50%;
+  //position: sticky;
+  //top: -50%;
   background-color: var(--violete-dark);
   z-index: 23;
   display: flex;
@@ -10,6 +10,7 @@ section.root {
   gap: 5rem;
   align-items: center;
   padding: 5rem 0 10rem;
+  position: relative;
 
   @include breakpoint.tabletDown {
     padding: 3.2rem var(--padding-horizontal-base) 5rem;

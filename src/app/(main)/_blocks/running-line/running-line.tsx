@@ -47,41 +47,53 @@ export const RunningLine = ({ imagesDesktop, imagesMobile }: Props) => {
 	));
 
 	return (
-		<SwipeSuggestion>
-			<section className={styles.root} data-theme="purple">
-				<div className={styles.wrapper}>
-					<Heading className={styles.line} color="violete" size="xl">
-						{bp === 'mobile'
-							? 'как это было'
-							: 'как это было как это было как это было как это было'}
-					</Heading>
+		<>
+			{bp === 'mobile' ? (
+				<SwipeSuggestion>
+					<section className={styles.root}>
+						<div className={styles.wrapper}>
+							<Heading className={styles.line} color="violete" size="xl">
+								как это было
+							</Heading>
 
-					<div className={styles.gallery}>
-						{images.length > 0 && (
-							<Image alt="img" src={images[currentIndex]} />
-						)}
+							<Carousel
+								active={activeSlide}
+								className={styles.carousel}
+								onChangeAction={(index) => setActiveSlide(index)}
+								onClick={(e) => e.stopPropagation()}
+								options={{
+									align: 'center',
+									dragFree: false,
+									containScroll: 'trimSnaps',
+									skipSnaps: true,
+									loop: true,
+								}}
+							>
+								{slides}
+							</Carousel>
+						</div>
+
+						<FixedButtons type="secondary" />
+					</section>
+				</SwipeSuggestion>
+			) : (
+				<section className={styles.root} data-theme="purple">
+					<div className={styles.wrapper}>
+						<Heading className={styles.line} color="violete" size="xl">
+							как это было как это было как это было как это было
+						</Heading>
+
+						<div className={styles.gallery}>
+							{images.length > 0 && (
+								<Image alt="img" src={images[currentIndex]} />
+							)}
+						</div>
 					</div>
 
-					<Carousel
-						active={activeSlide}
-						className={styles.carousel}
-						onChangeAction={(index) => setActiveSlide(index)}
-						onClick={(e) => e.stopPropagation()}
-						options={{
-							align: 'center',
-							dragFree: false,
-							containScroll: 'trimSnaps',
-							skipSnaps: true,
-							loop: true,
-						}}
-					>
-						{slides}
-					</Carousel>
-				</div>
-
-				<FixedButtons type="secondary" />
-			</section>
-		</SwipeSuggestion>
+					<FixedButtons type="secondary" />
+				</section>
+			)}
+		</>
 	);
 };
 

@@ -60,7 +60,7 @@ export const EducationalProgramV2 = () => {
 	const bp = useBreakpoint();
 
 	const { index: activeStep, rootRef } = useScrollIndexV2(programs.length, {
-		pivotRatio: bp === 'mobile' ? 0.5 : 1,
+		pivotRatio: 0.5,
 		startFromZero: bp !== 'mobile',
 	});
 
