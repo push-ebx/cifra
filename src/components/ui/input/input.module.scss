@@ -1,5 +1,6 @@
 @use '/src/styles/mixins/utils';
 @use '/src/styles/mixins/typography';
+@use "src/styles/mixins/breakpoint";
 
 .wrapper {
   position: relative;
@@ -58,6 +59,10 @@
 
     &.hasRightIcon {
       padding-right: 2.5rem;
+    }
+
+    @include breakpoint.tabletDown {
+      padding: 0.62rem 0.75rem;
     }
   }
 

@@ -3,7 +3,7 @@
 
 .root {
   position: relative;
-  z-index: 1004;
+  z-index: 1006;
 }
 
 .panel {
@@ -41,7 +41,7 @@
 /* блок с маскотом и CTA */
 .hero {
   position: relative;
-  margin-top: 1rem;                   /* 16px */
+  //margin-top: 1rem;                   /* 16px */
   padding-top: 3.5rem;                /* под маскота */
 }
 
@@ -54,8 +54,8 @@
   pointer-events: none;
 
   @include breakpoint.tabletDown {
-    top: -2rem;
-    right: 2rem;
+    top: -1.9rem;
+    right: 2.1rem;
     width: 9.3rem;
     height: auto;
     pointer-events: none;
@@ -78,7 +78,7 @@
 
 /* контакты/соцсети/футер */
 .contact {
-  margin-top: 3.5rem;                 /* 24px */
+  margin-top: 2rem;                 /* 24px */
 }
 
 .contactTitle {

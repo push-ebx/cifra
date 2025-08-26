@@ -22,8 +22,6 @@ export const Graduates = () => {
 
 	const bp = useBreakpoint();
 
-	console.log(bp);
-
 	const toggleVideo = (index: number) => {
 		setActiveVideos((prev) => {
 			const newSet = new Set(prev);
@@ -171,7 +169,7 @@ const cards = [
 	{
 		name: 'Никита Баранов',
 		subtitle:
-			'Выступил с проектом перед \nВ. В. Путиным и привлек 430 000 руб.',
+			'Выступил с проектом перед \nВ. В. Путиным и привлек\n430 000 руб.',
 		srcVideo: '/video/nikita.mp4',
 		srcImage: '/images/graduates/nikita.webp',
 	},

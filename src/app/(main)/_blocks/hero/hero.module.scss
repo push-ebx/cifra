@@ -87,6 +87,5 @@ section.root {
 
   @include breakpoint.tabletDown {
     top: -18rem;
-    z-index: 1000;
   }
 }

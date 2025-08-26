@@ -70,9 +70,9 @@ const Home = async () => {
 	return (
 		<>
 			<Hero />
+			<AcceleratorIsMobile />
 			<div style={{ position: 'relative' }}>
 				<AcceleratorIs />
-				<AcceleratorIsMobile />
 				<PrizeFund />
 			</div>
 			<div style={{ position: 'relative' }}>

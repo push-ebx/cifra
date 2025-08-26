@@ -40,8 +40,6 @@ export const Form = () => {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 
-		console.log(checked, !isFormValid);
-
 		if (!isFormValid || !checked) {
 			setStatus('error');
 			return;
@@ -104,7 +102,7 @@ export const Form = () => {
 			) : (
 				<form onSubmit={handleSubmit}>
 					<Description className={styles.title} size={'xl'}>
-						Регистрируйся чтобы участвовать
+						{'Регистрируйся\nчтобы участвовать'}
 					</Description>
 
 					<Description className={styles.sectionTitle} size={'l'}>
@@ -177,7 +175,7 @@ export const Form = () => {
 						</div>
 					</div>
 
-					<Description className={styles.sectionTitle} size={'l'}>
+					<Description className={styles.sectionTitleZav} size={'l'}>
 						Твое учебное заведение
 					</Description>
 					<Input

@@ -4,8 +4,8 @@ section.root {
   padding-bottom: 6.25rem;
   flex-direction: column;
   align-items: end;
-  position: sticky;
-  z-index: 1004;
+  position: relative;
+  z-index: 0;
   top: 0;
   display: none;
 
