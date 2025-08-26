@@ -16,6 +16,17 @@ export const VideoSection = () => {
 
 	const videoRef = useRef<HTMLVideoElement | null>(null);
 
+	const initialOrientationRef = useRef<'portrait' | 'landscape' | null>(null);
+	const lastOrientationRef = useRef<'portrait' | 'landscape' | null>(null);
+	const rotationCountRef = useRef(0);
+
+	const getCurrentOrientation = () =>
+		window.matchMedia('(orientation: portrait)').matches
+			? 'portrait'
+			: 'landscape';
+
+	const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
 	useEffect(() => {
 		const mql = window.matchMedia('(orientation: portrait)');
 		const handler = (e: MediaQueryListEvent | MediaQueryList) => {
@@ -57,6 +68,11 @@ export const VideoSection = () => {
 
 	const startVideo = async () => {
 		setIsActive(true);
+		const o = getCurrentOrientation();
+		initialOrientationRef.current = o;
+		lastOrientationRef.current = o;
+		rotationCountRef.current = 0;
+
 		raf(async () => {
 			const v = videoRef.current;
 			if (!v) return;
@@ -76,7 +92,6 @@ export const VideoSection = () => {
 	};
 
 	const wrapperRef = useRef<HTMLDivElement | null>(null);
-	// ...
 
 	useEffect(() => {
 		const mql = window.matchMedia('(orientation: portrait)');
@@ -97,6 +112,32 @@ export const VideoSection = () => {
 					});
 				});
 			}
+
+			/* 👇 NEW: логика «повернул туда-обратно — поставить на паузу», только на мобилках */
+			if (!isActive || !isMobile()) return;
+
+			const current = portrait ? 'portrait' : 'landscape';
+			const last = lastOrientationRef.current;
+			const initial = initialOrientationRef.current;
+
+			if (last !== current) {
+				// зарегистрировали факт переворота
+				if (initial && current !== initial) {
+					rotationCountRef.current = 1; // первый отклонённый поворот
+				} else if (
+					initial &&
+					current === initial &&
+					rotationCountRef.current >= 1
+				) {
+					// вернулись к исходной ориентации после хотя бы одного поворота — ставим на паузу
+					const v = videoRef.current;
+					if (v && !v.paused) v.pause();
+					// можно сбросить счётчик, чтобы не триггерилось повторно до следующего старта
+					rotationCountRef.current = 0;
+				}
+				lastOrientationRef.current = current;
+			}
+			/* ▲ NEW */
 		};
 
 		handler(mql);
@@ -104,7 +145,8 @@ export const VideoSection = () => {
 		return () => mql.removeEventListener('change', handler);
 	}, [isActive]);
 
-	const showRotateHint = isPortrait && window.innerWidth <= 768;
+	const showRotateHint =
+		isPortrait && typeof window !== 'undefined' && window.innerWidth <= 768;
 
 	return (
 		<div className={styles.root}>
