@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 
 import clsx from 'clsx';
 
-import { head, rock, tetris } from '@/components/icons';
+import { head, pill, pumpkin, rock, tetris, tooth } from '@/components/icons';
 import { Body, Container, Heading, Image } from '@/components/ui';
 
 import styles from './tracks.module.scss';
@@ -30,6 +30,27 @@ const tracksData = [
 			'Оптимизируй процессы с искусственным интеллектом в промышленной индустрии',
 		imageSrc: '/images/tracks/track-3.webp',
 		icon: tetris,
+	},
+	{
+		title: 'Сельское хозяйство',
+		description:
+			'Облегчи все шаги жизненного цикла продукта — от создания и производства до выпуска на рынок и утилизации',
+		imageSrc: '/images/tracks/track-4.webp',
+		icon: pumpkin,
+	},
+	{
+		title: 'Медецина',
+		description:
+			'Используй технологии в сфере медицины. Создай сервисы для управления здоровьем и профилактики заболеваний',
+		imageSrc: '/images/tracks/track-5.webp',
+		icon: tooth,
+	},
+	{
+		title: 'Биотехнологии',
+		description:
+			'С помощью современных технологий производи биоматериалы и лекарства быстрее и дешевле',
+		imageSrc: '/images/tracks/track-6.webp',
+		icon: pill,
 	},
 ];
 

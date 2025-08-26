@@ -66,3 +66,107 @@ export const tetris = (
 		<path d="M16 22H22V28H16V22Z" stroke="currentColor" strokeLinecap="round" />
 	</svg>
 );
+
+export const pumpkin = (
+	<svg
+		fill="none"
+		height="3.125rem"
+		viewBox="0 0 50 50"
+		width="3.125rem"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<circle cx="25" cy="25" fill="#BB97F3" r="24.5" stroke="#BB97F3" />
+		<path
+			d="M28.5 20H21.5C17.9101 20 15 22.9101 15 26.5C15 30.0899 17.9101 33 21.5 33H28.5C32.0899 33 35 30.0899 35 26.5C35 22.9101 32.0899 20 28.5 20Z"
+			stroke="currentColor"
+		/>
+		<path
+			d="M25 33C27.2091 33 29 30.0899 29 26.5C29 22.9101 27.2091 20 25 20C22.7909 20 21 22.9101 21 26.5C21 30.0899 22.7909 33 25 33Z"
+			stroke="currentColor"
+		/>
+		<path
+			d="M28 16H26.5C25.6715 16 25 16.6716 25 17.5V20"
+			stroke="currentColor"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		/>
+	</svg>
+);
+
+export const tooth = (
+	<svg
+		fill="none"
+		height="3.125rem"
+		viewBox="0 0 50 50"
+		width="3.125rem"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<circle cx="25" cy="25" fill="#BB97F3" r="24.5" stroke="#BB97F3" />
+		<g clip-path="url(#clip0_2771_1731)">
+			<path d="M37 13H13V37H37V13Z" fill="currentColor" fill-opacity="0.01" />
+			<path
+				clip-rule="evenodd"
+				d="M19.5576 15.5H20.0003C22.3334 15.8449 22.9661 17.1691 24.9992 17.1691C27.0322 17.1691 27.6647 15.845 29.9979 15.5H30.2492C32.8725 15.5 34.9992 17.6266 34.9992 20.25V20.563C34.9992 22.0144 33.4536 23.6717 32.9992 25.2415C32.5165 26.9087 32.1859 28.2712 32.0888 29.6971C31.8614 33.0375 30.7225 34.5 29.4992 34.5C27.6723 34.5 26.0499 27.0126 25.0304 27.0126C24.0109 27.0126 21.9878 34.5 20.4992 34.5C19.5906 34.5 18.4137 33.9627 17.9718 29.6971C17.796 28 17.4996 26.9704 16.9992 25.2415C16.5593 23.7219 15.075 21.9055 14.9992 20.2755C14.882 17.758 16.8279 15.6221 19.3455 15.5049C19.4162 15.5017 19.4869 15.5 19.5576 15.5Z"
+				fill-rule="evenodd"
+				stroke="currentColor"
+			/>
+			<path
+				d="M20.7402 19.2317L28.9993 21.8943"
+				stroke="currentColor"
+				stroke-linecap="round"
+			/>
+			<path
+				d="M20.7402 21.8943L28.9993 19.2316"
+				stroke="currentColor"
+				stroke-linecap="round"
+			/>
+		</g>
+		<defs>
+			<clipPath id="clip0_2771_1731">
+				<rect
+					fill="currentColor"
+					height="24"
+					transform="translate(13 13)"
+					width="24"
+				/>
+			</clipPath>
+		</defs>
+	</svg>
+);
+
+export const pill = (
+	<svg
+		fill="none"
+		height="3.125rem"
+		viewBox="0 0 50 50"
+		width="3.125rem"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<circle cx="25" cy="25" fill="#BB97F3" r="24.5" stroke="#BB97F3" />
+		<g clip-path="url(#clip0_2771_1741)">
+			<path d="M37 13H13V37H37V13Z" fill="currentColor" fill-opacity="0.01" />
+			<path
+				clip-rule="evenodd"
+				d="M17.9868 24.0312L21.6255 20.9779L25.2642 17.9247C27.4854 16.0609 30.7968 16.3506 32.6606 18.5718C34.5244 20.7929 34.2346 24.1044 32.0135 25.9681L28.3748 29.0214L24.7361 32.0746C22.5149 33.9384 19.2035 33.6487 17.3397 31.4275C15.476 29.2064 15.7657 25.8949 17.9868 24.0312Z"
+				fill-rule="evenodd"
+				stroke="currentColor"
+			/>
+			<path
+				d="M22.8438 23.9307L25.7126 27.3496"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			/>
+		</g>
+		<defs>
+			<clipPath id="clip0_2771_1741">
+				<rect
+					fill="currentColor"
+					height="24"
+					transform="translate(13 13)"
+					width="24"
+				/>
+			</clipPath>
+		</defs>
+	</svg>
+);
