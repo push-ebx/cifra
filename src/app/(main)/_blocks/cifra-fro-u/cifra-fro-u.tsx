@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { useMetrica } from 'next-yandex-metrica';
 
 import { clsx } from 'clsx';
 
@@ -71,11 +72,13 @@ const GifLoop = ({ src, className }: { src: string; className?: string }) => {
 export const CifraFroU = () => {
 	const { activeSlide, setActiveSlide } = useCarouselControls(1);
 	const router = useRouter();
+	const { reachGoal } = useMetrica();
 
 	const openModal = () => {
 		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
+		reachGoal('open_form');
 	};
 
 	const _cards = [

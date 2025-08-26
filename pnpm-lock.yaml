@@ -29,6 +29,9 @@ importers:
       next:
         specifier: 15.1.7
         version: 15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.85.0)
+      next-yandex-metrica:
+        specifier: ^1.2.2
+        version: 1.2.2(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.85.0))(react@19.0.0)
       react:
         specifier: ^19
         version: 19.0.0
@@ -2320,6 +2323,12 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+
+  next-yandex-metrica@1.2.2:
+    resolution: {integrity: sha512-yGWOsW+Je0lSKIPnSqAz8FdWe6TcdwOz/LijLZRumRxf/BsWuac+CmkPplk0gkLGGrXXsCTbFmVRxSOY9ZpooQ==}
+    peerDependencies:
+      next: '>=11.0.0'
+      react: '>=17.0.0'
 
   next@15.1.7:
     resolution: {integrity: sha512-GNeINPGS9c6OZKCvKypbL8GTsT5GhWPp4DM0fzkXJuXMilOO2EeFxuAY6JZbtk6XIl6Ws10ag3xRINDjSO5+wg==}
@@ -5731,6 +5740,11 @@ snapshots:
   natural-compare@1.4.0: {}
 
   neo-async@2.6.2: {}
+
+  next-yandex-metrica@1.2.2(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.85.0))(react@19.0.0):
+    dependencies:
+      next: 15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.85.0)
+      react: 19.0.0
 
   next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.85.0):
     dependencies:

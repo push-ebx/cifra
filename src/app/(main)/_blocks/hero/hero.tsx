@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useMetrica } from 'next-yandex-metrica';
 
 import { Button, Container, Display, Heading, Image } from '@/components/ui';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
@@ -12,8 +13,6 @@ import styles from './hero.module.scss';
 export const Hero = () => {
 	const rootRef = useRef<HTMLDivElement>(null);
 	const [offset, setOffset] = useState(0);
-
-	const router = useRouter();
 
 	const bp = useBreakpoint();
 
@@ -33,10 +32,14 @@ export const Hero = () => {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	const router = useRouter();
+	const { reachGoal } = useMetrica();
+
 	const openModal = () => {
 		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
+		reachGoal('open_form');
 	};
 
 	return (

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useMetrica } from 'next-yandex-metrica';
 
 import clsx from 'clsx';
 import { useLenis } from 'lenis/react';
@@ -30,8 +31,6 @@ export const Menu = () => {
 
 	const purpleRef = useRef<HTMLDivElement | null>(null);
 	const [clipPath, setClipPath] = useState<string>('inset(0 0 100% 0)');
-
-	const router = useRouter();
 
 	useEffect(() => {
 		const purpleSections = Array.from(
@@ -110,10 +109,14 @@ export const Menu = () => {
 		};
 	}, []);
 
+	const router = useRouter();
+	const { reachGoal } = useMetrica();
+
 	const openModal = () => {
 		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
+		reachGoal('open_form');
 	};
 
 	return (

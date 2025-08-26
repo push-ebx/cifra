@@ -3,6 +3,7 @@
 import type { FormEvent } from 'react';
 import { useState } from 'react';
 import { setTimeout } from 'next/dist/compiled/@edge-runtime/primitives';
+import { useMetrica } from 'next-yandex-metrica';
 
 import { Button, Description, Image, Input, Modal, Tab } from '@/components/ui';
 import { Checkbox } from '@/components/ui/checkbox/checkbox';
@@ -28,6 +29,8 @@ export const Form = () => {
 
 	const [loading, setLoading] = useState(false);
 	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+	const { reachGoal } = useMetrica();
 
 	const handleChange = (field: string, value: string) => {
 		setForm((prev) => ({ ...prev, [field]: value }));
@@ -66,6 +69,7 @@ export const Form = () => {
 
 			if (res.ok && data.status === 'success') {
 				setStatus('success');
+				reachGoal('send_form');
 			} else {
 				setStatus('error');
 			}

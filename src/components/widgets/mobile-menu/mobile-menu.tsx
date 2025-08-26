@@ -2,6 +2,7 @@
 
 import type { FC } from 'react';
 import { useRouter } from 'next/navigation';
+import { useMetrica } from 'next-yandex-metrica';
 
 import clsx from 'clsx';
 
@@ -26,11 +27,13 @@ const NAV_ITEMS = [
 
 export const MobileMenu: FC<MobileMenuProps> = ({ className, closeMenu }) => {
 	const router = useRouter();
+	const { reachGoal } = useMetrica();
 
 	const openModal = () => {
 		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
+		reachGoal('open_form');
 	};
 
 	return (

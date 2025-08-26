@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
+import { YandexMetricaProvider } from 'next-yandex-metrica';
 
 import ReactLenis from 'lenis/react';
 
@@ -56,21 +57,31 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 			className={`${PPMachinaPlain.variable} ${PPMachinaInktrap.variable}`}
 			lang="ru"
 		>
-			<YandexMetric id={103878591} />
-			<body>
-				<div id={'modal-root'}></div>
-				<ReactLenis root>
-					<div id={'app-root'}>
-						<Menu />
-						{/*<FixedButtons />*/}
-						{/*<AppLoader />*/}
-						<Header />
-						<main className={'main'}>{children}</main>
-						{/*<Footer />*/}
-					</div>
-				</ReactLenis>
-				{/*<AppLoader />*/}
-			</body>
+			<YandexMetricaProvider
+				router="app"
+				tagID={103878591}
+				initParameters={{
+					clickmap: true,
+					trackLinks: true,
+					accurateTrackBounce: true,
+				}}
+			>
+				{/*<YandexMetric id={103878591} />*/}
+				<body>
+					<div id={'modal-root'}></div>
+					<ReactLenis root>
+						<div id={'app-root'}>
+							<Menu />
+							{/*<FixedButtons />*/}
+							{/*<AppLoader />*/}
+							<Header />
+							<main className={'main'}>{children}</main>
+							{/*<Footer />*/}
+						</div>
+					</ReactLenis>
+					{/*<AppLoader />*/}
+				</body>
+			</YandexMetricaProvider>
 		</html>
 	);
 };
