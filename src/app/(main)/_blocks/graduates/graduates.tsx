@@ -123,7 +123,7 @@ export const Graduates = () => {
 				Выпускники
 			</Heading>
 
-			{bp === 'laptop' ? (
+			{bp !== 'mobile' ? (
 				<div className={styles.cards}>{_cards}</div>
 			) : (
 				<>
@@ -161,7 +161,10 @@ Graduates.displayName = 'Graduates';
 const cards = [
 	{
 		name: 'Георгий Кабанов',
-		subtitle: 'Основатель эко-отеля \n' + '«Усадьба Добрынино»',
+		subtitle:
+			'Основатель эко-отеля \n' +
+			'«Усадьба Добрынино» привлек \n' +
+			'более 20 000 000 руб.',
 		srcVideo: '/video/georgy.mp4',
 		srcImage: '/images/graduates/georgy.webp',
 	},

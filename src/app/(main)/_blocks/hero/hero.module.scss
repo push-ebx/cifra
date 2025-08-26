@@ -18,6 +18,8 @@ section.root {
     padding-right: 1.25rem;
     align-items: center;
     padding-bottom: 6.25rem;
+    z-index: 1002;
+    position: relative;
   }
 
   .headings {
@@ -84,6 +86,7 @@ section.root {
   }
 
   @include breakpoint.tabletDown {
-    top: -18rem
+    top: -18rem;
+    z-index: 1001;
   }
 }

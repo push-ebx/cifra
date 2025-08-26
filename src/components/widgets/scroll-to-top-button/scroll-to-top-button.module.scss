@@ -1,0 +1,17 @@
+@use '/src/styles/mixins/breakpoint';
+
+.root {
+  position: fixed;
+  right: 0.81rem;
+  bottom: 1.19rem;
+  z-index: 1000;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: none;
+
+  @include breakpoint.tabletDown {
+    display:  block;
+  }
+}

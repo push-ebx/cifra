@@ -17,6 +17,8 @@ section.root {
   @include breakpoint.tabletDown {
     padding-bottom: 6.25rem;
     position: relative;
+    z-index: 1003;
+    //background-color: white;
   }
 
   .heading {

@@ -5,11 +5,7 @@ import { YandexMetricaProvider } from 'next-yandex-metrica';
 
 import ReactLenis from 'lenis/react';
 
-import { AppLoader } from '@/app/_app-loader';
-import { Button } from '@/components/ui';
-import { Header, Menu } from '@/components/widgets';
-import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
-import { YandexMetric } from '@/components/widgets/ym/_ym';
+import { Header, Menu, ScrollToTopButton } from '@/components/widgets';
 
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
@@ -72,6 +68,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 					<ReactLenis root>
 						<div id={'app-root'}>
 							<Menu />
+							<ScrollToTopButton />
 							{/*<FixedButtons />*/}
 							{/*<AppLoader />*/}
 							<Header />

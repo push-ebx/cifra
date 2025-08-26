@@ -10,7 +10,7 @@ import styles from './educational-program-v2.module.scss';
 
 const programs = [
 	'образовательный блок',
-	'мастер-классы\nот экспертов',
+	'трекинг',
 	'сертификат\nгосударственного\nобразца',
 	'база знаний',
 ];

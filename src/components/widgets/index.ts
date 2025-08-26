@@ -5,4 +5,5 @@ export { Header } from './header/header';
 export { Menu } from './menu/menu';
 export { PauseButton } from './pause-button/pause-button';
 export { PlayButton } from './play-button/play-button';
+export { ScrollToTopButton } from './scroll-to-top-button/scroll-to-top-button';
 export { ThemeSwitcher } from './theme-switcher/theme-switcher';

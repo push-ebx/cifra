@@ -37,7 +37,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({ className, closeMenu }) => {
 	};
 
 	return (
-		<div>
+		<div className={styles.root}>
 			<div className={clsx(styles.panel, className)}>
 				<nav className={styles.nav}>
 					{NAV_ITEMS.map((i) => (

@@ -4,11 +4,10 @@ section.root {
   padding: 5.3rem var(--padding-horizontal-base);
   display: flex;
   justify-content: end;
-  //position: sticky;
-  //top: 0;
-  //top: -4rem;
-  z-index: 1;
+  position: relative;
   padding-bottom: 10rem;
+  background-color: white;
+  z-index: 1001;
 
   @include breakpoint.desktopDown {
     padding: 9.3rem var(--padding-horizontal-base);
@@ -100,7 +99,11 @@ section.root {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        width: 15.9375rem;
+        width: 15.935rem;
+
+        @include breakpoint.tabletDown {
+          width: 100%;
+        }
       }
 
       &::after {
@@ -121,6 +124,7 @@ section.root {
           width: 15.3rem;
           height: 11.9rem;
           margin-bottom: 1.5rem;
+          justify-content: center;
         }
 
         @include breakpoint.tabletDown {
@@ -227,6 +231,12 @@ section.root {
 
       .cardContentInner {
         overflow: hidden;
+
+        @include breakpoint.tabletDown {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
       }
 
       .cardActive {
