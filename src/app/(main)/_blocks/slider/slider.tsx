@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useMetrica } from 'next-yandex-metrica';
 
 import type { PanInfo } from 'motion/react';
 import { AnimatePresence, motion } from 'motion/react';
@@ -34,13 +35,14 @@ export const Slider = () => {
 	const [direction, setDirection] = useState<'next' | 'prev'>('next');
 
 	const router = useRouter();
+	const { reachGoal } = useMetrica();
 
 	const openModal = () => {
 		const params = new URLSearchParams(window.location.search);
 		params.set('modal', 'true');
 		router.replace(`?${params.toString()}`, { scroll: false });
+		reachGoal('open_form');
 	};
-
 	return (
 		<div className={styles.wrapper}>
 			<SwipeSuggestion className={styles.swipeSuggestion}>

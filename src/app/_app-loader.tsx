@@ -19,7 +19,7 @@ const imageUrls = [
 	'/images/slides/icons/designer.webp',
 	'/images/slides/pic-2.webp',
 	'/images/slides/icons/marketing.webp',
-	'/images/slides/pic-3.webp',
+	'/images/slides/pic-4.webp',
 	'/images/slides/icons/manager.webp',
 	'/images/slides/pic-4.webp',
 	'/images/slides/icons/coder.webp',

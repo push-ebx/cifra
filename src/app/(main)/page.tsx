@@ -3,6 +3,7 @@ import path from 'path';
 import type { WebPage, WithContext } from 'schema-dts';
 
 import { AcceleratorIs } from '@/app/(main)/_blocks/accelerator-is/accelerator-is';
+import { AcceleratorIsMobile } from '@/app/(main)/_blocks/accelerator-is-mobile/accelerator-is-mobile';
 import { CifraFroU } from '@/app/(main)/_blocks/cifra-fro-u/cifra-fro-u';
 import { EducationalProgramV2 } from '@/app/(main)/_blocks/educational-program-v2/educational-program-v2';
 import { Faq } from '@/app/(main)/_blocks/faq/faq';
@@ -71,6 +72,7 @@ const Home = async () => {
 			<Hero />
 			<div style={{ position: 'relative' }}>
 				<AcceleratorIs />
+				<AcceleratorIsMobile />
 				<PrizeFund />
 			</div>
 			<div style={{ position: 'relative' }}>
