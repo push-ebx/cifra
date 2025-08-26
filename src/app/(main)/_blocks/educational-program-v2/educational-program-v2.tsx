@@ -42,17 +42,16 @@ const mobileLine = (
 const desktopLine = (
 	<svg
 		fill="none"
-		height="46.375rem"
-		viewBox="0 0 24 742"
+		height="46.4375rem"
+		viewBox="0 0 24 743"
 		width="1.5rem"
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<path d="M12.0017 17.0001L12.0032 730.5" stroke="#BB97F3" strokeWidth="8" />
 		<circle cx="12.5" cy="11.5" fill="#BB97F3" r="11.5" />
-		<circle cx="12.5" cy="730.5" fill="#BB97F3" r="11.5" />
-		<circle cx="11.5" cy="483.5" fill="#BB97F3" r="11.5" />
-		<circle cx="11.5" cy="325.5" fill="#BB97F3" r="11.5" />
-		<circle cx="12.5" cy="167.5" fill="#BB97F3" r="11.5" />
+		<circle cx="12.5" cy="731.5" fill="#BB97F3" r="11.5" />
+		<circle cx="11.5" cy="491.5" fill="#BB97F3" r="11.5" />
+		<circle cx="11.5" cy="251.5" fill="#BB97F3" r="11.5" />
 	</svg>
 );
 
@@ -61,7 +60,7 @@ export const EducationalProgramV2 = () => {
 
 	const { index: activeStep, rootRef } = useScrollIndexV2(programs.length, {
 		pivotRatio: 0.5,
-		startFromZero: bp !== 'mobile',
+		startFromZero: false,
 	});
 
 	return (

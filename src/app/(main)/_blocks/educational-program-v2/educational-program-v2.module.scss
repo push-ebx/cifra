@@ -61,7 +61,7 @@ section.root {
   }
 
   .step2 {
-    top: 6rem;
+    top: -3rem;
 
     @include breakpoint.tabletDown {
       top: -1.3rem;
@@ -69,7 +69,7 @@ section.root {
   }
 
   .step3 {
-    top: 15rem;
+    top: 12rem;
 
     @include breakpoint.tabletDown {
       top: 10rem;
@@ -111,7 +111,7 @@ section.root {
     }
 
     &:nth-child(1) {
-      top: 9.7rem;
+      top: 0;
       left: 8rem;
 
       @include breakpoint.tabletDown {
@@ -121,7 +121,7 @@ section.root {
     }
 
     &:nth-child(2) {
-      top: 19.7rem;
+      top: 15rem;
       left: -23rem;
 
       @include breakpoint.tabletDown {

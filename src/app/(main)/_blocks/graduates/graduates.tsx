@@ -167,7 +167,8 @@ const cards = [
 	},
 	{
 		name: 'Никита Баранов',
-		subtitle: 'Выступил с проектом перед В. В.\nПутиным и привлек 430 000 руб.',
+		subtitle:
+			'Выступил с проектом перед \nВ. В. Путиным и привлек 430 000 руб.',
 		srcVideo: '/video/nikita.mp4',
 		srcImage: '/images/graduates/nikita.webp',
 	},

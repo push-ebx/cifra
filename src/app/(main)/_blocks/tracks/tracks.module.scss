@@ -4,10 +4,11 @@ section.root {
   padding: 5.3rem var(--padding-horizontal-base);
   display: flex;
   justify-content: end;
-  position: sticky;
-  top: 0;
+  //position: sticky;
+  //top: 0;
   //top: -4rem;
   z-index: 1;
+  padding-bottom: 10rem;
 
   @include breakpoint.desktopDown {
     padding: 9.3rem var(--padding-horizontal-base);
@@ -15,6 +16,7 @@ section.root {
 
   @include breakpoint.tabletDown  {
     padding: 6.25rem var(--padding-horizontal-base);
+    position: relative;
   }
 
   .content {

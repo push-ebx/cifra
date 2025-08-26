@@ -79,11 +79,14 @@ const Home = async () => {
 				<VideoSection />
 			</div>
 			<WhatDoUGet />
-			<CifraFroU />
-			<>
-				<MobileSlider />
-				<Slider />
-			</>
+
+			<div style={{ position: 'relative' }}>
+				<CifraFroU />
+				<>
+					<MobileSlider />
+					<Slider />
+				</>
+			</div>
 			<Timeline />
 			<div style={{ position: 'relative' }}>
 				<Graduates />
