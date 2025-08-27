@@ -10,8 +10,8 @@ section.root {
   //top: -10rem;
 
   @include breakpoint.tabletDown {
-    padding-top: 2rem;
-    padding-bottom: 6.25rem;
+    padding-top: 6.25rem;
+    padding-bottom: 0rem;
     align-items: center;
   }
 

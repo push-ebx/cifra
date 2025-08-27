@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import clsx from 'clsx';
 import { useLenis } from 'lenis/react';
 
@@ -7,6 +9,17 @@ import styles from './scroll-to-top-button.module.scss';
 
 export const ScrollToTopButton = () => {
 	const lenis = useLenis();
+	const [visible, setVisible] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setVisible(window.scrollY > window.innerHeight);
+		};
+
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		handleScroll();
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	const scrollToTop = () => {
 		if (lenis) {
@@ -18,61 +31,64 @@ export const ScrollToTopButton = () => {
 
 	return (
 		<>
-			<button
-				aria-hidden
-				className={clsx(styles.root, styles.purple)}
-				onClick={scrollToTop}
-			>
-				<svg
-					fill="none"
-					height="2.5rem"
-					viewBox="0 0 40 40"
-					width="2.5rem"
-					xmlns="http://www.w3.org/2000/svg"
+			{visible && (
+				<button
+					aria-hidden
+					className={clsx(styles.root, styles.purple)}
+					onClick={scrollToTop}
 				>
-					<rect
-						fill="#752CE8"
-						height="39"
-						rx="19.5"
-						width="39"
-						x="0.5"
-						y="0.5"
-					/>
-					<rect
-						height="39"
-						rx="19.5"
-						stroke="white"
-						width="39"
-						x="0.5"
-						y="0.5"
-					/>
-					<g clip-path="url(#clip0_2775_1075)">
-						<path d="M32 8H8V32H32V8Z" fill="white" fill-opacity="0.01" />
-						<path
-							d="M20 11V29"
-							stroke="white"
-							strokeLinecap="round"
-							strokeLinejoin="round"
+					{/* SVG как у тебя */}
+					<svg
+						fill="none"
+						height="2.5rem"
+						viewBox="0 0 40 40"
+						width="2.5rem"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<rect
+							fill="#752CE8"
+							height="39"
+							rx="19.5"
+							width="39"
+							x="0.5"
+							y="0.5"
 						/>
-						<path
-							d="M14 17L20 11L26 17"
+						<rect
+							height="39"
+							rx="19.5"
 							stroke="white"
-							strokeLinecap="round"
-							strokeLinejoin="round"
+							width="39"
+							x="0.5"
+							y="0.5"
 						/>
-					</g>
-					<defs>
-						<clipPath id="clip0_2775_1075">
-							<rect
-								fill="white"
-								height="24"
-								transform="translate(8 8)"
-								width="24"
+						<g clipPath="url(#clip0_2775_1075)">
+							<path d="M32 8H8V32H32V8Z" fill="white" fillOpacity="0.01" />
+							<path
+								d="M20 11V29"
+								stroke="white"
+								strokeLinecap="round"
+								strokeLinejoin="round"
 							/>
-						</clipPath>
-					</defs>
-				</svg>
-			</button>
+							<path
+								d="M14 17L20 11L26 17"
+								stroke="white"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							/>
+						</g>
+						<defs>
+							<clipPath id="clip0_2775_1075">
+								<rect
+									fill="white"
+									height="24"
+									transform="translate(8 8)"
+									width="24"
+								/>
+							</clipPath>
+						</defs>
+					</svg>
+				</button>
+			)}
 		</>
 	);
 };

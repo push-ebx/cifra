@@ -81,7 +81,7 @@ const slides = [
 		title: 'менеджер',
 		subtitle:
 			'Он планирует и контролирует\nпроцессы разработки, управляет ресурсами и распределяет задачи между участниками команды',
-		imageSrc: '/images/slides/pic-4.webp',
+		imageSrc: '/images/slides/pic-3.webp',
 		icon: '/images/slides/icons/manager.webp',
 	},
 	{

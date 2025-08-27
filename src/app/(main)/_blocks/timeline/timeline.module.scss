@@ -12,7 +12,7 @@ section.root {
   }
 
   @include breakpoint.tabletDown {
-    padding-bottom: 2rem;
+    padding-bottom: 0;
   }
 
   .heading {
