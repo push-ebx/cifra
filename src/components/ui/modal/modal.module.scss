@@ -24,10 +24,18 @@
   box-shadow: 0 4px 20px rgba(0,0,0,.3);
   width: 32.75rem;
   position: relative;
+  overflow: scroll;
 
   opacity: 0;
   transform: translateY(12px);
   transition: opacity .25s ease, transform .25s ease;
+
+  max-height: 95vh;
+  @supports (height: 100svh) { max-height: 95svh; }
+  @supports (height: 100dvh) { max-height: 95dvh; }
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* iOS инерционный скролл */
+  overscroll-behavior: contain;      /* не «проталкивать» скролл на body */
 
   @include breakpoint.tabletDown {
     width: 22rem;

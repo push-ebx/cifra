@@ -149,23 +149,6 @@ const faqData = [
 				{
 					'Коммуникация будет в онлайн-формате. Подойдет любой способ подключения.\n\n'
 				}
-				<a
-					href="https://t.me"
-					style={{ marginRight: '0.5rem' }}
-					target="_blank"
-				>
-					TG
-				</a>
-				<a
-					href="https://zoom.us"
-					style={{ marginRight: '0.5rem' }}
-					target="_blank"
-				>
-					Zoom
-				</a>
-				<a href="https://discord.com" target="_blank">
-					Discord
-				</a>
 			</span>
 		),
 	},
@@ -176,15 +159,6 @@ const faqData = [
 				{
 					'Переходи в наши соцсети и оставляй вопрос там. Мы оперативно ответим.\n\n'
 				}
-				<a
-					href="mailto:cifrastartup.online@gmail.com"
-					style={{ display: 'inline', marginRight: '0.5rem' }}
-				>
-					cifrastartup.online@gmail.com
-				</a>
-				<a href="https://vk.com" target="_blank">
-					ВК
-				</a>
 			</span>
 		),
 	},
