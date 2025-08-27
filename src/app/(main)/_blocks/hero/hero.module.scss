@@ -40,9 +40,9 @@ section.root {
     margin-right: 9rem;
 
     &:hover {
-      background-color: var(--button-primary-background);
-      color: var(--button-primary-foreground);
-      border: var(--border-height-s) solid transparent;
+      background-color: transparent;
+      color: var(--violete-dark);
+      border: var(--border-height-s) solid var(--violete-dark);
     }
 
     @include breakpoint.tabletDown {
