@@ -25,13 +25,11 @@ export const Modal: FC<ModalProps> = ({ children, className }) => {
 	const [isVisible, setIsVisible] = useState(false); //
 	const [animateIn, setAnimateIn] = useState(false); //
 
-	// синхронизация с адресной строкой
 	useEffect(() => {
 		setMounted(true);
 		setHash(window.location.hash || '');
 		setSearch(window.location.search || '');
 
-		// слушаем изменения истории и назад/вперёд
 		const patch = (type: 'pushState' | 'replaceState') => {
 			const orig = history[type];
 			// @ts-nocheck

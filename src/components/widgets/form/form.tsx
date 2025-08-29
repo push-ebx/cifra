@@ -9,8 +9,17 @@ import { Checkbox } from '@/components/ui/checkbox/checkbox';
 
 import styles from './form.module.scss';
 
+type formType = {
+	lastName: string;
+	firstName: string;
+	phone: string;
+	telegram: string;
+	school: string;
+	track: string;
+};
+
 export const Form = () => {
-	const [form, setForm] = useState({
+	const [form, setForm] = useState<formType>({
 		lastName: '',
 		firstName: '',
 		phone: '',
@@ -31,23 +40,18 @@ export const Form = () => {
 
 	const handleChange = (field: string, value: string) => {
 		if (field === 'phone') {
-			// оставляем только цифры
 			let digits = value.replace(/\D/g, '');
 
-			// если начинается с 8 → заменяем на 7
 			if (digits.startsWith('8')) {
 				digits = '7' + digits.slice(1);
 			}
 
-			// гарантируем, что телефон всегда начинается с 7
 			if (!digits.startsWith('7')) {
 				digits = '7' + digits;
 			}
 
-			// ограничиваем длину (11 цифр: 7 + 10 ещё)
 			digits = digits.slice(0, 11);
 
-			// собираем итоговую строку
 			value = `+${digits}`;
 		}
 
@@ -70,7 +74,13 @@ export const Form = () => {
 		e.preventDefault();
 
 		const newErrors: Record<string, boolean> = {};
-		const required = ['firstName', 'phone', 'telegram', 'school'];
+		const required: (keyof formType)[] = [
+			'firstName',
+			'phone',
+			'telegram',
+			'school',
+		];
+
 		required.forEach((key) => {
 			if (!form[key]?.trim()) newErrors[key] = true;
 		});
