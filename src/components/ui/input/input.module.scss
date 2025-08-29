@@ -38,8 +38,13 @@
 
   &.error {
     &::after {
-      border: var(--border-height-m) solid #D34250;
+      border: #FFA6A8 solid 0.0625rem;
       opacity: 1;
+      border-radius: 0.5rem;
+    }
+
+    .input::placeholder {
+      color: #FFA6A8;
     }
   }
 
@@ -62,7 +67,7 @@
     }
 
     @include breakpoint.tabletDown {
-      padding: 0.62rem 0.75rem;
+      padding: 0.96875rem 0.75rem;
     }
   }
 
@@ -80,10 +85,4 @@
       height: 1.25rem;
     }
   }
-}
-
-.errorMessage {
-  color: var(--input-error-color, red);
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
 }

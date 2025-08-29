@@ -19,28 +19,68 @@ export const Form = () => {
 		track: 'IT',
 	});
 
-	const isFormValid =
-		form.lastName.trim() &&
-		form.firstName.trim() &&
-		form.phone.trim() &&
-		form.telegram.trim() &&
-		form.school.trim();
-
 	const [loading, setLoading] = useState(false);
 	const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+	const [errors, setErrors] = useState<Record<string, boolean>>({});
+	const [forceError, setForceError] = useState(false);
 
 	const [checked, setChecked] = useState(false);
 
 	const { reachGoal } = useMetrica();
 
 	const handleChange = (field: string, value: string) => {
+		if (field === 'phone') {
+			// оставляем только цифры
+			let digits = value.replace(/\D/g, '');
+
+			// если начинается с 8 → заменяем на 7
+			if (digits.startsWith('8')) {
+				digits = '7' + digits.slice(1);
+			}
+
+			// гарантируем, что телефон всегда начинается с 7
+			if (!digits.startsWith('7')) {
+				digits = '7' + digits;
+			}
+
+			// ограничиваем длину (11 цифр: 7 + 10 ещё)
+			digits = digits.slice(0, 11);
+
+			// собираем итоговую строку
+			value = `+${digits}`;
+		}
+
 		setForm((prev) => ({ ...prev, [field]: value }));
+
+		if (forceError) {
+			setErrors((prev) => {
+				const newErrors = { ...prev };
+				if (!value.trim()) {
+					newErrors[field] = true;
+				} else {
+					delete newErrors[field];
+				}
+				return newErrors;
+			});
+		}
 	};
 
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 
-		if (!isFormValid || !checked) {
+		const newErrors: Record<string, boolean> = {};
+		const required = ['firstName', 'phone', 'telegram', 'school'];
+		required.forEach((key) => {
+			if (!form[key]?.trim()) newErrors[key] = true;
+		});
+
+		if (!checked) newErrors['checked'] = true;
+
+		setErrors(newErrors);
+		setForceError(true);
+
+		if (Object.keys(newErrors).length > 0) {
 			setStatus('error');
 			return;
 		}
@@ -152,22 +192,23 @@ export const Form = () => {
 							Контактные данные
 						</Description>
 						<Input
-							onChange={(e) => handleChange('lastName', e.target.value)}
-							placeholder={'Фамилия'}
-							value={form.lastName}
-						/>
-						<Input
+							forceError={forceError}
+							isValid={!errors.firstName}
 							onChange={(e) => handleChange('firstName', e.target.value)}
 							placeholder={'Имя'}
 							value={form.firstName}
 						/>
 						<div className={styles.rowInputs}>
 							<Input
+								forceError={forceError}
+								isValid={!errors.phone}
 								onChange={(e) => handleChange('phone', e.target.value)}
 								placeholder={'+7 (000) 000 00 00'}
 								value={form.phone}
 							/>
 							<Input
+								forceError={forceError}
+								isValid={!errors.telegram}
 								onChange={(e) => handleChange('telegram', e.target.value)}
 								placeholder={'Telegram'}
 								value={form.telegram}
@@ -180,6 +221,8 @@ export const Form = () => {
 					</Description>
 					<Input
 						className={styles.learningInput}
+						forceError={forceError}
+						isValid={!errors.school}
 						onChange={(e) => handleChange('school', e.target.value)}
 						placeholder={'Введи название'}
 						value={form.school}
@@ -200,9 +243,9 @@ export const Form = () => {
 					<div className={styles.checkboxWrapper}>
 						<Checkbox
 							checked={checked}
-							onClick={() => {
-								setChecked((prev) => !prev);
-							}}
+							forceError={forceError}
+							isValid={!errors.checked}
+							onClick={() => setChecked((prev) => !prev)}
 						/>
 						<Description color={'darkGray'} size={'xxs'}>
 							Я даю согласие на обработку персональных данных в соответствии c{' '}

@@ -6,6 +6,10 @@
   display: inline-flex;
   cursor: pointer;
 
+  &.error .visual {
+    border-color: #FFA6A8;
+  }
+
   .visual {
     width: 1.5rem;
     height: 1.5rem;

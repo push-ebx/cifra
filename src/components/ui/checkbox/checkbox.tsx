@@ -32,10 +32,20 @@ type CheckboxProps = ComponentProps<'input'> & {
 	className?: string;
 	checked?: boolean;
 	defaultChecked?: boolean;
+	isValid?: boolean;
+	forceError?: boolean;
 };
 
 export const Checkbox = memo((props: CheckboxProps) => {
-	const { className, onChange, checked, defaultChecked, ...restProps } = props;
+	const {
+		className,
+		onChange,
+		checked,
+		defaultChecked,
+		isValid = true,
+		forceError = false,
+		...restProps
+	} = props;
 
 	const [internalChecked, setInternalChecked] = useState(
 		defaultChecked ?? false
@@ -48,14 +58,16 @@ export const Checkbox = memo((props: CheckboxProps) => {
 			if (checked === undefined) {
 				setInternalChecked(e.target.checked);
 			}
-
 			onChange?.(e);
 		},
 		[onChange, checked]
 	);
 
+	// ошибка если чекбокс невалиден и включена подсветка
+	const isError = !isValid && forceError && !isChecked;
+
 	return (
-		<label className={clsx(styles.wrapper, className)}>
+		<label className={clsx(styles.wrapper, className, isError && styles.error)}>
 			<input
 				checked={isChecked}
 				className={styles.input}
