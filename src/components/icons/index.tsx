@@ -102,12 +102,12 @@ export const tooth = (
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<circle cx="25" cy="25" fill="#BB97F3" r="24.5" stroke="#BB97F3" />
-		<g clip-path="url(#clip0_2771_1731)">
-			<path d="M37 13H13V37H37V13Z" fill="currentColor" fill-opacity="0.01" />
+		<g clipPath="url(#clip0_2771_1731)">
+			<path d="M37 13H13V37H37V13Z" fill="currentColor" fillOpacity="0.01" />
 			<path
-				clip-rule="evenodd"
+				clipRule="evenodd"
 				d="M19.5576 15.5H20.0003C22.3334 15.8449 22.9661 17.1691 24.9992 17.1691C27.0322 17.1691 27.6647 15.845 29.9979 15.5H30.2492C32.8725 15.5 34.9992 17.6266 34.9992 20.25V20.563C34.9992 22.0144 33.4536 23.6717 32.9992 25.2415C32.5165 26.9087 32.1859 28.2712 32.0888 29.6971C31.8614 33.0375 30.7225 34.5 29.4992 34.5C27.6723 34.5 26.0499 27.0126 25.0304 27.0126C24.0109 27.0126 21.9878 34.5 20.4992 34.5C19.5906 34.5 18.4137 33.9627 17.9718 29.6971C17.796 28 17.4996 26.9704 16.9992 25.2415C16.5593 23.7219 15.075 21.9055 14.9992 20.2755C14.882 17.758 16.8279 15.6221 19.3455 15.5049C19.4162 15.5017 19.4869 15.5 19.5576 15.5Z"
-				fill-rule="evenodd"
+				fillRule="evenodd"
 				stroke="currentColor"
 			/>
 			<path
@@ -143,12 +143,12 @@ export const pill = (
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<circle cx="25" cy="25" fill="#BB97F3" r="24.5" stroke="#BB97F3" />
-		<g clip-path="url(#clip0_2771_1741)">
-			<path d="M37 13H13V37H37V13Z" fill="currentColor" fill-opacity="0.01" />
+		<g clipPath="url(#clip0_2771_1741)">
+			<path d="M37 13H13V37H37V13Z" fill="currentColor" fillOpacity="0.01" />
 			<path
-				clip-rule="evenodd"
+				clipRule="evenodd"
 				d="M17.9868 24.0312L21.6255 20.9779L25.2642 17.9247C27.4854 16.0609 30.7968 16.3506 32.6606 18.5718C34.5244 20.7929 34.2346 24.1044 32.0135 25.9681L28.3748 29.0214L24.7361 32.0746C22.5149 33.9384 19.2035 33.6487 17.3397 31.4275C15.476 29.2064 15.7657 25.8949 17.9868 24.0312Z"
-				fill-rule="evenodd"
+				fillRule="evenodd"
 				stroke="currentColor"
 			/>
 			<path
@@ -253,12 +253,12 @@ export const gold = (
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<circle cx="25" cy="25" fill="#BB97F3" r="24.5" stroke="#BB97F3" />
-		<g clip-path="url(#clip0_2802_1333)">
-			<path d="M37 13H13V37H37V13Z" fill="white" fill-opacity="0.01" />
+		<g clipPath="url(#clip0_2802_1333)">
+			<path d="M37 13H13V37H37V13Z" fill="white" fillOpacity="0.01" />
 			<path
-				clip-rule="evenodd"
+				clipRule="evenodd"
 				d="M24.1098 16.6892L29.9439 21.3108L31.0894 24.9999L25.6317 26.0426L19.2949 20.2656L20.641 17.5007L24.1098 16.6892Z"
-				fill-rule="evenodd"
+				fillRule="evenodd"
 				stroke="white"
 				stroke-linejoin="round"
 			/>
@@ -291,9 +291,9 @@ export const gold = (
 				stroke-linejoin="round"
 			/>
 			<path
-				clip-rule="evenodd"
+				clipRule="evenodd"
 				d="M30.4434 27.8039L30 31.4L34.618 30.4993L33.6406 27.0938L30.4434 27.8039Z"
-				fill-rule="evenodd"
+				fillRule="evenodd"
 				stroke="white"
 				stroke-linejoin="round"
 			/>

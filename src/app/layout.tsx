@@ -7,6 +7,7 @@ import ReactLenis from 'lenis/react';
 
 import { AppLoader } from '@/app/_app-loader';
 import { Header, Menu, ScrollToTopButton } from '@/components/widgets';
+import { MailRuCounter } from '@/components/widgets/vk-pixel/vk-pixel';
 
 import '@/styles/global.scss';
 import '@/styles/reset.scss';
@@ -65,6 +66,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 			>
 				{/*<YandexMetric id={103878591} />*/}
 				<body>
+					<MailRuCounter />
 					<div id={'modal-root'}></div>
 					<ReactLenis root>
 						<div id={'app-root'}>
