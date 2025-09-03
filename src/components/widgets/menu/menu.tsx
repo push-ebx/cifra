@@ -243,9 +243,9 @@ export const Menu = () => {
 					<Description
 						className={styles.description}
 						color="secondary"
-						size="xs"
+						size="s"
 					>
-						бесплатная программа для студентов всех вузов
+						{'регистрация до: \n20 сентября'}
 					</Description>
 					<Button onClick={openModal} size="s" variant="secondary">
 						участвовать
