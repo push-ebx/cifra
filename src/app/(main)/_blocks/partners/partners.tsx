@@ -17,16 +17,22 @@ export const Partners = () => {
 			</div>
 			<div className={styles.partners}>
 				{(bp === 'mobile' ? mobilePartners : partners).map((partner, index) => (
-					<Image
+					<a
 						key={index}
-						alt={'partner'}
-						src={partner}
-						className={
-							partner === '/images/partners/mobile/geek-battle.webp'
-								? styles.geekBattle
-								: ''
-						}
-					/>
+						href={partner.url}
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<Image
+							alt={'partner'}
+							src={partner.src}
+							className={
+								partner.src === '/images/partners/mobile/geek-battle.webp'
+									? styles.geekBattle
+									: ''
+							}
+						/>
+					</a>
 				))}
 				<a
 					href="https://startup-studia.ru/"
@@ -44,15 +50,27 @@ export const Partners = () => {
 					/>
 				</a>
 				{bp !== 'mobile' && (
-					<Image alt="partner" src={'/images/partners/geek-battle.webp'} />
+					<a
+						href="https://vk.com/geekbattle"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<Image alt="partner" src={'/images/partners/geek-battle.webp'} />
+					</a>
 				)}
 
 				{bp !== 'mobile' && (
-					<Image
-						alt="partner"
-						className={styles.sportProg}
-						src={'/images/partners/sport-prog.webp'}
-					/>
+					<a
+						href="https://fsp-russia.ru/"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<Image
+							alt="partner"
+							className={styles.sportProg}
+							src={'/images/partners/sport-prog.webp'}
+						/>
+					</a>
 				)}
 			</div>
 		</Container>
@@ -62,16 +80,34 @@ export const Partners = () => {
 Partners.displayName = 'Partners';
 
 const partners = [
-	'/images/partners/demidovsky.webp',
-	'/images/partners/tochka.webp',
-	'/images/partners/platform-nti.webp',
-	'/images/partners/digital-growth.webp',
+	{ src: '/images/partners/demidovsky.webp', url: 'https://www.uniyar.ac.ru/' },
+	{ src: '/images/partners/tochka.webp', url: 'https://vk.com/demidpoint76' },
+	{
+		src: '/images/partners/platform-nti.webp',
+		url: 'https://platform.nti.work/',
+	},
+	{
+		src: '/images/partners/digital-growth.webp',
+		url: 'https://vk.com/digitaldevelopment76',
+	},
 ];
 
 const mobilePartners = [
-	'/images/partners/mobile/demidovsky.webp',
-	'/images/partners/mobile/tochka.webp',
-	'/images/partners/mobile/digital-growth.webp',
-	'/images/partners/mobile/geek-battle.webp',
-	'/images/partners/mobile/fsp.webp',
+	{
+		src: '/images/partners/mobile/demidovsky.webp',
+		url: 'https://www.uniyar.ac.ru/',
+	},
+	{
+		src: '/images/partners/mobile/tochka.webp',
+		url: 'https://vk.com/demidpoint76',
+	},
+	{
+		src: '/images/partners/mobile/digital-growth.webp',
+		url: 'https://vk.com/digitaldevelopment76',
+	},
+	{
+		src: '/images/partners/mobile/geek-battle.webp',
+		url: 'https://vk.com/geekbattle',
+	},
+	{ src: '/images/partners/mobile/fsp.webp', url: 'https://fsp-russia.ru/' },
 ];
