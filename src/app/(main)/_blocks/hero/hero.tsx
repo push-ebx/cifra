@@ -4,7 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useMetrica } from 'next-yandex-metrica';
 
-import { Button, Container, Display, Heading, Image } from '@/components/ui';
+import {
+	Body,
+	Button,
+	Container,
+	Display,
+	Heading,
+	Image,
+} from '@/components/ui';
 import { FixedButtons } from '@/components/widgets/fixed-buttons/fixed-buttons';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 
@@ -66,6 +73,11 @@ export const Hero = () => {
 					</Heading>
 				</div>
 				<Image
+					alt="regDie"
+					rootClassName={styles.regDie}
+					src={bp === 'mobile' ? '/images/regMobile.webp' : '/images/reg.webp'}
+				/>
+				<Image
 					alt="maskot"
 					className={styles.maskot}
 					style={{ transform: `translateY(${offset}rem)` }}
@@ -75,10 +87,23 @@ export const Hero = () => {
 							: '/images/maskot-hero.webp'
 					}
 				/>
-				<Button className={styles.ctaButton} onClick={openModal} size="l">
-					участвовать
-				</Button>
 				<FixedButtons />
+
+				<div className={styles.button}>
+					<Button className={styles.ctaButton} onClick={openModal} size="l">
+						участвовать
+					</Button>
+					<Heading
+						className={styles.regTextDesk}
+						color={'darkViolete'}
+						size={'m'}
+					>
+						регистрация до: 20 сентября
+					</Heading>
+					<Body className={styles.regTextMob} color={'darkViolete'} size={'s'}>
+						регистрация до: 20 сентября
+					</Body>
+				</div>
 			</Container>
 		</>
 	);

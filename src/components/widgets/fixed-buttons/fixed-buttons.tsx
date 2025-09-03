@@ -5,7 +5,7 @@ import { useMetrica } from 'next-yandex-metrica';
 
 import { clsx } from 'clsx';
 
-import { Button, Container } from '@/components/ui';
+import { Button, Container, Heading } from '@/components/ui';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
 import { useBreakpoint } from '@/hooks/client/use-breakpoint';
 

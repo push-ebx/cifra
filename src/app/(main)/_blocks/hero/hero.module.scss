@@ -31,13 +31,49 @@ section.root {
 
       @include breakpoint.tabletDown {
         max-width: 100%;
-        text-align: center;
       }
+    }
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .regTextDesk {
+    margin-left: 2.5rem;
+
+    @include breakpoint.tabletDown {
+      display: none;
+    }
+  }
+
+  .regDie {
+    width: 11.5625rem;
+    margin-top: 3rem;
+    position: absolute;
+    margin-right: 1.0625rem;
+
+    @include breakpoint.tabletDown {
+      margin-left: 10rem;
+      width: 11.5625rem;
+      margin-top: 5.8rem;
+    }
+  }
+
+  .regTextMob {
+    margin-top: 0.5rem;
+    display: none;
+
+    @include breakpoint.tabletDown {
+      display: flex;
     }
   }
 
   .ctaButton {
     margin-right: 9rem;
+    font-size: 2.5rem;
 
     &:hover {
       background-color: transparent;
@@ -67,7 +103,7 @@ section.root {
     @include breakpoint.tabletDown {
       width: 23rem;
       margin-left: 0;
-      margin-top: -2.3rem;
+      margin-top: 2.7rem;
     }
   }
 }
@@ -86,6 +122,6 @@ section.root {
   }
 
   @include breakpoint.tabletDown {
-    top: -18rem;
+    top: 0;
   }
 }

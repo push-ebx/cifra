@@ -14,6 +14,7 @@ export type ImageProps = ComponentProps<'img'> & {
 	objectFit?: CSSProperties['objectFit'];
 	quality?: number;
 	priority?: boolean;
+	rootClassName?: string;
 };
 
 export const Image = (props: ImageProps) => {
@@ -26,6 +27,7 @@ export const Image = (props: ImageProps) => {
 		objectFit,
 		quality = '100',
 		priority,
+		rootClassName,
 		...restProps
 	} = props;
 
@@ -36,7 +38,7 @@ export const Image = (props: ImageProps) => {
 	};
 
 	return (
-		<div className={styles.root} data-loading={isLoading}>
+		<div className={clsx(styles.root, rootClassName)} data-loading={isLoading}>
 			<NexImage
 				className={clsx(styles.image, className)}
 				height={0}
