@@ -80,6 +80,7 @@ section.root {
   }
 
   .maskot {
+    width: 21rem;
     @include breakpoint.tabletDown {
       display: none;
     }
@@ -98,7 +99,7 @@ section.root {
       left: 50%;
       top: 1rem;
       transform: translateX(-50%);
-      width: 12.9375rem;
+      width: 12.3rem;
 
       @include breakpoint.tabletDown {
         //width: 12.94588rem;

@@ -33,7 +33,7 @@ export const PrizeFund = () => {
 			key="maskot"
 			alt="maskot"
 			className={styles.maskot}
-			src="/images/cards/maskot.webp"
+			src="/images/cards/morgen.webp"
 		/>,
 	];
 
@@ -83,12 +83,12 @@ const cards = [
 	{
 		title: '1 место',
 		subtitle: 'поездка в стамбул всей командой',
-		imageSrc: '/images/cards/star.webp',
+		imageSrc: '/images/cards/stambul.webp',
 	},
 	{
 		title: 'в крыму',
 		subtitle: 'каникулы \nкомандой',
-		imageSrc: '/images/cards/mountains.webp',
+		imageSrc: '/images/cards/krim.webp',
 	},
 	{
 		title: (
@@ -97,16 +97,16 @@ const cards = [
 			</>
 		),
 		subtitle: 'Помощь в написании грантовой заявки на',
-		imageSrc: '/images/cards/ruble.webp',
+		imageSrc: '/images/cards/offer.webp',
 	},
 	{
 		title: 'IPR',
 		subtitle: 'регистрация интеллектуальных прав',
-		imageSrc: '/images/cards/ipr.webp',
+		imageSrc: '/images/cards/brain.webp',
 	},
 	{
 		title: 'подарки',
 		subtitle: 'партнерские',
-		imageSrc: '/images/cards/server.webp',
+		imageSrc: '/images/cards/hand.webp',
 	},
 ];

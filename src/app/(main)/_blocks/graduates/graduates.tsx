@@ -23,15 +23,15 @@ export const Graduates = () => {
 	const bp = useBreakpoint();
 
 	const toggleVideo = (index: number) => {
-		setActiveVideos((prev) => {
-			const newSet = new Set(prev);
-			if (newSet.has(index)) {
-				newSet.delete(index);
-			} else {
-				newSet.add(index);
-			}
-			return newSet;
-		});
+		// setActiveVideos((prev) => {
+		// 	const newSet = new Set(prev);
+		// 	if (newSet.has(index)) {
+		// 		newSet.delete(index);
+		// 	} else {
+		// 		newSet.add(index);
+		// 	}
+		// 	return newSet;
+		// });
 	};
 
 	const togglePlayPause = (index: number) => {
@@ -75,36 +75,36 @@ export const Graduates = () => {
 						className={styles.videoWrapper}
 						onClick={() => togglePlayPause(index)}
 					>
-						<video
-							// @ts-expect-error ...
-							ref={(el) => (videoRefs.current[index] = el)}
-							autoPlay
-							className={styles.video}
-							controls={false}
-							disablePictureInPicture
-							playsInline
-							preload="metadata"
-							src={card.srcVideo}
-						/>
-						{pausedVideos.has(index) && (
-							<div className={styles.pauseOverlay}>
-								<PauseButton height={'3rem'} width={'3rem'} />
-							</div>
-						)}
-						{playingVideos.has(index) && (
-							<div className={styles.playOverlay}>
-								<PlayButton
-									className={styles.playButton}
-									height={'3rem'}
-									width={'3rem'}
-								/>
-							</div>
-						)}
+						{/*<video*/}
+						{/*	// @ts-expect-error ...*/}
+						{/*	ref={(el) => (videoRefs.current[index] = el)}*/}
+						{/*	autoPlay*/}
+						{/*	className={styles.video}*/}
+						{/*	controls={false}*/}
+						{/*	disablePictureInPicture*/}
+						{/*	playsInline*/}
+						{/*	preload="metadata"*/}
+						{/*	src={card.srcVideo}*/}
+						{/*/>*/}
+						{/*{pausedVideos.has(index) && (*/}
+						{/*	<div className={styles.pauseOverlay}>*/}
+						{/*		<PauseButton height={'3rem'} width={'3rem'} />*/}
+						{/*	</div>*/}
+						{/*)}*/}
+						{/*{playingVideos.has(index) && (*/}
+						{/*	<div className={styles.playOverlay}>*/}
+						{/*		<PlayButton*/}
+						{/*			className={styles.playButton}*/}
+						{/*			height={'3rem'}*/}
+						{/*			width={'3rem'}*/}
+						{/*		/>*/}
+						{/*	</div>*/}
+						{/*)}*/}
 					</div>
 				) : (
 					<div className={styles.preview} onClick={() => toggleVideo(index)}>
 						<Image alt="preview" loading="lazy" src={card.srcImage} />
-						<PlayButton className={styles.playButton} />
+						{/*<PlayButton className={styles.playButton} />*/}
 					</div>
 				)}
 			</div>
@@ -167,17 +167,39 @@ const cards = [
 		srcImage: '/images/graduates/georgy.webp',
 	},
 	{
-		name: 'Никита Баранов',
+		name: 'Алина Смирнова',
 		subtitle:
-			'Выступил с проектом перед \nВ. В. Путиным и привлек\n430 000 руб.',
+			'Открыла ООО «КОЛОРДЕНТ» \n' +
+			'и ООО «Ремис», \n' +
+			'привлекла 2 000 000 руб.',
 		srcVideo: '/video/nikita.mp4',
-		srcImage: '/images/graduates/nikita.webp',
+		srcImage: '/images/graduates/alina.webp',
 	},
 	{
 		name: 'Антон Самойлов',
 		subtitle: 'Основал стартап ili\nи привлек 2 500 000 руб.',
 		srcVideo: '/video/anton.mp4',
 		srcImage: '/images/graduates/anton.webp',
+	},
+	{
+		name: 'Галина Сержанова',
+		subtitle: 'Привлекла 1 000 000 руб. \n' + 'от Фонда содействия инновациям',
+		srcVideo: '/video/anton.mp4',
+		srcImage: '/images/graduates/galina.webp',
+	},
+	{
+		name: 'Антон Печеркин',
+		subtitle:
+			'Заключил контракт на интеграцию \n' + 'ИИ чат-бота на 850 0000 руб.',
+		srcVideo: '/video/nikita.mp4',
+		srcImage: '/images/graduates/antonp.webp',
+	},
+	{
+		name: 'Никита Баранов',
+		subtitle:
+			'Выступил с проектом перед \nВ. В. Путиным и привлек\n430 000 руб.',
+		srcVideo: '/video/nikita.mp4',
+		srcImage: '/images/graduates/nikita.webp',
 	},
 	// {
 	// 	name: 'Манукян Ваник',

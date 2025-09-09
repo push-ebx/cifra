@@ -72,11 +72,13 @@ export const Hero = () => {
 						бесплатная программа для студентов всех вузов
 					</Heading>
 				</div>
-				<Image
-					alt="regDie"
-					rootClassName={styles.regDie}
-					src={bp === 'mobile' ? '/images/regMobile.webp' : '/images/reg.webp'}
-				/>
+				{bp !== 'mobile' && (
+					<Image
+						alt="regDie"
+						rootClassName={styles.regDie}
+						src={'/images/reg.webp'}
+					/>
+				)}
 				<Image
 					alt="maskot"
 					className={styles.maskot}
