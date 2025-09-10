@@ -18,24 +18,67 @@ section.root {
     margin-top: 2.5rem;
   }
 
+  .carouselDots {
+    margin-top: 1.5rem;
+  }
+
+  .carousel {
+    --slide-spacing: 0.5rem;
+    --slide-size: 20.9375rem;
+    --slide-height: 7rem;
+  }
+
+  .title {
+    height: 1.0625rem;
+  }
+
   .cards {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    //display: flex;
+    //flex-direction: column;
+    //gap: 0.75rem;
 
     .card {
+      width: 20.9375rem;
+      height: 7rem;
       border-radius: 1rem;
       border: 0.0625rem dashed var(--violet, #BB97F3);
-      padding: 1rem 0.5rem;
+      padding: 1rem;
       display: flex;
       gap: 1rem;
       justify-content: space-between;
     }
 
+    .index {
+      color: white;
+      opacity: 0.4;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
     .cardText {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1rem;
+      
+      * {
+        color: white;
+      }
+    }
+
+    .card-1 {
+      background-color: #752CE8;
+    }
+
+    .card-2 {
+      background-color: #7B56ED;
+    }
+
+    .card-3 {
+      background-color: #8565E7;
+    }
+
+    .card-4 {
+      background-color: #A989F5;
     }
   }
 }
