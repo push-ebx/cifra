@@ -1,0 +1,63 @@
+@use '/src/styles/mixins/breakpoint';
+
+section.root {
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+
+  @include breakpoint.tabletDown {
+    padding-top: 6.25rem;
+    padding-bottom: 0;
+  }
+
+  .headingWrapper {
+    max-width: 44.25rem;
+    width: 100%;
+
+    .heading {
+      width: 10rem;
+    }
+  }
+
+  .partners {
+    align-self: flex-start;
+    justify-content: flex-start;
+    margin-left: 18rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem 1.5rem;
+    max-width: 44.25rem;
+    flex-wrap: wrap;
+
+    @include breakpoint.tabletDown {
+      gap: 1rem;
+      max-width: 100%;
+      margin-left: 0;
+    }
+
+    img {
+      width: auto;
+      height: 4.875rem;
+
+      @include breakpoint.tabletDown {
+        height: 4.1rem;
+        max-width: 10rem;
+      }
+    }
+
+    .struktura {
+      cursor: pointer;
+    }
+
+    .geekBattle {
+      height: 3.5rem;
+    }
+
+    .sportProg {
+      width: 24.8125rem;
+      height: 3.10544rem;
+    }
+  }
+}

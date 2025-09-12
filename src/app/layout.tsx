@@ -73,7 +73,7 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 							<Menu />
 							<ScrollToTopButton />
 							{/*<FixedButtons />*/}
-							{/*<AppLoader />*/}
+							<AppLoader />
 							<Header />
 							<main className={'main'}>{children}</main>
 							{/*<Footer />*/}

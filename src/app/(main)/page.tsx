@@ -10,6 +10,7 @@ import { Faq } from '@/app/(main)/_blocks/faq/faq';
 import { Footer } from '@/app/(main)/_blocks/footer/footer';
 import { Graduates } from '@/app/(main)/_blocks/graduates/graduates';
 import { Hero } from '@/app/(main)/_blocks/hero/hero';
+import { InformPartners } from '@/app/(main)/_blocks/inform-partners/inform-partners';
 import { MobileSlider } from '@/app/(main)/_blocks/mobile-slider/mobile-slider';
 import { Partners } from '@/app/(main)/_blocks/partners/partners';
 import { PrizeFund } from '@/app/(main)/_blocks/prize-fund/prize-fund';
@@ -103,6 +104,7 @@ const Home = async () => {
 				}
 			/>
 			<Partners />
+			<InformPartners />
 			<div style={{ position: 'relative' }}>
 				<Faq />
 				<Footer />
