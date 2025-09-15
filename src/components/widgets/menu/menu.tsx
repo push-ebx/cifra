@@ -194,7 +194,10 @@ export const Menu = () => {
 						</a>
 					</div>
 
-					<Link className={styles.privacy} href="#">
+					<Link
+						className={styles.privacy}
+						href="https://docs.google.com/document/d/e/2PACX-1vQw9TeRe_oyzYVy97u4XIJoIGByAv6ZMes-yb1wbMbc_2Hn9DoZbmuOHn8Rea02qeLHJw4t6IlAS_oe/pub"
+					>
 						<Description color="darkGray" size="xxs">
 							политика конфиденциальности
 						</Description>
@@ -281,7 +284,10 @@ export const Menu = () => {
 						</a>
 					</div>
 
-					<Link className={styles.privacy} href="#">
+					<Link
+						className={styles.privacy}
+						href="https://docs.google.com/document/d/e/2PACX-1vQw9TeRe_oyzYVy97u4XIJoIGByAv6ZMes-yb1wbMbc_2Hn9DoZbmuOHn8Rea02qeLHJw4t6IlAS_oe/pub"
+					>
 						<Description color="violete" size="xxs">
 							политика конфиденциальности
 						</Description>

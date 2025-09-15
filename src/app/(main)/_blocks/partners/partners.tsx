@@ -110,4 +110,8 @@ const mobilePartners = [
 		url: 'https://vk.com/geekbattle',
 	},
 	{ src: '/images/partners/mobile/fsp.webp', url: 'https://fsp-russia.ru/' },
+	{
+		src: '/images/partners/platform-nti.webp',
+		url: 'https://platform.nti.work/',
+	},
 ];

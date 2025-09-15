@@ -76,6 +76,10 @@ const partners = [
 		src: '/images/inform-partners/souz.webp',
 		url: 'https://vk.com/rsmofficial',
 	},
+	{
+		src: '/images/inform-partners/softline.webp',
+		url: 'https://t.me/volotovskayaelena',
+	},
 ];
 
 // const mobilePartners = [

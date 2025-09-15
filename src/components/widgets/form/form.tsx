@@ -259,7 +259,10 @@ export const Form = () => {
 						/>
 						<Description color={'darkGray'} size={'xxs'}>
 							Я даю согласие на обработку персональных данных в соответствии c{' '}
-							<a className={styles.link} href="#">
+							<a
+								className={styles.link}
+								href="https://docs.google.com/document/d/e/2PACX-1vQw9TeRe_oyzYVy97u4XIJoIGByAv6ZMes-yb1wbMbc_2Hn9DoZbmuOHn8Rea02qeLHJw4t6IlAS_oe/pub"
+							>
 								политикой конфиденциальности
 							</a>
 						</Description>
