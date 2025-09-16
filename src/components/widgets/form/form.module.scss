@@ -138,6 +138,17 @@
   color: #F5F5F5;
 }
 
+.tabsWrapper.invalid {
+  border: 1px solid #FFA6A8;
+  border-radius: .75rem;
+  padding: .5rem;
+}
+
+.error {
+  color: #FFA6A8;
+  margin: .25rem 0 .5rem;
+  line-height: 1.2;
+}
 .checkboxWrapper {
   display: flex;
   align-items: center;

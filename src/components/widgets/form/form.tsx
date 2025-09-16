@@ -25,7 +25,7 @@ export const Form = () => {
 		phone: '',
 		telegram: '',
 		school: '',
-		track: 'IT',
+		track: '', // ничего не выбрано по умолчанию
 	});
 
 	const [loading, setLoading] = useState(false);
@@ -41,17 +41,9 @@ export const Form = () => {
 	const handleChange = (field: string, value: string) => {
 		if (field === 'phone') {
 			let digits = value.replace(/\D/g, '');
-
-			if (digits.startsWith('8')) {
-				digits = '7' + digits.slice(1);
-			}
-
-			if (!digits.startsWith('7')) {
-				digits = '7' + digits;
-			}
-
+			if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+			if (!digits.startsWith('7')) digits = '7' + digits;
 			digits = digits.slice(0, 11);
-
 			value = `+${digits}`;
 		}
 
@@ -59,13 +51,10 @@ export const Form = () => {
 
 		if (forceError) {
 			setErrors((prev) => {
-				const newErrors = { ...prev };
-				if (!value.trim()) {
-					newErrors[field] = true;
-				} else {
-					delete newErrors[field];
-				}
-				return newErrors;
+				const next = { ...prev };
+				if (!value.trim()) next[field] = true;
+				else delete next[field];
+				return next;
 			});
 		}
 	};
@@ -75,11 +64,12 @@ export const Form = () => {
 
 		const newErrors: Record<string, boolean> = {};
 		const required: (keyof formType)[] = [
+			'track',
 			'firstName',
 			'phone',
 			'telegram',
 			'school',
-		];
+		]; // NEW: track обязателен
 
 		required.forEach((key) => {
 			if (!form[key]?.trim()) newErrors[key] = true;
@@ -124,12 +114,14 @@ export const Form = () => {
 			} else {
 				setStatus('error');
 			}
-		} catch (err: unknown) {
+		} catch {
 			setStatus('error');
 		}
 
 		setLoading(false);
 	};
+
+	const trackError = forceError && !!errors.track; // NEW
 
 	return (
 		<Modal className={styles.modal}>
@@ -158,40 +150,53 @@ export const Form = () => {
 					<Description className={styles.sectionTitle} size={'l'}>
 						Трек
 					</Description>
-					<div className={styles.tabsWrapper}>
+
+					{/* NEW: текст ошибки под заголовком */}
+					{trackError && (
+						<Description className={styles.error} id="track-error" size={'xxs'}>
+							Пожалуйста, выбери трек
+						</Description>
+					)}
+
+					<div
+						aria-describedby={trackError ? 'track-error' : undefined}
+						aria-invalid={trackError || undefined}
+						className={`${styles.tabsWrapper} ${trackError ? styles.invalid : ''}`} // NEW: подсветка рамкой
+					>
 						<div className={styles.tabsDesktop}>
-							<Tab
-								isActive={form.track === 'IT'}
-								onClick={() => handleChange('track', 'IT')}
-							>
-								<Description color={'violete'} size={'xs'}>
-									IT
-								</Description>
-							</Tab>
+							{/* порядок: Биотехнологии → IT */}
 							<Tab
 								isActive={form.track === 'Биотехнологии'}
 								onClick={() => handleChange('track', 'Биотехнологии')}
 							>
 								<Description color={'violete'} size={'xs'}>
 									Биотехнологии
+								</Description>
+							</Tab>
+							<Tab
+								isActive={form.track === 'IT'}
+								onClick={() => handleChange('track', 'IT')}
+							>
+								<Description color={'violete'} size={'xs'}>
+									IT
 								</Description>
 							</Tab>
 						</div>
 						<div className={styles.tabsMobile}>
 							<Tab
-								isActive={form.track === 'IT'}
-								onClick={() => handleChange('track', 'IT')}
-							>
-								<Description color={'violete'} size={'xxs'}>
-									IT
-								</Description>
-							</Tab>
-							<Tab
 								isActive={form.track === 'Биотехнологии'}
 								onClick={() => handleChange('track', 'Биотехнологии')}
 							>
 								<Description color={'violete'} size={'xxs'}>
 									Биотехнологии
+								</Description>
+							</Tab>
+							<Tab
+								isActive={form.track === 'IT'}
+								onClick={() => handleChange('track', 'IT')}
+							>
+								<Description color={'violete'} size={'xxs'}>
+									IT
 								</Description>
 							</Tab>
 						</div>
@@ -240,6 +245,7 @@ export const Form = () => {
 
 					<Button
 						className={styles.submitBtn}
+						disabled={loading}
 						loading={loading}
 						size={'m'}
 						type="submit"
@@ -261,7 +267,7 @@ export const Form = () => {
 							Я даю согласие на обработку персональных данных в соответствии c{' '}
 							<a
 								className={styles.link}
-								href="https://docs.google.com/document/d/e/2PACX-1vQw9TeRe_oyzYVy97u4XIJoIGByAv6ZMes-yb1wbMbc_2Hn9DoZbmuOHn8Rea02qeLHJw4t6IlAS_oe/pub"
+								href="https://docs.google.com/document/d/e/2PACX-1vQw9TeRe_oyzYVy97u4XIJoIGByAv6ЗMes-yb1wbMbc_2Hn9DoЗbmuOHn8Rea02qeLHJw4t6IlAS_oe/pub"
 							>
 								политикой конфиденциальности
 							</a>
@@ -274,21 +280,3 @@ export const Form = () => {
 };
 
 Form.displayName = 'Form';
-
-// : (
-// 	<div className={styles.form}>
-// 		<Image
-// 			alt="maskot"
-// 			className={styles.maskot}
-// 			src="/images/maskot-error.webp"
-// 		/>
-// 		<div className={styles.text}>
-// 			<div className={styles.textForm}>
-// 				<Description size={'xl'}>пу-пу-пуууууу</Description>
-// 				<Description size={'xs'}>
-// 					Люда нам **** что-то пошло не так
-// 				</Description>
-// 			</div>
-// 		</div>
-// 	</div>
-// )
