@@ -80,6 +80,10 @@ const partners = [
 		src: '/images/inform-partners/softline.webp',
 		url: 'https://t.me/volotovskayaelena',
 	},
+	{
+		src: '/images/inform-partners/2stars.webp',
+		url: 'https://2stars.tech',
+	},
 ];
 
 // const mobilePartners = [

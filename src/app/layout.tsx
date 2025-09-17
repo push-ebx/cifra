@@ -38,6 +38,9 @@ export const metadata: Metadata = {
 	title: 'Цифра 2025',
 	description:
 		'Цифра — это бесплатный акселератор для студентов всех вузов. Участники обретут навыки, поддержку, менторство и готовую сеть профессиональных контактов.',
+	verification: {
+		google: 'N2ZqzxMxhZdyIDaUDW9-TMF0L3xMzmGFMZVcGX7HP7A',
+	},
 };
 
 export const viewport: Viewport = {
