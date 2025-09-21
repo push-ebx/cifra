@@ -13,6 +13,9 @@ export async function POST(req: NextRequest) {
 	let data;
 	try {
 		data = await response.json();
+		console.log('Google status:', response.status);
+		console.log('Google headers:', Object.fromEntries(response.headers));
+		console.log('Google raw:', await response.text());
 	} catch (err) {
 		const text = await response.text();
 		console.warn('Не JSON от Google:', text);
