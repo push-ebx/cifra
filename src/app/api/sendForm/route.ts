@@ -11,13 +11,11 @@ export async function POST(req: NextRequest) {
 	});
 
 	let data;
+	const text = await response.text();
+
 	try {
-		data = await response.json();
-		console.log('Google status:', response.status);
-		console.log('Google headers:', Object.fromEntries(response.headers));
-		console.log('Google raw:', await response.text());
-	} catch (err) {
-		const text = await response.text();
+		data = JSON.parse(text);
+	} catch {
 		console.warn('Не JSON от Google:', text);
 		data = { raw: text };
 	}

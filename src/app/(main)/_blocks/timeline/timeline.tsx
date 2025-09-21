@@ -45,7 +45,7 @@ Timeline.displayName = 'Timeline';
 
 const trackLines = [
 	[
-		{ day: '20', month: 'сентября', title: 'Завершение\nрегистрации' },
+		{ day: '22', month: 'сентября', title: 'Завершение\nрегистрации' },
 		{ day: '25', month: 'сентября', title: 'Открытие\nпрограммы' },
 		{ day: '27', month: 'сентября', title: 'Обучающие\nблоки и трекинг' },
 		{ day: '31', month: 'октября', title: 'Хакатон' },
