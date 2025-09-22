@@ -34,41 +34,41 @@ export const Partners = () => {
 						/>
 					</a>
 				))}
-				<a
-					href="https://startup-studia.ru/"
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					<Image
-						alt="partner"
-						className={styles.struktura}
-						src={
-							bp === 'mobile'
-								? '/images/partners/mobile/struktura.webp'
-								: '/images/partners/struktura.webp'
-						}
-					/>
-				</a>
-				{bp !== 'mobile' && (
-					<a
-						href="https://vk.com/geekbattle"
-						rel="noopener noreferrer"
-						target="_blank"
-					>
-						<Image alt="partner" src={'/images/partners/geek-battle.webp'} />
-					</a>
-				)}
+				{/*<a*/}
+				{/*	href="https://startup-studia.ru/"*/}
+				{/*	rel="noopener noreferrer"*/}
+				{/*	target="_blank"*/}
+				{/*>*/}
+				{/*	<Image*/}
+				{/*		alt="partner"*/}
+				{/*		className={styles.struktura}*/}
+				{/*		src={*/}
+				{/*			bp === 'mobile'*/}
+				{/*				? '/images/partners/mobile/struktura.webp'*/}
+				{/*				: '/images/partners/struktura.webp'*/}
+				{/*		}*/}
+				{/*	/>*/}
+				{/*</a>*/}
+				{/*{bp !== 'mobile' && (*/}
+				{/*	<a*/}
+				{/*		href="https://vk.com/geekbattle"*/}
+				{/*		rel="noopener noreferrer"*/}
+				{/*		target="_blank"*/}
+				{/*	>*/}
+				{/*		<Image alt="partner" src={'/images/partners/geek-battle.webp'} />*/}
+				{/*	</a>*/}
+				{/*)}*/}
 
-				{bp !== 'mobile' && (
+				{bp !== 'laptop' && (
 					<a
-						href="https://fsp-russia.ru/"
+						href="https://merkatorgroup.ru/"
 						rel="noopener noreferrer"
 						target="_blank"
 					>
 						<Image
 							alt="partner"
-							className={styles.sportProg}
-							src={'/images/partners/sport-prog.webp'}
+							className={styles.merkator}
+							src={'/images/partners/merkator.webp'}
 						/>
 					</a>
 				)}
@@ -90,6 +90,34 @@ const partners = [
 		src: '/images/partners/digital-growth.webp',
 		url: 'https://vk.com/digitaldevelopment76',
 	},
+	{
+		src: '/images/partners/struktura.webp',
+		url: 'https://startup-studia.ru/',
+	},
+	{
+		src: '/images/partners/geek-battle.webp',
+		url: 'https://vk.com/geekbattle/',
+	},
+	{
+		src: '/images/partners/rybe.webp',
+		url: 'https://rybe.store/',
+	},
+	{
+		src: '/images/partners/rzd.webp',
+		url: 'https://www.rzd.ru/',
+	},
+	{
+		src: '/images/partners/merkator.webp',
+		url: 'https://merkatorgroup.ru/',
+	},
+	{
+		src: '/images/partners/fsp.webp',
+		url: 'https://fsp-russia.ru/',
+	},
+	{
+		src: '/images/partners/hh.webp',
+		url: 'https://hh.ru/',
+	},
 ];
 
 const mobilePartners = [
@@ -106,6 +134,10 @@ const mobilePartners = [
 		url: 'https://vk.com/digitaldevelopment76',
 	},
 	{
+		src: '/images/partners/struktura.webp',
+		url: 'https://startup-studia.ru/',
+	},
+	{
 		src: '/images/partners/mobile/geek-battle.webp',
 		url: 'https://vk.com/geekbattle',
 	},
@@ -113,5 +145,17 @@ const mobilePartners = [
 	{
 		src: '/images/partners/platform-nti.webp',
 		url: 'https://platform.nti.work/',
+	},
+	{
+		src: '/images/partners/hh.webp',
+		url: 'https://hh.ru/',
+	},
+	{
+		src: '/images/partners/rybe.webp',
+		url: 'https://rybe.store/',
+	},
+	{
+		src: '/images/partners/rzd.webp',
+		url: 'https://www.rzd.ru/',
 	},
 ];
