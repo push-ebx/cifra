@@ -193,11 +193,12 @@ export const Form = () => {
 								</Description>
 							</Tab>
 							<Tab
-								isActive={form.track === 'IT'}
-								onClick={() => handleChange('track', 'IT')}
+								isActive={false}
+								variant={'disabled'}
+								// onClick={() => handleChange('track', 'IT')}
 							>
 								<Description color={'violete'} size={'xxs'}>
-									IT
+									IT: мест нет
 								</Description>
 							</Tab>
 						</div>
