@@ -25,7 +25,7 @@ export const Form = () => {
 		phone: '',
 		telegram: '',
 		school: '',
-		track: '', // ничего не выбрано по умолчанию
+		track: 'Биотехнологии', // ничего не выбрано по умолчанию
 	});
 
 	const [loading, setLoading] = useState(false);
@@ -174,11 +174,12 @@ export const Form = () => {
 								</Description>
 							</Tab>
 							<Tab
-								isActive={form.track === 'IT'}
-								onClick={() => handleChange('track', 'IT')}
+								isActive
+								variant={'disabled'}
+								// onClick={() => handleChange('track', 'IT')}
 							>
 								<Description color={'violete'} size={'xs'}>
-									IT
+									IT: мест нет
 								</Description>
 							</Tab>
 						</div>

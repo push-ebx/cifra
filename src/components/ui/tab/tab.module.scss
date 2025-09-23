@@ -48,7 +48,7 @@
 	&:not([disabled]) {
 		@media(hover: hover) {
 			&:hover {
-				background-color: var(--violete);
+				background-color: var(--violete-dark);
 				//color: var(--tab-secondary-hover-foreground);
 
 				span {
@@ -68,10 +68,20 @@
 	}
 
 	&.isActive {
-		background-color: var(--violete);
+		background-color: var(--violete-dark);
 
 		span {
 			color: white;
 		}
+	}
+}
+
+.variantDisabled {
+	background-color: var(--violete);
+	opacity: 52%;
+	cursor: auto;
+
+	span {
+		color: white;
 	}
 }

@@ -6,11 +6,12 @@ import styles from './tab.module.scss';
 
 export type TabProps = ComponentProps<'button'> & {
 	isActive?: boolean;
-	variant?: 'secondary';
+	variant?: 'secondary' | 'disabled';
 };
 
 const variantCn = {
 	secondary: styles.variantSecondary,
+	disabled: styles.variantDisabled,
 };
 
 export const Tab = (props: TabProps) => {
