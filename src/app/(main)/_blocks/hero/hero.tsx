@@ -100,10 +100,10 @@ export const Hero = () => {
 						color={'darkViolete'}
 						size={'m'}
 					>
-						регистрация до: 22 сентября
+						старт акселератора: 25 сентября
 					</Heading>
 					<Body className={styles.regTextMob} color={'darkViolete'} size={'s'}>
-						регистрация до: 22 сентября
+						старт акселератора: 25 сентября
 					</Body>
 				</div>
 			</Container>
