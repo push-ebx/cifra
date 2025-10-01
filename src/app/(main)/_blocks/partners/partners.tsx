@@ -109,6 +109,10 @@ const partners = [
 		src: '/images/partners/rybe.webp',
 		url: 'https://rybe.store/',
 	},
+	{
+		src: '/images/partners/red-soft.webp',
+		url: 'https://redos.red-soft.ru/',
+	},
 ];
 
 const mobilePartners = [
@@ -149,5 +153,9 @@ const mobilePartners = [
 	{
 		src: '/images/partners/rybe.webp',
 		url: 'https://rybe.store/',
+	},
+	{
+		src: '/images/partners/red-soft.webp',
+		url: 'https://redos.red-soft.ru/',
 	},
 ];
