@@ -142,6 +142,14 @@ const mobilePartners = [
 		url: 'https://hh.ru/',
 	},
 	{
+		src: '/images/partners/pik.webp',
+		url: 'https://pecom.ru/',
+	},
+	{
+		src: '/images/partners/kmos.webp',
+		url: 'https://www.mos.ru/glavkontrol',
+	},
+	{
 		src: '/images/partners/fsp.webp',
 		url: 'https://fsp-russia.ru/',
 	},
