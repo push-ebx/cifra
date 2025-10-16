@@ -62,7 +62,7 @@ export const MobileMenu: FC<MobileMenuProps> = ({ className, closeMenu }) => {
 						{'IT –\nАКСЕЛЕРАТОР\n2025'}
 					</Display>
 					<Description className={styles.subtitle} color="secondary" size="xs">
-						{'старт акселератора \n25 сентября'}
+						{'регистрация до\n23 октября'}
 					</Description>
 					<Button
 						className={styles.cta}

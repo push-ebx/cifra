@@ -156,7 +156,7 @@ export const Menu = () => {
 						color="secondary"
 						size="s"
 					>
-						{'старт акселератора \n25 сентября'}
+						{'регистрация до\n23 октября'}
 					</Description>
 					<Button onClick={openModal} size="s">
 						участвовать
@@ -248,7 +248,7 @@ export const Menu = () => {
 						color="secondary"
 						size="s"
 					>
-						{'старт акселератора \n25 сентября'}
+						{'регистрация до\n23 октября'}
 					</Description>
 					<Button onClick={openModal} size="s" variant="secondary">
 						участвовать

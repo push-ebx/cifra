@@ -72,13 +72,6 @@ export const Hero = () => {
 						бесплатная программа для студентов всех вузов
 					</Heading>
 				</div>
-				{bp !== 'mobile' && (
-					<Image
-						alt="regDie"
-						rootClassName={styles.regDie}
-						src={'/images/reg.webp'}
-					/>
-				)}
 				<Image
 					alt="maskot"
 					className={styles.maskot}
@@ -100,10 +93,10 @@ export const Hero = () => {
 						color={'darkViolete'}
 						size={'m'}
 					>
-						старт акселератора: 25 сентября
+						регистрация до 23 октября
 					</Heading>
 					<Body className={styles.regTextMob} color={'darkViolete'} size={'s'}>
-						старт акселератора: 25 сентября
+						регистрация до 23 октября
 					</Body>
 				</div>
 			</Container>
