@@ -6,7 +6,7 @@ import { useMetrica } from 'next-yandex-metrica';
 
 import clsx from 'clsx';
 
-import { Button, Description, Display, Image, Link } from '@/components/ui';
+import { Description, Display, Image, Link } from '@/components/ui';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
 
 import styles from './mobile-menu.module.scss';
@@ -22,7 +22,7 @@ const NAV_ITEMS = [
 	{ label: 'треки', href: '#tracks' },
 	{ label: 'команды', href: '#teams' },
 	{ label: 'таймлайн', href: '#timeline' },
-	{ label: 'FAQ', href: '#faq' },
+	{ label: 'вопросы', href: '#faq' },
 ];
 
 export const MobileMenu: FC<MobileMenuProps> = ({ className, closeMenu }) => {
@@ -59,19 +59,11 @@ export const MobileMenu: FC<MobileMenuProps> = ({ className, closeMenu }) => {
 						src="/images/maskot.webp"
 					/>
 					<Display className={styles.title} color="secondary" size="xs">
-						{'IT –\nАКСЕЛЕРАТОР\n2025'}
+						{'АКСЕЛЕРАТОР\n2026'}
 					</Display>
 					<Description className={styles.subtitle} color="secondary" size="xs">
-						{'регистрация до\n23 октября'}
+						Старт осенью 2026
 					</Description>
-					<Button
-						className={styles.cta}
-						onClick={openModal}
-						size="s"
-						variant="secondary"
-					>
-						участвовать
-					</Button>
 				</div>
 
 				<div className={styles.contact}>

@@ -6,7 +6,6 @@ import { useMetrica } from 'next-yandex-metrica';
 
 import {
 	Body,
-	Button,
 	Container,
 	Display,
 	Heading,
@@ -66,7 +65,7 @@ export const Hero = () => {
 			>
 				<div className={styles.headings}>
 					<Display color="secondary" size="xl">
-						IT-акселератор
+						акселератор
 					</Display>
 					<Heading color="secondary" size="m">
 						бесплатная программа для студентов всех вузов
@@ -85,18 +84,15 @@ export const Hero = () => {
 				<FixedButtons />
 
 				<div className={styles.button}>
-					<Button className={styles.ctaButton} onClick={openModal} size="l">
-						участвовать
-					</Button>
 					<Heading
 						className={styles.regTextDesk}
 						color={'darkViolete'}
 						size={'m'}
 					>
-						регистрация до 23 октября
+						Старт осенью 2026
 					</Heading>
 					<Body className={styles.regTextMob} color={'darkViolete'} size={'s'}>
-						регистрация до 23 октября
+						Старт осенью 2026
 					</Body>
 				</div>
 			</Container>

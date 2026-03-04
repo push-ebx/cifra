@@ -100,7 +100,7 @@ const cards = [
 		imageSrc: '/images/cards/offer.webp',
 	},
 	{
-		title: 'IPR',
+		title: 'Права',
 		subtitle: 'регистрация интеллектуальных прав',
 		imageSrc: '/images/cards/brain.webp',
 	},

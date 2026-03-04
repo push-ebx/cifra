@@ -7,7 +7,7 @@ import { useMetrica } from 'next-yandex-metrica';
 import clsx from 'clsx';
 import { useLenis } from 'lenis/react';
 
-import { Button, Description, Display, Image, Link } from '@/components/ui';
+import { Description, Display, Image, Link } from '@/components/ui';
 import { IconButton } from '@/components/ui/icon-button/icon-button';
 import { useActiveSection } from '@/hooks/client';
 
@@ -19,7 +19,7 @@ const NAVIGATION_MENU = [
 	{ label: 'треки', href: '#tracks' },
 	{ label: 'команды', href: '#teams' },
 	{ label: 'таймлайн', href: '#timeline' },
-	{ label: 'FAQ', href: '#faq' },
+	{ label: 'вопросы', href: '#faq' },
 ];
 
 export const Menu = () => {
@@ -149,18 +149,15 @@ export const Menu = () => {
 				</div>
 				<div className={styles.withMascot}>
 					<Display className={styles.it2025} color="secondary" size="xs">
-						IT - акселератор 2025
+						акселератор 2026
 					</Display>
 					<Description
 						className={styles.description}
 						color="secondary"
 						size="s"
 					>
-						{'регистрация до\n23 октября'}
+						Старт осенью 2026
 					</Description>
-					<Button onClick={openModal} size="s">
-						участвовать
-					</Button>
 
 					<Image
 						alt="maskot"
@@ -241,18 +238,15 @@ export const Menu = () => {
 				</div>
 				<div className={styles.withMascot}>
 					<Display className={styles.it2025} color="secondary" size="xs">
-						IT - акселератор 2025
+						акселератор 2026
 					</Display>
 					<Description
 						className={styles.description}
 						color="secondary"
 						size="s"
 					>
-						{'регистрация до\n23 октября'}
+						Старт осенью 2026
 					</Description>
-					<Button onClick={openModal} size="s" variant="secondary">
-						участвовать
-					</Button>
 
 					<Image
 						alt="maskot"

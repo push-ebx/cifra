@@ -177,7 +177,7 @@ const cards = [
 	},
 	{
 		name: 'Антон Самойлов',
-		subtitle: 'Основал стартап ili\nи привлек 2 500 000 руб.',
+		subtitle: 'Основал стартап Айли\nи привлек 2 500 000 руб.',
 		srcVideo: '/video/anton.mp4',
 		srcImage: '/images/graduates/anton.webp',
 	},

@@ -95,16 +95,16 @@ export const CifraFroU = () => {
 				</div>
 			</div>
 		)),
-		<Button
-			key="cb"
-			className={styles.circle}
-			onClick={openModal}
-			variant="circle"
-		>
-			<Description color="secondary" size="m">
-				Воу...Это же я Участвовать!
-			</Description>
-		</Button>,
+		// <Button
+		// 	key="cb"
+		// 	className={styles.circle}
+		// 	onClick={openModal}
+		// 	variant="circle"
+		// >
+		// 	<Description color="secondary" size="m">
+		// 		Воу...Это же я Участвовать!
+		// 	</Description>
+		// </Button>,
 	];
 
 	return (
@@ -167,7 +167,7 @@ const cards = [
 		gifSrc: '/video/4.mp4',
 	},
 	{
-		title: 'Целишься\nв IT тусовку',
+		title: 'Целишься\nв стартап-тусовку',
 		gifSrc: '/video/5.mp4',
 	},
 ];
