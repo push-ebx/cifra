@@ -55,9 +55,9 @@ export const Slider = () => {
 							<Heading color="secondary" size="1">
 								решил кем видишь себя в команде?
 							</Heading>
-							<Button onClick={openModal} size="s" variant="outline">
-								да, го в команду
-							</Button>
+							{/*<Button onClick={openModal} size="s" variant="outline">*/}
+							{/*	да, го в команду*/}
+							{/*</Button>*/}
 						</div>
 						<div className={styles.cards}>
 							<Image

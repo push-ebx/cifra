@@ -42,14 +42,14 @@ export const Footer = () => {
 					<Display className={styles.heading} color="violete" size="l">
 						запусти свой стартап
 					</Display>
-					<Button
-						className={styles.button}
-						onClick={openModal}
-						size={bp === 'mobile' ? 'l' : 'l'}
-						variant="secondary"
-					>
-						начать
-					</Button>
+					{/*<Button*/}
+					{/*	className={styles.button}*/}
+					{/*	onClick={openModal}*/}
+					{/*	size={bp === 'mobile' ? 'l' : 'l'}*/}
+					{/*	variant="secondary"*/}
+					{/*>*/}
+					{/*	начать*/}
+					{/*</Button>*/}
 				</div>
 				<Description className={styles.date} color="violete" size="xxs">
 					Cifra {new Date().getFullYear()}
